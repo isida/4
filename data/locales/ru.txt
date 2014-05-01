@@ -1623,6 +1623,8 @@ Raw adblock muc filter is %s	Блокировка скрытой рекламы:
 Raw adblock filter	Блокировка скрытой рекламы
 Repeat muc filter is %s	Блокировка повтора сообщений: %s
 Repeat same messages filter	Фильтр повтора похожих сообщений
+AI is %s	Искусственный интеллект: %s
+AI parser for messages	Использовать искусственный интеллект при парсинге сообщений
 Censor is %s	Цензор: %s
 Censor	Включение/выключение цензора
 Bomb. Time between random bombs %s	Bomb. Время между случайными бомбами: %s
@@ -1830,5 +1832,5 @@ Youtube settings	Настройки youtube
 API settings	Настройки API
 
 # write locale file: ru.txt
-# total: 1478
-# regenarated without mistakes!
+# total: 1480
+# missed translations: 2

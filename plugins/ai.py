@@ -46,12 +46,12 @@ def AI_PARSE(room, jid, nick, type, text):
 		if CUR_SCORE > SCORE: SCORE, CMD = CUR_SCORE, [PHRASES]
 		elif CUR_SCORE == SCORE: CMD.append(PHRASES)
 	if not CMD: return
+	nowname = getResourse(cur_execute_fetchone('select room from conference where room ilike %s',('%s/%%'%room,))[0])
+	if nowname == nick: return	
 	pprint('AI score %s|%s|%s' % (SCORE, '|'.join([t[0] for t in CMD]), text),'cyan')
 	CMD = random.choice(CMD)
 	CMD_RAW = CMD[0].split()[0]
 	pprint('AI selected %s' % CMD_RAW,'cyan')
-
-	nowname = getResourse(cur_execute_fetchone('select room from conference where room ilike %s',('%s/%%'%room,))[0])
 	access_mode = get_level(room,nick)[0]
 	if cur_execute_fetchone('select * from commonoff where room=%s and cmd=%s',(room,CMD_RAW)): return
 	ptype = ''
@@ -72,11 +72,17 @@ def AI_PARSE(room, jid, nick, type, text):
 				break
 		if not PP: PRM.append(nick)
 
+	COMMAND = CMD[0]
+	COMMAND = COMMAND.replace('{TOMORROW}',time.strftime('%d.%m', time.localtime(time.time()+86400)))
+	WAS_PARAM = False
 	for PARAM in PRM:
 		if PARAM:
-			COMMAND = CMD[0].replace('{PAR}',PARAM)
-			print COMMAND
-			com_parser(access_mode, nowname, type, room, nick, COMMAND, jid)
+			if time_nolimit: time.sleep(time_nolimit)
+			com_parser(access_mode, nowname, type, room, nick, COMMAND.replace('{PAR}',PARAM), jid)
+			WAS_PARAM = True
+	if not WAS_PARAM:
+		if time_nolimit: time.sleep(time_nolimit)
+		com_parser(access_mode, nowname, type, room, nick, COMMAND, jid)
 
 def AI_RATING(s, text, room):
 	r,s = 0.0,s.split('|')
@@ -86,23 +92,27 @@ def AI_RATING(s, text, room):
 	return r
 
 def AI_PARAMETER(body, type, room):
-	P_NICK, P_JID, P_SERVER = None, None, None
+	P_NICK, P_JID, P_SERVER = [], [], []
 	
 	if 'nick' in type:
 		NICKS = [t[1] for t in megabase if t[0]==room]
 		for NICK in NICKS:
 			if NICK in body:
-				P_NICK = NICK
+				P_NICK.append(NICK)
 				break
 
 	if 'jid' in type:
 		JID = re.findall(u'[-a-z0-9а-яё_]+@[-0-9a-z\.]+',body,re.S|re.I|re.U)
-		if JID: P_JID = JID[0]
+		if JID: P_JID += JID
 
 	if 'server' in type:
 		SERVER = re.findall(u'[-0-9a-zа-яё\.]+\.[-a-zа-я]{2,}',body,re.S|re.I|re.U)
-		if SERVER: P_SERVER = SERVER[0]
+		if SERVER: P_SERVER += SERVER
 
-	return [P_NICK, P_JID, P_SERVER]
+	RESULT = []
+	for t in P_NICK + P_JID + P_SERVER:
+		if t not in RESULT: RESULT.append(t)
+		
+	return RESULT
 
 gmessage.append(AI_PARSE)
