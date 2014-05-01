@@ -39,6 +39,7 @@ for PH_LANG in AI_PHRASES_FILES:
 def AI_PARSE(room, jid, nick, type, text):
 	if not get_config(room,'ai'): return
 	LOC = get_L_('%s/%s' % (room,nick))
+	if not AI_PHRASES.has_key(LOC): return
 	TEXT = ' %s ' % text.lower()
 	SCORE, CMD = 1.0, []
 	for PHRASES in AI_PHRASES[LOC]:
@@ -88,7 +89,7 @@ def AI_PARSE(room, jid, nick, type, text):
 def AI_RATING(s, text, room):
 	r,s = 0.0,s.split('|')
 	for k in s:
-		if k in text: r += 0.5
+		if k in text: r += 0.34
 		if k in AI_PREV.get(room, ''): r += 0.34
 	return r
 
