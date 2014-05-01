@@ -1,0 +1,319 @@
+-- --------------------------------------------------------------------------- --
+--                                                                             --
+--    Postgresql scheme for iSida Jabber Bot                                   --
+--    Copyright (C) 2012 diSabler <dsy@dsy.name>                               --
+--                                                                             --
+--    This program is free software: you can redistribute it and/or modify     --
+--    it under the terms of the GNU General Public License as published by     --
+--    the Free Software Foundation, either version 3 of the License, or        --
+--    (at your option) any later version.                                      --
+--                                                                             --
+--    This program is distributed in the hope that it will be useful,          --
+--    but WITHOUT ANY WARRANTY; without even the implied warranty of           --
+--    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the            --
+--    GNU General Public License for more details.                             --
+--                                                                             --
+--    You should have received a copy of the GNU General Public License        --
+--    along with this program.  If not, see <http://www.gnu.org/licenses/>.    --
+--                                                                             --
+-- --------------------------------------------------------------------------- --
+
+
+--
+-- Base of ages
+--
+
+CREATE TABLE age (
+	room text,
+	nick text,
+	jid text,
+	time integer,
+	age integer,
+	status integer,
+	type text,
+	message text,
+	no_case_nick text
+);
+
+CREATE INDEX age_rj ON age (room,jid);
+
+CREATE INDEX age_rnj ON age (room,nick,jid);
+
+CREATE TABLE jid (
+	login text,
+	server text,
+	resourse text
+);
+
+CREATE INDEX jid_log ON jid (login);
+CREATE INDEX jid_srv ON jid (server);
+CREATE INDEX jid_res ON jid (resourse);
+
+
+--
+-- Base of talkers
+--
+
+CREATE TABLE talkers (
+	room text,
+	jid text,
+	nick text,
+	words integer,
+	frases integer
+);
+
+CREATE INDEX talkers_rj ON talkers (room,jid);
+CREATE INDEX talkers_rjn ON talkers (room,jid,nick);
+
+
+--
+-- Base for `WTF` commands
+--
+
+CREATE TABLE wtf (
+	ind integer,
+	room text,
+	jid text,
+	nick text,
+	wtfword text,
+	wtftext text,
+	time integer,
+	lim integer
+);
+
+CREATE INDEX wtf_r ON wtf (room);
+CREATE INDEX wtf_rj ON wtf (room,jid);
+CREATE INDEX wtf_rw ON wtf (room,wtfword);
+
+
+--
+-- Answers base for random flood
+--
+
+CREATE TABLE answer (
+	ind integer,
+	body text
+);
+
+-- INSERT INTO answer VALUES(1,';-)');
+-- INSERT INTO answer VALUES(2,'Hi!');
+CREATE INDEX answer_id ON answer (ind);
+
+
+--
+-- Base for `SayTo` plugin
+--
+
+CREATE TABLE sayto (
+	who text,
+	room text,
+	jid text,
+	message text
+);
+
+CREATE INDEX sayto_rj ON sayto (room,jid);
+
+
+--
+-- User distances for `Dist` plugin
+--
+
+CREATE TABLE dist (
+	point text,
+	latitude text,
+	longtitude text
+);
+
+CREATE INDEX dist_di ON dist (point);
+
+CREATE TABLE dist_user (
+	point text,
+	latitude text,
+	longtitude text
+);
+
+CREATE INDEX dist_user_di ON dist_user (point);
+
+
+--
+-- Karma base
+--
+
+CREATE TABLE karma (
+	room text,
+	jid text,
+	karma int
+);
+
+CREATE INDEX karma_krj ON karma (room,jid);
+CREATE INDEX karma_crjk ON karma (room,jid,karma);
+
+CREATE TABLE karma_commiters (
+	room text,
+	jid text,
+	karmajid text,
+	last int
+);
+
+CREATE INDEX karma_commiters_rjk ON karma_commiters (room,jid,karmajid);
+
+CREATE TABLE karma_limits (
+	room text,
+	jid text,
+	log text
+);
+
+CREATE INDEX karma_limits_lrj ON karma_limits (room,jid);
+
+
+--
+-- Action list base
+--
+
+CREATE TABLE acl (
+	jid text,
+	action text,
+	type text,
+	text text,
+	command text,
+	time int,
+	level int default 9
+);
+
+CREATE INDEX acl_jid ON acl (jid,action,type);
+
+
+--
+-- Base for `GisMeteo` plugin
+--
+
+CREATE TABLE gis (
+	code text,
+	city text,
+	lcity text
+);
+
+CREATE INDEX gis_clcc ON gis (code,lcity,city);
+
+
+--
+-- DEF-Codes
+--
+
+CREATE TABLE def_ru_stat (
+	phone text,
+	region text,
+	city text
+);
+
+CREATE INDEX def_ru_stat_ph ON def_ru_stat (phone,city);
+
+CREATE TABLE def_ua_stat (
+	phone text,
+	region text,
+	city text
+);
+
+CREATE INDEX def_ua_stat_ph ON def_ua_stat (phone,city);
+
+CREATE TABLE def_ru_mobile (
+	provider text,
+	region text,
+	def integer,
+	defbegin integer,
+	defend integer,
+	date text
+);
+
+CREATE INDEX def_ru_mobile_ph ON def_ru_mobile (def,defbegin,defend);
+
+
+--
+-- WZ Weather base
+--
+
+CREATE TABLE wz (
+	code text,
+	city text,
+	counry text
+);
+	
+CREATE INDEX wz_ccc ON wz (code,city,counry);
+
+
+--
+-- Muc-filter lock base
+--
+
+CREATE TABLE muc_lock (
+	room text,
+	jid text
+);
+
+CREATE INDEX muc_lock_rj ON muc_lock (room,jid);
+
+
+--
+-- Versions base
+--
+
+CREATE TABLE versions (
+	room text,
+	jid text,
+	client text,
+	version text,
+	os text,
+	time integer
+);
+
+CREATE INDEX versions_rj ON versions (room,jid);
+CREATE INDEX versions_cvo ON versions (client,version,os);
+CREATE INDEX versions_rjcvo ON versions (room,jid,client,version,os);
+
+
+--
+-- Issues base
+--
+
+CREATE TABLE issues (
+	id integer,
+	room text,
+	jid text,
+	nick text,
+	level integer,
+	tags text,
+	body text,
+	status integer,
+	date integer,
+	comment text,
+	accept_by text,
+	accept_date integer
+);
+
+CREATE INDEX issues_r ON issues (room,id);
+CREATE INDEX issues_d ON issues (room,date);
+
+
+--
+-- Cron base
+--
+
+CREATE TABLE cron (
+	room text,
+	jid text,
+	nick text,
+	time integer,
+	repeat text,
+	command text,
+	level integer
+);
+
+CREATE INDEX cron_r ON cron (room);
+CREATE INDEX cron_rt ON cron (room,time);
+CREATE INDEX cron_rtr ON cron (room,time,repeat);
+
+
+
+--
+-- THE END
+--

@@ -1,0 +1,1834 @@
+# --------------------------------------------------------------------------- #
+#                                                                             #
+#    Ukrainian locale (woman) for iSida Jabber Bot                            #
+#    Copyright (C) Vit@liy <vitaliy@root.ua>                                  #
+#                                                                             #
+#    This program is free software: you can redistribute it and/or modify     #
+#    it under the terms of the GNU General Public License as published by     #
+#    the Free Software Foundation, either version 3 of the License, or        #
+#    (at your option) any later version.                                      #
+#                                                                             #
+#    This program is distributed in the hope that it will be useful,          #
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of           #
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the            #
+#    GNU General Public License for more details.                             #
+#                                                                             #
+#    You should have received a copy of the GNU General Public License        #
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.    #
+#                                                                             #
+# --------------------------------------------------------------------------- #
+
+# file: kernel.py
+Error!	Помилка!
+Got a fake iq answer!	Отримано підроблену відповідь на запит!
+Warning! Exceeded the limit of sending the same commands. You to ignore for %s.	Увага! Перевищено ліміт відправлення однакових команд. Ви в ігнорі %s.
+Censored!	Фільтруємо балачки!
+*** Topic: %s	*** Тема: %s
+Fetched xhtml image: %s%s	Отримано xhtml-зображення: %s%s
+Too many letters!	Забагато літер!
+whitelist	білий список
+lock by hash	блок по хешу
+Unknown error!	Невідома помилка!
+off	вимк
+Deny by hash lock!	Обмеження по хешу клієнта!
+/me detect bad stanza from %s	/me дивиться на %s і гадає: "Факін розумник детектед!"
+kicked	вигнали
+revoke member affiliation in members-only room	позбавлення статусу постійного учасника в конференції лише для постійних учасників
+banned	забанили
+change nick to %s	змінив(ла) нік на %s
+leave	вийшов
+banned in	забанено в
+kicked from	вигнали з
+Bot was %s %s with reason: %s	Бота %s %s з приводу: %s
+Error while join in to %s - %s	Помилка при вході в %s - %s
+Shutdown by CTRL+C...	Якийсь розумник натиснув CTRL+C у консолі...
+System Shutdown. Trying to restart in %s sec.	Сервер погас. Спробую перезавантажитися через %s сек.
+Interface error! Trying to restart in %s sec.	Помилка взаємодії! Перезапуск через %s секунд.
+Critical error! Trying to restart in %s sec.	Критична помилка! Спробую перезавантажитися через %s сек.
+
+# file: plugins/acl.py
+Acl:	Дії:
+Acl not found	Дії не знайдені
+Time format error!	Помилка формату часу!
+Error in parameters. Read the help about command.	Помилка в параметрах, прочитайте довідку за командою.
+Error in RegExp!	Помилка в RegExp!
+Items: %s	Елементи: %s
+Unknown command: %s	Невідома команда: %s
+Removed:	Видалено:
+Updated:	Поновлено:
+Not found:	Не знайдено
+Added:	Додано:
+done	виконано
+You have no rights to do it!	У Вас недостатньо прав для цього!
+ACL cleared. Removed %s action(s).	ACL очищені. Видалено дій: %s
+Actions list.\nacl show - show list\nacl del [/silent] item - remove item from list\nacl [/time] [/silent] msg|prs|role|aff|nick|jid|jidfull|res|age|ver|vcard|all [sub|exp|cexp] pattern command - execute command by condition\nallowed variables in commands: ${NICK}, ${JID}, ${SERVER}, ${EXP} and ${/EXP}\nsub = substring, exp = regular expression, cexp = case sensitive regular expression\ntime format is /number+identificator. s = sec, m = min, d = day, w = week, M = month, y = year. only one identificator allowed!	Список дій.\nacl show - показати список\nacl del [/silent] item - видалити елемент із списку\nacl [/time] [/silent] msg|prs|role|aff|nick|jid|jidfull|res|age|ver|vcard|all [sub|exp|cexp] pattern command - виконати команду за умовою\nдоступні змінні в командах: ${NICK}, ${JID}, ${SERVER}, ${EXP} и ${/EXP}\nsub = підрядок, exp = регулярний вираз, cexp = регістрозалежний регулярний вираз\nформат часу - /число+ідентифікатор. s = секунди, m = хвилини, d = дні, w = тижні, M = місяці, y = роки. можливий тільки один ідентифікатор!
+
+# file: plugins/adminmail.py
+Time limit exceeded. Wait: %s	Перевищено ліміт швидкості відправлення повідомлень. Чекайте: %s
+User %s (%s) from %s at %s send massage to you: %s	Користувач %s (%s) з конференції %s в %s відправив(ила) вам повідомлення: %s
+Sent	Відправила
+Owner list is empty!	Список власників порожній!
+What?	Шо?
+Send message to bot's owner\nmsgtoadmin text	Надіслати повідомлення власнику бота.\nmsgtoadmin текст повідомлення
+
+# file: plugins/age.py
+Joins statistic:\n%s	Статистика входів:\n%s
+First %s's join is %s%s (%s ago)	Перший вхід %s був %s%s (%s тому)
+Not found!	Не знайдено!
+Age statistic:\n%s	Статистика віку:\n%s
+I see:	Я бачила:
+%s %s ago	%s %s тому
+Leave %s ago	Вийшов %s тому
+Client:	Клієнт:
+Is here: %s	Знаходиться тут: %s
+%s (with nick: %s)	%s (з ніком: %s)
+I saw %s:	Я бачила %s:
+Send for you in private	Результат відправлений вам до привату.
+Show age of jid in conference.	Показує, скільки часу визначений jid або нік знаходився в даній конференції.
+Show age of jid in conference splitted by nicks.	Показує, скільки часу визначений jid або нік знаходився в даній конференції з розбивкою за ніками.
+Show time of join/leave.	Показує час входу/виходу.
+Show time of join/leave splitted by nicks.	Показує час входу/виходу з розбивкою за ніками.
+Show age statistic for conference.	Відображення статистики віку для конференції.
+Show time of join/leave + jid.	Показує час входу/виходу + jid. Результат роботи команди завжди направляється до привату.
+Show time of join/leave + jid splitted by nicks.	Показує час входу/виходу + jid з розбивкою за ніками. Результат роботи команди завжди направляється до привату.
+Show time of first join into room.	Показ часу першого входу в конференцію.
+Show statistic for time of first join into room.	Показ статистики перших входів в конференцію.
+
+# file: plugins/anek.py
+Something broken.	Щось зламалось.
+Show random anecdote | Author: ferym	Показує випадковий анекдот з інтернет-ресурсу | Автор: ferym
+
+# file: plugins/answers.py
+Export to file: %s | Total records: %s | Unique records: %s	Експорт до файлу: %s | Усього записів: %s | Після видалення дублікатів: %s
+Import from file: %s | Total records: %s	Імпорт з файлу %s | Усього записів: %s
+File %s not found!	Файл %s недоступний!
+Import/Export answers base.\nanswers import [filename] - import from file\nanswers export [filename] - export to file	Імпорт/експорт бази відповідей до текстового файлу.\nanswers import [назва файлу] - імпорт відповідей з текстового файлу до бази\nanswers export [назва файлу] - експорт відповідей з бази до текстового файлу
+
+# file: plugins/antitroll.py
+You troll!	Ти троль!
+Done	Готово
+Repeat message to private.\ntroll nick\n[text]\n[number]	Повторення повідомлення кілька раз до привату.\ntroll нік\n[текст]\n[кількість]
+
+# file: plugins/backup.py
+Available copies:	Резервні копії:
+Backup copies not found.	Резервні копії не знайдені.
+I need an owner affiliation for backup settings!	Для резервного копіювання мені необхідні права власника конференції!
+Copying completed!	Копіювання закінчене!
+\nOwners: %s | Admins: %s | Members: %s | Banned: %s	\nВласників: %s | Адмінів: %s | Постійних учасників: %s | Баня: %s
+\nRoom config: %s | Bot config: %s | Aliases: %s | Acl's: %s | RSS: %s	Конфіг конференції: %s | Конфіг бота: %s | Скорочення: %s | Дії: %s | Новини: %s
+Restored %s action(s).	Відновлено дій: %і
+I need an owner affiliation for restore settings!	Для відновлення резервної копії мені необхідні права власника конференції!
+Restore completed.	Відновлення завершено.
+Copy not found. Use key "show" for lisen available copies.	Копія не знайдена. Використовуйте ключ "show" для перегляду доступних копій.
+What do you want to restore?	Що будемо відновлювати?
+Unknown item!	Невідомий елемент
+Backup/restore conference settings.\nbackup show|now|restore\nshow - show available copies\nnow - backup current conference\nrestore name_conference - restore settings name_conference in current conference	Резервне копіювання/відновлення конференцій.\nbackup show|now|restore\nshow - показати доступні копії\nnow - зберегти поточну конференцію\nrestore назва_конференції - відновити конференцію в поточній.
+
+# file: plugins/bash.py
+Quote not found!	Цитата не знайдена!
+Quote from bash.org.ru\nbash [number]	Цитата с bash.org.ru\nbash [номер]
+Quote from ibash.org.ru\nibash [number]	Цитата с ibash.org.ru\nibash [номер]
+
+# file: plugins/bing.py
+Indonesian	індонезійська
+Italian	італійська
+Arabic	арабська
+Japanese	японська
+Bulgarian	болгарська
+Korean	корейська
+Catalan	каталанська
+Latvian	латиська
+Chinese Simplified	китайська спрощена
+Lithuanian	литовська
+Chinese Traditional	китайська традиційна
+Norwegian	норвезька
+Czech	чеська
+Polish	польська
+Danish	данська
+Portuguese	португальська
+Dutch	голландська
+Romanian	румунська
+English		англійська
+Russian	російська
+Estonian	естонська
+Slovak	словацька
+Finnish	фінська
+Slovenian	словенська
+French	французька
+Spanish	іспанська
+German	німецька
+Swedish	шведська
+Greek	грецька
+Thai	тайська
+Haitian Creole	гаїтянська
+Turkish	турецька
+Hebrew	іврит
+Ukrainian	українська
+Hindi	хінді
+Vietnamese	в'єтнамська
+Hungarian	угорська
+Available languages for translate:	Доступні мови для перекладу:
+Available languages: %s	Відомі мови: %
+I don't know this language	Я не знаю таких мов
+Not found Api-key for Bing translator	Не знайдено Api-ключ для перекладача Bing
+I can't translate it!	Я не можу цього перекласти!
+Incorrect language settings for translate. bt list - available languages.	Неправильно вказана мова або немає тексту для перекладу. bt list - доступні мови
+Command's format: bt [from] to text	Формат команди: bt [з_якої] на_яку текст
+Bing translator.\nbt [from_language] to_language text - translate text\nbt list - list for available languages for translate\nbt info <reduction> - get info about language reduction\nbt lang <expression> - get languages by expression	Перекладач Bing.\nbt [з_якої_мови] на_яку_мову текст - переклад тексту\nbt list - список мов для перекладу\nbt info <скорочення> - розшифровка скорочення мови\nbt lang <вираз> - знайти мови за виразом
+
+# file: plugins/blacklist.py
+Leave conference %s\n	Залишила %s\n
+Conference was added in blacklist	Конференція занесена до чорного списку
+List is empty.	Список порожній.
+List of conferences:\n	Список конференцій:\n
+Cleared.	Очищено.
+This conference already exist in blacklist.	Адреса уже є у списку.
+You can't add last conference in blacklist.	Не можна додавати останню конференцію до чорного списку.
+Add to blacklist: %s	Додано до чорного списку: %s
+Removed from blacklist: %s	Видалено з чорного списку: %s
+Address not in blacklist.	Адреса відсутня у чорному списку.
+Manage of conferences blacklist.\nblacklist add|del|show|clear\nblacklist add|del room@conference.server.tld - add|remove address from blacklist\nblacklist show - show blacklist\nblacklist clear - clear blacklist	Чорний список конференцій.\nblacklist add|del|show|clear\nblacklist add|del room@conference.server.tld - додати|видалити конференцію до/з чорного списку\nblacklist show - показати список\nblacklist clear - очистити список
+
+# file: plugins/bomb.py
+blue	синій
+red	червоний
+magenta	фіолетовий
+green	зелений
+cyan	блакитний
+yellow	жовтий
+white	білий
+black	чорний
+It's a lucky day for you! Bomb is fault! Right wide is %s	Тобі пощастило, бомба не спрацювала. Правильний провід %s
+You were wrong! Right wire is %s	Ти помилився! Правильний провід %s
+Not allowed in private!	Не доступно в приваті
+Here is no candidate to take a bomb!	В цій конференції нікому дати бомбу!
+In this room not allowed take a bomb!	У цій конференції не можна роздавати бомби
+This room alredy boombed!	Бомба вже встановлена
+I can't take a bomb to %s	Не можу дати бомбу %s
+/me take a bomb to %s with wires %s. Time to deactivate is %s sec.	/me дала бомбу %s з проводами %s. Час деактивації %s
+unknown	невідомо
+/me explode %s	/me підірвала %s
+Bomb is deactivated! Congratulations!	Бомба деактивована! Вітаю!
+Take a bomb joke!	Видача бомби
+
+# file: plugins/bugmenot.py
+%s%% (%s votes)	%s%% (%s голосів)
+Site Blocked	Сайт заблокований
+No results!	Результати відсутні!
+Login: %s, Pass: %s - %s %s	Логін: %s, Пароль: %s - %s %s
+Search in bugmenot.com	Пошук по bugmenot.com
+
+# file: plugins/calendar.py
+\nMon Tue Wed Thu Fri Sat Sun\n	\nПн Вт Ср Чт Пт Сб Нд\n
+Now: %s%s	Зараз: %s%s
+Calendar. Without parameters show calendar for current month.\ncalendar [month][year][symbol_splitter]	Показ календаря. Без параметрів показує календар на поточний місяць\ncalendar [місяць][рік][символ_роздільник]
+
+# file: plugins/clear.py
+Clean by %s messages in approximately %s sec.	Розпочинаю зачистку! Повідомлень: %s, час зачистки приблизно %s сек.
+Cleaned!	Стерильно!
+Hidden cleaning of conference history.	Прихована очистка історії повідомлень. По замовчуванню буде послано 20 прихованих + 1 повідомлення в конференцію. Можна задати свій параметр від 2 до 100.
+
+# file: plugins/clients.py
+Error! %s	Помилка! %s
+Client statistic:%s	Статистика клієнтів:%s
+Clients statistic not available.	Статистика клієнтів не доступна.
+I could be wrong, but %s not is here...	Я можу помилятися, але %s тут немає...
+Show clients statistic when available.\nclients [total|global|all[ short][ os]] [string]	Статистика клієнтів, якщо доступна.\nclients [total|global|all[ short][ os]] [рядок]
+
+# file: plugins/convert.py
+Available values:\n%s	Допустимі значення:\n%s
+Currency converter\nconvert from to count\nconvert list	Конвертор валют\nconvert з до сума\nconvert list
+
+# file: plugins/cron.py
+Cron rules:\n%s	Розклад:\n%s
+There is no cron rules.	Розклад не знайдено.
+Not enough parameters!	Недостатньо параметрів!
+Error in time format!	Помилка в форматі часу!
+Command not found: %s	Командe '%s' не знайдено
+Not allowed launch: %s	Не дозволено використовувати: %s
+All cron rules removed!	Весь розклад видалено!
+Need choise record number.	Необхідно обрати номер запису.
+Record ID is numeric.	Ідентифікатор запису - цифровий.
+Record #%s not found!	Запис #%s не знайдено!
+Removed: %s	Видалено: %s
+Execute command by cron. Used unix-type time format.\ncron [once] [anonim|silent] * * * * *\ncommand	Виконання команди по розкладу. Формат часу аналогічний unix-версії команди. \ncron [once] [anonim|silent] * * * * *\nкоманда
+
+# file: plugins/disco.py
+AD-Hoc commands	AD-Hoc команди
+Current bot rooms	Поточні конференції
+Settings unsuccesfully accepted:\n%s	Не прийняті налаштування:\n%s
+Settings succesfully accepted	Налаштування прийняті успішно
+Settings	Налаштування
+For configure required x:data-compatible client	Для налаштування потрібен x:data-сумісний клієнт
+Unknown configuration request!	Невідомий запит конфігурації
+- Unknown feature: %s	- Невідома фіча: %s
+Software: %s | Version: %s\nOS: %s | Version: %s	ПЗ: %s | Версія: %s\nОС: %s | Версія: %s
+Type: %s	Тип: %s
+Name: %s	Назва: %s
+Category: %s	Категорія: %s
+Language: %s	Мова: %s
+Features list:\n%s	Список фіч:\n%s
+Unable to get features list	Не вдається показати список фіч
+Total: %s	Усього: %s
+"%s" not found	"%s" не знайдено
+Not found.	Не знайдено.
+Total: %s%s	Усього: %s%s
+This command in use somewhere else. Please try later.	Ця команда використовується в іншому місці. Будь ласка, спробуйте пізніше.
+Please wait. Result you will be receive in private message approximately %s %s	Чекайте, результат ви отримаєте в приват приблизно через %s %s
+sec.	сек.
+matches with nick "%s": %s	збігів з ніком "%s": %s
+nick "%s" not found.	нік "%s" не знайдений.
+Total conferences: %s, available: %s	Усього конференцій: %s, доступне: %s
+Service discovery.\ndisco server.tld - request information about server\ndisco conference.server.tld [body [size]] - find body string in conference list and show size results\ndisco room@conference.server.tld [body [size]] - find body string in disco room conference and show size results.	Огляд сервісів.\ndisco server.tld - запит інформації про сервер\ndisco conference.server.tld [body [size]] - пошук рядка body в огляді конференцій і показ size результатів\ndisco room@conference.server.tld [body [size]] - пошук рядка body в огляді конференції room і показ size результатів
+Service discovery.\ndisco_raw server.tld - request information about server\ndisco_raw conference.server.tld [body [size]] - find body string in conference list and show size results\ndisco_raw room@conference.server.tld [body [size]] - find body string in disco room conference and show size results.	Огляд сервісів.\ndisco_raw server.tld - запит інформації про сервер\ndisco_raw conference.server.tld [body [size]] - пошук рядка body в огляді конференцій і показ size результатів\ndisco_raw room@conference.server.tld [body [size]] - пошук рядка body в огляді конференції room і показ size результатів
+Show features of object	Показ списку можливостей клієнта чи сервера
+Find nick on conference server\nwhereis - find your nick on current conference server\nwhereis nick - find nick on current conference server\nwhereis nick\n[conference.]server.tld - find nick on server server.tld	Пошук ніка по серверу конференцій\nwhereis - пошук свого ніка по серверу, на якому знаходиться поточна конференція\nwhereis nick - пошук ніка по серверу, на якому знаходиться поточна конференція\nwhereis nick\n[conference.]server.tld - пошук ніка по серверу server.tld
+
+# file: plugins/dist.py
+Added!	Додано!
+This point is in database!	Ця точка присутня в базі даних!
+Added: 	Додано: 
+ as 	 як 
+Not found Yandex.Map API. Get API-key on http://api.yandex.ru/maps/form.xml	Не знайдено Yandex.Map API. Отримайте API-ключ на http://api.yandex.ru/maps/form.xml
+Deleted!	Видалено!
+This point isn't in database!	Такої точки немає в базі даних!
+ on the map: 	 на мапі: 
+%s - latitude: %s, longtitude: %s	%s - широта: %s, довгота: %s
+Found: %s	Знайдено: %s
+City %s not found	Місто %s не знайдене
+%s km	%s км
+Cities not found	Міста не знайдені
+Distance between cities.\ndist search city [count of cities]\ndist city1 - city2	Відстань між містами.\ndist search місто [кількість результатів] - пошук міста в базі\ndist місто1|місто2 - відстань
+Cities and other place-name of the world. Examples:\ncity add place-name\n[latitude, longtitude] - add city to database\ncity del place-name - delete city from database\ncity search [count of results|range of results] place-name - search city\ncity map place-name - city on the map\ncity place-name - coordinates of city	Міста та інші географічні назви світу. Приклади:\ncity add географічна_назва\n[широта, довгота] - додати місто до бази даних\ncity del географічна_назва - видалити місто з бази даних\ncity search [кількість результатів|діапазон результатів] географічна_назва - пошук міста\ncity map географічна_назва - місто на мапі\ncity географічна_назва - координати міста
+
+# file: plugins/domain.py
+No data!	Немає даних!
+Unexpected error	Непередбачувана помилка
+Sites at Domain/IP address: %s	Сайти, розташовані на IP-адресі/домені: %s
+Domain/IP address info:	Інформація о IP-адресі/домені:
+Domain/IP address whois info.	Показує інформацію whois домену/IP-адреси\ndomain_info IP|домен\ndomain_info sites IP|домен - показує сайти, що знаходяться на домені/IP-адресі
+
+# file: plugins/drink.py
+first	перше
+second	друге
+third	трете
+fourth	четверте
+fifth	п'яте
+sixth	шосте
+seventh	сьоме
+eighth	восьме
+nineth	дев'яте
+tenth	десяте
+eleventh	одинадцяте
+twelveth	дванадцяте
+thirteenth	тринадцяте
+fourteenth	чотирнадцяте
+fivteenth	п'ятнадцяте
+sixteenth	шістнадцяте
+seventeenth	сімнадцяте
+eighteenth	вісімнадцяте
+nineteenth	дев'ятнадцяте
+twenty-first	двадцять перше
+twenty-second	двадцять друге
+twenty-third	двадцять трете
+twenty-fourth	двадцять четверте
+twenty-fifth	двадцять п'яте
+twenty-sixth	двадцять шосте
+twenty-seventh	двадцять сьоме
+twenty-eighth	двадцять восьме
+twenty-nineth	двадцять дев'яте
+thirtieth	тридцяте
+thirty-first	тридцять перше
+january	січень
+february	лютий
+march	березень
+april	квітень
+may	травень
+june	червень
+july	липень
+august	серпень
+september	вересень
+october	жовтень
+november	листопад
+december	грудень
+January	січня
+February	лютого
+March	березня
+April	квітня
+May	Трав
+June	червня
+July	липня
+August	серпня
+September	вересня
+October	жовтня
+November	листопада
+December	грудня
+monday	понеділок
+tuesday	вівторок
+wendesday	середа
+thirsday	четвер
+friday	п'ятниця
+saturday	субота
+sunday	неділя
+last	останній
+Last	остання
+lAst	остання
+Read file error.	Помилка читання файлу.
+Holiday: %s not found.	Привід: %s не знайдений.
+I know holidays: %s	Я знаю приводи випити: %s
+Database doesn't exist.	На жаль, база відсутня.
+Find holiday\ndrink [name_holiday/date]	Пошук приводу випити ;)\ndrink [привід/дата]
+Find holiday\ncalend [name_holiday/date]	Пошук приводу випити ;)\ncalend [привід/дата]
+
+# file: plugins/dumpz.py
+Posting by URL: %s	Розмістила за посиланням %s
+Posting text&code on dedicated server for easy sharing.\ndumpz text - posting plain text,\ndumpz [sh|c|html|py|php|css|sql|cpp] - posting text with highlighting	Відправка тексту та коду на виділені сервери для спільного використання.\ndumpz text - відправка простого тексту,\ndumpz [sh|c|html|py|php|css|sql|cpp] - відправка тексту з підсвічуванням
+
+# file: plugins/execute.py
+I can't execute it! Error: %s	Я не можу це виконати! Помилка: %s
+I can't calculate it	Я не можу це порахувати
+Expression unacceptable!	Неприпустимий вираз!
+Width and height must be integer!	Висота та ширина мають бути цілими числами!
+Incorrect diagonal value!	Невірне значення діагоналі!
+Screen	Екран
+Calculator.	Калькулятор.
+Execution of external code.	Виконання зовнішнього коду.
+DPI calculator.\ndpi <width height size>	DPI калькулятор.\ndpi <висота ширина розмір>
+
+# file: plugins/flibusta.py
+No news	Новинок не знайдено
+Total found %s matches. Result(s) %s:\n	Всього знайдено %s відповідностей. Результат(и) %s:\n
+Search books and authors on flibusta.net.\nflibusta [-a author] [-t title] [-n number of result]	Пошук книг та авторів на сайті flibusta.net.\nflibusta [-a автор] [-t назва] [-n номер результату]
+
+# file: plugins/fun.py
+Yes	Так
+Yes - definitely	Так - напевне
+You may rely on it	Ви можете покластися на це
+Without a doubt	Без сумнівів
+Signs point to yes	Знаки говорять так
+Outlook good	Гарна перспектива
+Most likely	Найбільш ймовірно
+It is decidedly so	Це рішуче так
+It is certain	Це безперечно
+As I see it, yes	Я бачу, що це так
+Reply hazy, try again	Туманна відповідь, спробуйте ще раз
+Ask again later	Запитайте знову пізніше
+Better not tell you now	Краще не говорити Вам зараз
+Cannot predict now	Не можу передбачити зараз
+Concentrate and ask again	Сконцентруйтесь і запитайте знову
+Don't count on it	Не розраховуйте на це
+My reply is no	Моя відповідь ні
+Outlook not so good	Перспектива, не настільки хороша
+My sources say no	Мої джерела говорять ні
+Head	Орел
+Tail	Решка
+For members this command not available in private!	Учасникам дана команда в приваті недоступна!
+gave NICK ... just gave ... :-"	дала NICK... просто в око... :-"
+poked a stick NICK in the eye ...	потикала дрючком в око NICK...
+suggested NICK shrimp :-[	запропонувала NICK козявку :-[
+fed NICK laxative with powdered glass!	нагодувала NICK пургеном з товченим склом!
+whispered in his ear softly NICK LOL!	прошепотіла NICK на вухо тихесенько МОСКАЛІ!
+trying kick the ass NICK	цілиться в NICK плюсометом і добро посміхається
+threw the crowbar aside NICK	кинула ломик в бік NICK
+gave NICK strawberry poison	дала NICK полуничного йаду
+jumped around with a tambourine NICK	пострибала з бубном навколо NICK
+sticking NICK with the words "buy ice cream, you creep!"	тикає NICK зі словами "купи морозива, гадюка!"
+Sent in private message	Повідомлення відправлено до привату
+Phrases:	Фрази:
+The record doesn't exist!	Такої фрази немає!
+Added	Додала
+I can't add it! No keyword "NICK"!	Не можу додати! Немає ключового слова "NICK"!
+I ban a ip for such jokes!	Ща зобаню по ip за такі жарти!
+Masochist? 8-D	Самотик? 8-D
+You live %s years or %s days or %s hours or %s minutes or %s seconds.\nYou slept %s hours, or %s days.\nYou blink about %s times.\nYour heart pumped %s liters of blood and made %s strikes.\nYou drank %s liters of water and drank it %s hours.\nYou have increased by %s centimeters in my head of hair, dropped %s pieces, all of the hair %s kilometers.\nYou grew up in the hands %s centimeters and in the feet %s centimeters nails.\nYou breathed %s liters of air a total weight of %s kilograms.\nYou have stood out %s liters of sweat, and %s liters of urine, and %s liters of saliva.\nYou lost %s billion nerve cells.\nYou laughed %s times.\nYou've gone %s kilometers	Ти живеш %s років, або %s днів, або %s годин, або %s хвилин, або %s секунд.\nТи спав(ла) %s годин, або %s діб.\nТи моргнув(ла) приблизно %s разів.\nТвоє серце перекачало %s літрів крові та зробило %s ударів.\nТи випив(ла) %s літрів води і пив(ла) її %s годин.\nУ тебе виросло на голові %s сантиметрів волосся, випало %s штук, все волосся %s кілометрів.\nУ тебе виросло на руках %s сантиметрів і на ногах %s сантиметрів нігтів.\nТи вдихнув(ла) %s літрів повітря загальною вагою %s кілограмів.\nУ тебе виділилося %s літрів поту, %s літрів сечі та %s літрів слини.\nТи втратив(ла) %s мільйонів нервових клітин.\nТи сміявся(лась) %s раз.\nТи прошов(ла) %s кілометрів
+Smoke help about command!	Читаємо довідку по команді!
+Turn on extended API on game's settings	Увімкніть розширений API в налаштуваннях гри
+Name: %s\n	Ім'я: %s\n
+Gold: %s\n	Золото: %s\n
+Level: %s\n	Рівень: %s\n
+Alignment: %s\n	Характер: %s\n
+Motto: %s	Девіз: %s
+\nClan: %s (%s)	\nГільдія: %s (%s)
+\nHealth: %s/%s\n	\nЗдоров'я: %s/%s\n
+Bricks: %s\n	Цеглини: %s\n
+Godpower: %s%%	Прана: %s%%
+Inventory: %s	Інвентар: %s
+User not found	Користувач не знайдений
+Just funny poem	Просто смішний вірш
+Prophecy oracle. Example: oracle your_answer?	Пророцтва оракула. Приклад: oracle ваше_запитання?
+Heads or tails	Орел чи решка
+"Poke" command\npoke nick - say a random phrase for nick\nControls command, available only for bot owner:\npoke show - show list of phrases\npoke add phrase - add phrase\npoke del phrase_number - remove phrase.	Команда "тик"\npoke nick - сказати випадкову фразу nick\nКоманди управління, доступні лише власнику бота:\npoke show - показати список фраз\npoke add фраза - додати фразу\npoke del номер_фрази - видалити фразу
+Info about your life. Example: life dd.mm.yy [hour:min:sec]	Інформація про твоє життя. Приклад: life дд.мм.рр [год:хв:сек]
+Zalgo translate	Залго-транслітерація
+Information about hero from Godville.net.\ngodville [last|stat|extstat|inv|quest] username	Інформація про героя на Godville.net.\ngodville [last|stat|extstat|inv|quest] ім'я_користувача
+
+# file: plugins/gis.py
+Night	Ніч
+Morning	Ранок
+Day	День
+Evening	Вечір
+rain	дощ
+downpour	злива
+snow	сніг
+storm	гроза
+no data	немає даних
+no precipitation	без опадів
+clear	ясно
+cloudy	малохмарно
+Cloudy	хмарно
+overcast	похмуро
+N	Пн
+NE	ПнСх
+E	Сх
+SE	ПдСх
+S	Пд
+SW	ПдЗх
+W	Зх
+NW	ПнЗх
+Unknown	Невідомо
+Weather in %s:\nDate\t t%s\tWind\tClouds	Погода в %s:\nДата\t t%s\tВітер\tХмарн
+\tPressure, mm. Hg. Art.\tHumidity %	\tТиск, мм.рт.ст.\tВологість %
+\tCalm	\tШтиль
+Found:	Знайдено:
+Weather forecast (short). Courtesy Gismeteo.Ru | http://www.gismeteo.ru	Короткий прогноз погоди. Надано Gismeteo.Ru | http://www.gismeteo.ru
+Weather forecast (full). Courtesy Gismeteo.Ru | http://www.gismeteo.ru	Повний прогноз погоди. Надано Gismeteo.Ru | http://www.gismeteo.ru
+
+# file: plugins/google.py
+%s site:en.wikipedia.org	%s site:uk.wikipedia.org
+xep "%s" not found!	xep "%s" не знайдений!
+Expression "%s" not found!	Виразу "%s" не знайдено!
+Albanian	албанська
+Afrikaans	африканська
+Belarusian	білоруська
+Welsh	валлійська
+Galician	галісійська
+Yiddish	ідиш
+Irish	ірландська
+Icelandic	ісландська
+Chinese	китайська
+Macedonian	македонська
+Malay	малайська
+Maltese	мальтійська
+Persian	персидська
+Serbian	сербська
+Swahili	суахілі
+Tagalog	тагальська
+Croatian	хорватська
+Creole	креольська
+%s [Source: %s]	%s [Джерело: %s]
+Incorrect language settings for translate. tr list - available languages.	Неправильно вказана мова або немає тексту для перекладу. tr list - доступні мови
+Command's format: tr [from] to text	Формат команди: tr [з_якої] на_яку текст
+Translator.\ntr [from_language] to_language text - translate text\ntr list - list for available languages for translate\ntr info <reduction> - get info about language reduction\ntr lang <expression> - get languages by expression	Перекладач.\ntr [з_якої_мови] на_яку_мову текст - переклад тексту\ntr list - список мов для перекладу\ntr info <скорочення> - розшифровка скорочення мови\ntr lang <вираз> - знайти мови за виразом
+Search in google	Пошук через google
+Search XEP	Пошук XEP
+Search in en.wikipedia.org	Пошук по ru.wikipedia.org
+
+# file: plugins/googleplus.py
+verb	дієслово
+noun	іменник
+preposition	прийменник
+adverb	прислівник
+adjective	прикметник
+phrase	вислів
+conjunction	сполучник
+abbreviation	абревіатура
+Google URL Shortener/Unshortener	Сервіс скорочення посиланнь від Google
+Google QR-code generator	Сервіс генерації QR-кодів від Google
+Google Calculator results not found	Калькулятор google не може це підрахувати!
+I don't know!	Хм. Мені про це ніхто не розповідав...
+Command execution error.	Помилка виконання команди.
+Google Calculator	Калькулятор google
+Definition for a word or phrase.\ndefine word - random define of word or phrase\ndefine N word - N-th define of word or phrase\ndefine a-b word - from a to b defines of word or phrase	Визначення для слова чи виразу.\ndefine слово - випадкове визначення слова чи виразу\ndefine N слово - N-нне визначення слова чи виразу\ndefine a-b word - визначення слова чи фрази з номеру a і до b
+Google Dictionary\ngdict [from_language] to_language word	Словник Google\ngdict [з_мови] на_мову слово
+
+# file: plugins/here.py
+I see %s participant(s): %s	Я бачу %s учасників: %s
+Current participants list	Список учасників конференції
+
+# file: plugins/hideroom.py
+This command available only in private!	Команда доступна лише в приваті!
+Hidden conferences:	Я приховую конфи:
+No hidden conferences.	Прихованих конференцій немає.
+I am not in the %s	Мене немає в %s
+I'm already hide a %s	Я вже приховую конфу %s
+%s has been hidden	%s була прихована
+%s will be shown	%s буде показана
+I'm not hide room %s	Я не приховую конфу %s
+Hide conference.\nhide [add|del|show] [room@conference.server.tld]	Приховати конференцію.\nhide [add|del|show][ room@conference.server.tld]
+
+# file: plugins/horo.py
+aries	овен
+taurus	телець
+gemini	близнюки
+cancer	рак
+leo	лев
+virgo	діва
+libra	терези
+scorpio	скорпіон
+sagittarius	стрілець
+capricorn	козеріг
+aquarius	водолій
+pisces	риби
+List of dates:\n%s	Список дат:\n%s
+Horoscope.\nhoro list - show all zodiacs.\nhoro date - show dates for zodiacs. | Author: ferym	Показує гороскоп для вказаного знака зодіаку. Перегляд знаків зодіаку - "horo list". Перегляд списку дат - "horo date" | Автор: ferym
+
+# file: plugins/idle.py
+I can't find %s	Не можу знайти %s
+Your last activity was %s ago	Ваша остання активність була %s тому
+%s's last ativity was %s ago	Остання активність %s була %s тому
+message	повідомлення
+presence	презенс
+Idle time	Час з моменту останньої активності
+
+# file: plugins/inlist.py
+Unbaned jids: %s\nBanned servers: %s .. %s	Розбанено jid'ів: %s\nЗабанено серверів: %s .. %s
+Total banned: %s	Усього в бані: %s
+Total owners: %s	Усього власників: %s
+Total admins: %s	Усього адміністраторів: %s
+Total members: %s	Усього постійних учасників: %s
+no matches!	збігів немає!
+Search in outcast list of conference.	Пошук по outcast списку конференції.
+Search in members list of conference.	Пошук по members списку конференції.
+Search in admins list of conference.	Пошук по admins списку конференції.
+Search in owners list of conference.	Пошук по owners списку конференції.
+Cleen up outcast list. Replace different jids from same server by one server jid\nreban <count>	Очистка бані. Заміняє кілька jid'ів з одного серверу на бан сервера
+
+# file: plugins/invite.py
+%s ishere!	%s знаходиться тут!
+Invited	Покликала
+I seen some peoples with this nick. Get more info!	Я бачила кілька людей з таким ніком. Укажіть точніше!
+I don'n know %s	Я не знаю %s
+%s invite you to %s	%s просить вас зайти до %s
+because: %s	з приводу: %s
+Invite to conference.\ninvite nick|jid\n[reason]	Запросити учасника в конференцію.\ninvite nick|jid\n[привід]
+
+# file: plugins/iq.py
+FN	ПІБ
+NICKNAME	Нік
+N.FAMILY	Прізвище
+N.GIVEN	Ім'я
+N.MIDDLE	По батькові
+ADR.LOCALITY	Місто
+ADR.REGION	Регіон
+ADR.PCODE	Поштовий код
+ADR.CTRY	Країна
+ADR.STREET	Вулиця
+TEL.NUMBER	Номер телефону
+EMAIL.USERID	E-Mail
+EMAIL	E-Mail
+JABBERID	JabberID
+ROLE	Посада
+BDAY	День народження
+URL	Посилання
+DESC	Про себе
+ROLE	Посада
+ORG.ORGNAME	Організація
+ORG.ORGUNIT	Підрозділ
+GEO.LAT	Широта
+GEO.LON	Довгота
+TITLE	Організація
+PHOTO	Фото
+uptime	аптайм
+seconds	секунд
+users/registered	зареєстровано користувачів
+users	користувачів
+users/online	онлайн користувачів
+contacts/online	онлайн контактів
+contacts	контактів
+contacts/total	всього контактів
+messages/in	вихідних повідомленнь
+messages	повідомленнь
+messages/out	вхідних повідомленнь
+memory-usage	використання пам'яті
+KB	КБ
+users/all-hosts/total	всього користувачів на всіх хостах
+users/all-hosts/online	онлайн користувачів на всіх хостах
+users/total	всього користувачів
+I can't get caps of %s	Я не знаю капс %s
+%s has empty caps!	У %s пустий капс!
+vCard:	Візитка:
+Empty!	Пусто!
+type %s, %s	тип %s, %s
+Uptime: %s	Аптайм: %s
+I can't do it	Не виходить...
+Ping from you %s sec.	Пінг від тебе - %s сек.
+Ping from %s %s sec.	Пінг від %s - %s сек.
+Unknown server answer!	Невідома відповідь сервера
+Unavailable!	Недоступно!
+Server statistic: %s\n%s	Статистика серверу: %s\n%s
+Client version.	Версія клієнта.
+Client version with caps.	Версія клієнта з капсом.
+Show caps node and version of client.	Показ ноди та версії капса клієнта.
+Ping - reply time. You can ping nick in room, jid, server or transport.	Пінг - час відгуку. Можна пінгувати нік в конференції, jid, сервер, транспорт.
+Client side time.	Місцевий час клієнта.
+Client side time + raw time format.	Місцевий час клієнта + час у форматі зі станзи.
+Users server statistic.	Статистика користувачів сервера.
+vCard query. Recomends make command base alias for query needs info.\nvcard_raw [nick] - query generic info\nvcard_raw nick\nshow - show available fields\nvcard_raw nick\n[field:name|field:name] - show requested fields from vcard.	Запит vcard. Рекомендується скласти alias на базі команди для виводу потрібних полів.\nvcard_raw [nick] - показ основної інформації із vcard\nvcard_raw nick\nshow - показ доступних полів vcard\nvcard_raw nick\nполе:назва|поле:назва - показ запрошених полів із vcard
+Server or jid uptime.	Аптайм jabber-серверу або jid'у
+
+# file: plugins/issue.py
+new	нове
+pending	розглядається
+accepted	прийнято
+rejected	відхилено
+removed	видалено
+done	виконано
+Pending by	Прийнято до розгляду
+Accepted by	Прийнято
+Rejected by	Відхилено
+Removed by	Видалено
+Mark as done by	Виконано
+No issue's body!	Відсутній опис!
+I know same issue(s): %s	Я знаю схожі завдання: %s
+Added issue %s	Додано завдання: %s
+Created by %s	Створено %s
+, by reason: %s	, по причині: %s
+Issue(s) list:\n%s	Список завдань:\n%s
+Issues not found!	Завдання не знайдені!
+Issues with match '%s' not found!	Завдань, співпадаючих з '%s', не знайдено!
+Which issue need remove?	Яке завдання видалити?
+You must use numeric issue id.	Ви повинні вказати цифровий id завдання.
+Issue %s removed!	Завдання %s видалено!
+There is not Your issue or You have no rights to remove it.	Це не Ваше завдання або у Вас немає прав для його видалення.
+Issue %s was removed earlier!	Завдання %s було видалене раніше!
+Issue %s not found!	Завдання %s не знайдено!
+Which issue need accept?	Яке завдання потрібно прийняти?
+Issue %s accepted!	Завдання %s прийнято!
+Issue %s was accepted earlier!	Завдання %s було прийняте раніше!
+There is not Your issue or You have no rights to accept it.	Це не Ваше завдання або у Вас немає прав для його прийняття.
+Which issue need reject?	Яке завдання відхилити?
+Issue %s rejected!	Завдання %s відхилено!
+There is not Your issue or You have no rights to reject it.	Це не Ваше завдання або у Вас немає прав для його вадхилення.
+Issue %s was rejected earlier!	Завдання %s було відхилено раніше!
+Which issue is pending?	Яке завдання прийняти на розгляд?
+Issue %s is mark as pending!	Завдання %s відмічено як до розгляду!
+There is not Your issue or You have no rights to mark as pending.	Це не Ваше завдання або у Вас немає прав для його прийняття до розгляду.
+Issue %s was marked as pending earlier!	Завдання %s було прийнято до розгляду раніше!
+Which issue is done?	Яке завдання виконане?
+Issue %s marked as done!	Заідання %s помічене виконаним!
+There is not Your issue or You have no rights to mark as done.	Це не Ваше завдання або у Вас немає прав для його помітки виконаним.
+Issue %s was marked as done earlier!	Завдання %s було помічене виконаним раніше!
+Issues\nissue [[[show|pending|accept|reject|delete|done] id] reason] - actions with issue\nissue *tag1 *tag2 some text - add issue `some text` with tags tag1 and tag2	Завдання\nissue [[[show|pending|accept|reject|delete|done] id] причина] - дії з завданнями\nissue *tag1 *tag2 some text - додати завдання `some text` з тегами tag1 та tag2
+
+# file: plugins/istrue.py
+100% True-nick!	100% Ъ-нік!
+Nicks without letters isn't true!	Ніки без літер не Ъ!
+Valid of nick is - %s%s	Кошерність ніка %s%s
+Normal nick, but left symbols in fireplace.	Нормальний нік, а ліві символи фтопку!
+Many caps - %s%s	Багато капсу - %s%s
+Dominate letters:	Переважають літери:
+Latin	Латиниця
+Cyrillic	Кирилиця
+Equally	Порівну
+And?	Ну і?
+Expression is true for %s%s	Ймовірність того, що вираз вірний - %s%s
+Check truth of expession.	Перевірка виразу на правдивість.
+Check different languages symbols in nick.	Перевірка ніка на використання літер з різних мов.
+
+# file: plugins/jc.py
+Show information about conference from jc.jabber.ru.\njc [address]	Показує інформацію про вказану конференцію з ресурсу jc.jabber.ru\njc [конфа]
+
+# file: plugins/jidcatcher.py
+What I must find?	Що ж будемо шукати?
+'%s' not found!	'%s' не знайдено!
+Found resources: %s	Знайдено ресурсів: %s
+Total resources: %s	Усього ресурсів: %s
+Found servers: %s	Знайдено серверів: %s
+Total servers: %s	Усього серверів: %s
+Max count of members: %s %s	Максимальна кількість учасників: %s %s
+Statistic not found!	Статистика не знайдена!
+Without parameters show top10 resources for all conferences, where bot is present.\nwith parameters - search in resources base\ncount - number of results.	Без параметра показує топ10 ресурсів по всіх конференціях, де знаходиться бот.\nЗ параметром - пошук по базі ресурсів.\nЧисла - кількість ресурсів.
+Wihtout parameters show all servers freom where joined in rooms, where bot is present\nwith parameters - search on servers base\ncount - show number of results.	Без параметра показує усі сервера, з яких заходили в конференції, де знаходиться бот.\nЗ параметром - пошук по базі серверів.\nЗ параметром count показує кількість унікальних серверів.\nЧисла - кількість серверів.
+Search in internal jids base.	Пошук по внутрішній базі jid'ів.
+Conference's activity.	Активність конференції.
+
+# file: plugins/juick.py
+User @%s not found!	Користувач @%s не знайдений!
+Replies: %s	Відповіді: %s
+Popular tags of @%s:	Популярні теги @%s:
+Popular tags:	Популярні теги:
+Message #%s is not found!	Повідомлення #%s не знайдено!
+Attach: %s	Додаток: %s
+Message posted to Juick.	Повідомлення відправлено у Juick.
+Miniblogs http://juick.com\njuick [msg][#]post - show post\njuick tags [user] - show popular tags\njuick search [text] - search text\njuick [user] @username - show messages of user	Мініблоги http://juick.com\njuick [msg][#]пост - показати пост\njuick tags [користувач] - показати популярні теги\njuick search [текст] - пошук тексту\njuick [user] @користувач - показати останні повідомлення користувача
+Send message to blog at juick.com	Відправлення повідомлення в блог на juick.com
+
+# file: plugins/karma.py
+In this room karma is not changed!	В даній конфі карма не змінювалась!
+Top karma: %s	Топ карми: %s
+Karma for members is present not changed!	У присутніх карма не змінювалась!
+Your	тебе
+I'm not sure, but %s not is here.	Я не впевнена, але %s тут немає.
+Karma limit is %s	Ліміт карми %s
+%s have a clear karma	У %s чиста карма
+%s karma is %s	В %s карма %s
+You can't change karma in outdoor conference!	Не можна змінити карму учасника поза конференцією!
+You changes %s's karma to %s	Ви змінили карму %s до %s
+You can't change karma!	Вам не можна змінювати карму учасника!
+incorrect digital parameter	невірно заданий цифровий параметр
+You clear karma for %s	Ви очистили карму %s
+Wrong arguments!	Неправильні аргументи!
+You can't change karma in private!	Зміна карми в приваті заборонено!
+You can't change own karma!	Не можна змінити карму самому собі!
+over	вичерпаний
+Please wait: %s	Зачекайте: %s
+You changes %s's karma to %s. Next time to change across: %s	Ви змінили карму %s до %s. Наступного разу можна змінити через: %s
+Time from last change %s's karma is very small. Please wait %s	Ви нещодавно змінювали карму %s. Потрібно зачекати: %s
+Karma.\nkarma [show] nick\nkarma top+|- [count]\nFor change karma: nick: +1\nnick: -1	Карма учасника.\nkarma [show] nick\nkarma top+|- [кількість]\nДля зміни:\nnick: +1\nnick: -1
+
+# file: plugins/kinopoisk.py
+Search in www.kinopoisk.ru. Example:\nfilm film_name	Пошук по www.kinopoisk.ru. Приклад:\nfilm назва фільму
+
+# file: plugins/known.py
+I know you as:	Я бачила тебе як:
+I know %s as:	Я бачила %s як:
+Show user's nick changes.\nknown <nick>\n[count|all]	Показ зміни ніків\nknown <нік>\n[кількість|all]
+
+# file: plugins/lastfm.py
+Last track %s: %s - %s %s	Остання доріжка %s: %s – %s %s
+Last tracks %s:	Останні доріжки %s:
+Friends %s:	Друзі %s:
+Loved tracks %s:	Улюблені треки %s:
+Neighbours %s:	Сусіди %s:
+Playlists %s:	Плейлисти %s:
+Top albums %s:	Топ альбомів %s:
+Top artists %s:	Топ виконавців %s:
+Top tags %s:	Топ тегів %s:
+Top tracks %s:	Топ треків %s:
+Need two users	Потрібно вказати двох користувачів
+Tastes of %s and %s - soo different!	Сумісність %s и %s - нульова!
+Match tastes of %s and %s - %s	Збіжність смаків %s і %s - %s
+Artists: %s	Виконавці: %s
+Not found LastFM api	Не знайдений LastFM api
+Last scrobled tracks	Останні скроблені треки
+Last scrobled track	Останній скроблений трек
+Last friends	Останні друзі
+Last loved tracks	Останні улюблені треки
+Last neighbours	Сусіди за смаками
+Last playlist	Останній плейлист
+Top albums	Топ альбомів
+Top artists	Топ виконавців
+Top tags	Топ тегів
+Top tracks	Топ треків
+Music tastes	Музична сумісність
+
+# file: plugins/logger.py
+chat_log_join	готов розмовляти
+away_log_join	відійшов
+xa_log_join	давно відійшов
+dnd_log_join	не турбувати
+online_log_join	в мережі
+chat_log_change	готовий побазікати
+away_log_change	відійшов
+xa_log_change	давно відійшов
+dnd_log_change	не хоче, щоб його турбували
+online_log_change	доступний для розмови
+Users: %s (%s)	Користувачі: %s (%s)
+join as	зайшов як
+now is	тепер
+Logs for %s enabled.	Логи для %s ввімкнені.
+Logs for %s disabled.	Логи для %s вимкнені.
+Logged conferences:	Я веду логи в:
+Logs are turned off in all conferences.	Логи не ввімкнені в жодній конференції.
+Logs for %s already enabled.	Я вже веду логи конфи %s
+Logs for %s not enabled.	Логи в %s не увімкнені.
+Logging history conference.\nlog [add|del|show][ room@conference.server.tld]	Ввімкнення логів конференції.\nlog [add|del|show][ room@conference.server.tld]
+
+# file: plugins/main.py
+random	випадковий
+smart	розумний
+full	повністю
+partial	частково
+on	ввімк
+off	вимк
+kick	кік
+ban	бан
+replace	заміняти
+mute	не пропускати
+visitor	позбавляти голосу
+truncate	обрізати
+paste	розміщати
+chat	готова розмовляти
+online	в мережі
+away	відійшла
+xa	давно відійшла
+dnd	не турбувати
+on start	при старті
+on shutdown	при вимкненні
+by time	за часом
+black	чорний
+white	білий
+without highlight	без підсвічування
+all	всі
+ban server	банити сервер
+Loading...	Завантажуюсь...
+Mon	Пн
+Tue	Вт
+Wed	Ср
+Thu	Чт
+Fri	Пт
+Sat	Сб
+Sun	Нд
+_Jan	Січ
+_Feb	Лют
+_Mar	Бер
+_Apr	Кві
+_May	Тра
+_Jun	Чер
+_Jul	Лип
+_Aug	Сер
+_Sep	Вер
+_Oct	Жов
+_Nov	Лис
+_Dec	Гру
+no limit	без обмежень
+visitor/none	гість без повноважень
+visitor/member	гість і постійний учасник
+participant/none	відвідувач без повноважень
+participant/member	постійний учасник
+moderator/none	модератор без повноважень
+moderator/member	модератор і постійний учасник
+moderator/admin	модератор і адміністратор
+moderator/owner	власник конференції
+bot owner	власник бота
+You should be at least %s to do it.	Для цієї дії ти повинен мати статус не нижче: %s
+You must be a %s to do it.	Для цього треба мати статус: %s
+absent	відсутньо
+Bad request	Невірний запит
+Conflict	Конфлікт
+Feature not implemented	Фіча не реалізована
+Forbidden	Заборонено
+Gone	Вийшов
+Internal server error	Внутрішня помилка сервера
+Item not found	Елемент не знайдений
+Jid malformed	Неправильний jid
+Not acceptable	Неприйнятно
+Not allowed	Недопустимо
+Not authorized	Не авторизований
+Payment required	Заборонено внутрішньою політикою сервера
+Recipient unavailable	Отримувач не доступний
+Redirect	Переадресація
+Registration required	Потрібна реєстрація
+Remote server not found	Віддалений сервер не знайдено
+Remote server timeout	Таймаут віддаленого сервера
+Resource constraint	Обмеження ресурсів
+Service unavailable	Сервіс недоступний
+Subscription required	Потрібна підписка
+Undefined condition	Невизначений стан
+Unexpected request	Несподіваний запит
+Password required	Потрібен пароль
+Forbidden	Заборонено
+Members-only	Тільки для постійних учасників
+Room now shows unavailable members.	Кімната показує недоступних учасників.
+Room now does not show unavailable members.	Кімната не показує недоступних учасників.
+Room's configuration changed.	Змінено конфігурацію конференції.
+Logs at server side are enabled.	Увімкнені логи на стороні серверу.
+Room now is non-anonymous.	Кімната не анонімна.
+Room now is semi-anonymous.	Кімната напіванонімна.
+Room now is fully-anonymous.	Кімната повністю анонімна.
+Ignore list: %s	Я не приймаю команди від %s
+Not found: %s	Не знайдено: %s
+Last syslogs:\n%s	Останні системні логи:\n%s
+Syslogs not found	Системні логи відсутні
+Last syslogs: %s	Останні системні логи: %s
+Locale set to: %s	Встановлена локалізація: %s
+Locale not found!	Локалізація не знайдена!
+Current locale: %s	Поточна локалізація: %s
+Command temporary blocked!	Команда тимчасово блокована
+ok	ок
+What enable?	Що ввімкнути?
+Enabled commands: %s	Увімкнені команди: %s
+Not disabled commands: %s	Не відключені команди: %s
+Commands not found: %s	Не знайдені команди: %s
+What disable?	Що вимкнути?
+Disabled commands: %s	Вимкнені команди: %s
+Commands disabled before: %s	Вимкнені раніше команди: %s
+Disabled commands not found!	Для даної конференції немає вимкнених команд!
+leave this room.	залишив цю конференцію.
+I can't see %s here...	Я можу помилятися, але %s тут немає...
+Last update:\n%s	Останнє поновлення:\n%s
+Mode %s not detected!	Режим %s не розпізнано!
+Not allowed create alias for: %s	Заборонено створювати скорочення для %s
+Not allowed create global alias for: %s	Заборонено створювати глобальне скорочення для %s
+Unable to remove %s	Неможливо видалити %s
+Not allowed remove alias for: %s	Заборонено видаляти скорочення для %s
+Not allowed remove global alias for: %s	Заборонено вилучати глобальне скорочення для %s
+Aliases: %s	Скорочення: %s
+Global aliases: %s	Глобальні скорочення: %s
+Aliases not found!	Скорочення не знайдені!
+%s days, %s	%s днів, %s
+%s Days, %s	%s дня, %s
+%s day, %s	%s день, %s
+%s months, %s	%s місяців, %s
+%s Months, %s	%s місяця, %s
+%s month, %s	%s місяць, %s
+%s years, %s	%s років, %s
+%s Years, %s	%s року, %s
+%s year, %s	%s рік, %s
+Command prefix: %s	Префікс команд: %s
+Uptime: %s, Last session: %s	Час роботи: %s, Остання сесія: %s
+Total Error(s): %s\n	Помилки: %s\n
+No Errors	Немає помилок
+In current MUC used %s locale for all users.	В поточній конференції використовується локалізація %s для всих користувачів.
+For %s i'll use locale: %s	Для %s я використовую локалізацію: %s
+For %s detected unknown locale: %s. Used default locale: %s	У %s визначене невідома локалізація: %s. Використовується локалізація за замовчуванням: %s
+Locale for %s not found! Used default locale: %s	Локалізація %s не визначена. Використовується локалізація за замовчуванням: %s
+Who do you need?	А чи був хлопчик?
+Access level: %s	Доступ: %s
+Ignored	Ігнорований
+Minimal	Мінімальний
+Visitor	Гість
+Visitor and Member	Гість і постійний учасник
+Participant	Учасник
+Member	Постійний учасник
+Moderator	Модератор
+Moderator and member	Модератор і мембер
+Admin	Адміністратор
+Owner	Власник
+Bot's owner	Власник бота
+%s, jid detected	%s, jid розпізнано
+temporary ignored (%s)	тимчасово в ігнорі (%s)
+Total commands: %s | Prefix: %s | Your access level: %s | Available commands: %s%s	Усього команд %s | Префікс: %s | Ваш доступ: %s | Доступно команд: %s%s
+Send donation to: %sBest regards, %s	Реквізити для подяк/допомоги:%sЗ повагою, %s
+access	доступ
+Bot has next access levels:\n-1 - ignored\n0 - minimal access\n1 - at least visitor and none\n2 - at least visitor and member\n3 - at least participant and none\n4 - at least participant and member\n5 - at least moderator and none\n6 - at least moderator and member\n7 - at least moderator and admin\n8 - at least moderator and owner\n9 - bot owner	У бота наступні рівні доступу:\n-1 - ігнорований\n0 - мінімальний доступ\n1 - не нижче гостя без повноважень\n2 - не нижче гостя і постійного учасника\n3 - не нижче учасника без повноважень\n4 - не нижче постійного учасника\n5 - не нижче модератора без повноважень\n6 - не нижче модератора і постійного учасника\n7 - не нижче адміністратора\n8 - не нижче власника конференції\n9 - власник бота
+Plugin %s. %s	Плагін %s. %s
+Access level: %s. %s	Рівень доступу: %s. %s
+Prefix: %s, Available help for commands:\n	Префікс команд: %s, Доступна довідка з команд:\n
+%s Help for command: help command | Commands list: commands	%s Довідка по командам: help команда | Перелік доступних команд: commands
+Rejoin by %s	Перезаходжу за командою %s
+I have never been in %s	Досить бухати! Мене немає в %s
+Denied!	Заборонено!
+Joined to %s	Зайшла до %s
+I'm already in %s with nick %s	Досить бухати! Я вже в %s з ніком %s
+Changed nick in %s to %s	Зміна ніку в %s на %s
+I can't leave last room!	Не можу залишити останню конфу!
+Leave room %s	Залишила %s
+Leave room by %s	Мене виводить %s
+Temporary message size limit %s	Тимчасовий ліміт обсягу повідомлень %s
+Loaded plugin: %s	Завантажений плагін: %s
+\nAdd commands: %s	\nДоступні команди: %s
+Unloaded plugin: %s	Видалений плагін: %s
+\nDel commands: %s	\nВидалені команди: %s
+Available plugins: %s	Доступні плагіни: %s
+\nIgnored plugins: %s	\nІгноровані плагіни: %s
+Active plugins: %s	Активні плагіни: %s
+Append: %s	Додано: %s
+Wrong jid!	Невірний jid!
+%s is alredy in list!	%s маю команди від: %s
+Bot owner(s): %s	Я приймаю команди від: %s
+%s alredy in list!	%s вже в списку
+Active conference(s): %s	Активних конференцій: %s
+\nHidden conference(s): %s	\nПриховано конференцій: %s
+Conference(s): %s (for more info use 'where' command)\n	Конференцій: %s (докладніше where)\n
+Server: %s | Nick: %s\n	Сервер: %s | Нік: %s\n
+Message size limit: %s\n	Ліміт обсягу повідомлень: %s\n
+Local time: %s\n	Місцевий час: %s\n
+\nFlood: %s | Censor: %s | Prefix: %s	\nФлуд: %s | Цензор: %s | Префікс команд: %s
+\nExecuted threads: %s | Error(s): %s	\nВиконано тредів: % | Помилок: %s
+\nMessage in: %s | out: %s	\nПовідомлень вх: %s
+\nPresence in: %s | out: %s	\nПрезенсів вх: %s | вих: %s
+\nIq in: %s | out: %s	\nIq вх: %s | вих: %s
+\nUnknown out: %s	\nПомилок вих: %s
+\nCycles used: %s | unused: %s	\nРобочих циклів: %s | холостих: %s
+\nRAM for bot: %s (virtual), %s (real)	\nПам'ять під бота: %s (віртуальна), %s (реальна)
+\nRAM for database: %s (virtual), %s (real)	\nПам'ять під базу даних: %s (віртуальна), %s (реальна)
+\nDatabase size: %s	\nРозмір бази даних: %s
+What need find?	Що знайти?
+I see you as %s/%s	Я бачу тебе як %s/%s
+What do you need to find?	Що ж будемо шукати?
+Encoding error!	Помилка визначення кодування
+All RSS was cleared!	Усі RSS були видалені!
+No RSS found!	RSS не знайдені!
+All schedule feeds:	Усі новини:
+Schedule feeds for %s:%s	Розклад новин в %s:%s
+Schedule feeds for %s not found!	Розклад новин в %s не знайдено!
+Add feed to schedule: %s (%s) %s	Додана новина в розклад: %s (%s) %s
+Can't find in schedule: %s	Не можу знайти в розкладі: %s
+Delete feed from schedule: %s	Видалено з розкладу: %s
+Unable to access server!	Нема доступу до сервера
+New feeds not found!	Немає новин!
+Feeds for	Новини для
+Bad url or rss/atom not found at %s - %s	Помилка url або новини не знайдені на %s - %s
+Current status: %s	Поточний статус: %s
+Available items: %s	Доступні елементи: %s
+Help for %s not found!	Допомога для %s не знайдена
+text field	текстове поле
+on	ввімк
+Ignore messages from unaffiliated participants in private - %s	Ігнорування повідомлень від учасників без повноважень - %s
+Help system. Helps without commands: about, donation, access	Показує поточні розділи довідкової системи. Розділи довідки без команд: about, donation, доступ
+Join conference.\njoin room[@conference.server.ru[/nick]]\n[password]	Вхід до конференції:\njoin room@conference.server.ru/nick - вхід до конференції room з ніком nick.\njoin room@conference.server.ru - вхід до конференції room з останнім заданим ніком.\njoin room - вхід до конференції room на останньому заданому сервері з останнім заданим ніком.
+Leave conference.\nleave room[@conference.server.ru[/nick]]	Вихід з конференції:\nleave - вихід з поточної конференції.\nleave room - вихід з конференції room на останньому заданому сервері.\nleave room@conference.server.ru - вихід з конференції room
+Rejoin conference.\nrejoin room[@conference.server.ru[/nick]]\n[password]	Перевхід до конференції.\nrejoin - перезайти в поточну конференцію.\nrejoin room - перезайти в конференцію room на останньому заданому сервері.\nrejoin room@conference.server.ru - перезайти в конференцію room
+Bot owners list.\nbot_owner show\nbot_owner add|del jid	Робота зі списком власників бота:\nbot_owner show - показати список власників.\nbot_owner add jid - додати jid до списку.\nbot_owner del jid - видалити jid зі списку.
+Black list.\nbot_ignore show\nbot_ignore add|del jid	Робота з "Чорним списком":\nbot_ignore show - показати список.\nbot_ignore add jid - додати jid до списку.\nbot_ignore del jid - видалити jid зі списку.
+Show bot's syslogs.\nsyslogs [number of records] [text]	Показ системних логів бота.\nsyslogs [кількість записів] [текст]
+Search in bot's syslogs.\nsyslogs_search <regexp>\n[date regexp]	Пошук по системному журналу бота.\nsyslogs_search <regexp>\n[regexp дати]
+Show conferences.	Показ конференцій, в яких знаходиться бот. Також показується нік бота в конференції і кількість учасників.
+Your identification in global base.	Ідентифікація вас у глобальній базі.
+Search user in conferences where the bot is.	Пошук учасника по конференціях, де знаходиться бот.
+Search user in conferences where the bot is. Also show jid's	Пошук учасника по конференціях, де знаходиться бот. Також показується jid.
+News:\nrss show - show current.\nrss add url time mode - add news.\nrss del url - remove news.\nrss get url feeds mode - get current news.\nrss new url feeds mode - get unread news only.\nrss clear - clear all news in current conference.\nrss all - show all news in all conferences.\n\nurl - url of rss/atom chanel. can set without http://\ntime - update time. number + time identificator. h - hour, m - minute. allowed only one identificator.\nfeeds - number of messages to receive. 10 max.\nmode - receive mode. full - full news, head - only headers, body - only bodies.\nwith -url to be show url of news.	Канали новин:\nrss show - показати поточні підписки.\nrss add url time mode - додати підписку.\nrss del url - видалити підписку.\nrss get url feeds mode - отримати поточні новини.\nrss new url feeds mode - отримати лише непрочитані новини.\nrss clear - видалити всё новини в поточній конференції.\nrss all - показати усі новини в усіх конференціях.\n\nurl - адреса rss каналу. можна задавати без http://\ntime - час поновлення каналу. число + покажчик часу. h - години, m - хвилини. допускається лише один покажчик.\nfeeds - кількість повідомлень для отримання. не більше 10 шт.\nmode - режим отримання повідомлень. full - повідомлення цілком, head - лише заголовки, body - лише тіло повідомлення.\nс закінченням -url буде додатково показаний url новини.
+Aliases.\nalias add|add_global new=old\nalias del|del_global|show text	Скорочені команди.\nalias add|add_global aa=bb - виконати команду bb при написанні команди aa\nalias del|del_global aa - видалити скорочення aa\nalias show [text] - показати усі скорочення або схожі на text.
+Show commands list.	Показує список доступних команд.
+Enable/Disable commands.\ncomm - show disable commands\ncomm on command - enable command\ncomm off command1[ command2 command3 ...] - disable one or more command	Ввімкнення/вимкнення команд.\ncomm - показати список\ncomm on команда - ввімкнути команду\ncomm off команда1[ команда2 команда3 ...] - вимкнути одну або кілька команд
+Show bot uptime.	Час роботи бота.
+Misc information about bot.	Різна інформація про бота.
+Last VCS update log	Показ VCS-лога останнього оновлення бота
+Set temporary message limit.	Обсяг повідомлення, понад якого повідомлення будуть розбиватися на частини, кратні цьому обсягу.
+Plugin system.\nplugin show|local\nplugin add|del name	Управління системою плагінів:\nplugin show - показати підключені плагіни.\nplugin local - показати доступні для підключення плагіни.\nplugin add name - додати плагіни.\nplugin del name - видалити плагін.
+Show error(s).\nerror [number|clear]	Показує останню логовану помилку або останні, якщо заданий параметр.\nerror [number|clear]
+Your identification.	Ваша ідентифікація перед ботом.
+Identification.	Ідентифікація перед ботом.
+Show language for user.	Показ мови, на якій бот буде спілкуватися з користувачем.
+Show status.	Показ статусу.
+Set command prefix. Use 'none' for disable prefix	Встановлення префіксу команд. Без параметрів показує поточний статус. Якщо параметром буде none префікс буде відключено
+Change bot localization.\nset_locale en|ru|ua	Change bot localization.\nset_locale en|ru|UA
+Conference configure.\nconfig [show[ status]|help][ item]	Налаштування конференції.\nconfig [show[ status]|help][ item]
+Deny recieve messages from unaffiliated participants in private	Заборона прийому повідомлень від учасників без повноважень в приваті
+Temporary ignore with ddos detect.\nddos [show|del jid]	Тимчасовий ігнор при підозрі на ddos.\nddos [show|del jid]
+
+# file: plugins/md5.py
+Nick %s not found!	Нік %s не знайдений!
+Calculate phrase md5 sum.	Розрахунок md5 фрази.
+Show presence-hash of nick	Показ презенс-хешу ніка.
+Show room and nick by presence-hash	Відображення конференції та ніку по хешу
+
+# file: plugins/muc.py
+This command available only for conference owner!	Команда доступна лише власнику конференції!
+Global ban is off in:	Глобальний бан вимкнений в:
+Global ban enable without limits!	Я баню глобально без обмежень!
+Conference %s already deleted from global ban list!	Конференція %s вже виключена зі списку глобального бану!
+Conference %s has been deleted from global ban list!	Конференція %s виключена зі списку глобального бану.
+Conference %s has been added from global ban list!	Конференція %s додана до списку глобального бану.
+Conference %s already exist in global ban list!	Конференція %s вже додана до списку глобального бану!
+Your conference will be ignored for global ban!	Ваша конференція ігнорується при глобальному бані!
+I need jid!	Необхідно вказати jid!
+banned global by %s from %s	глобальний бан від %s з конференції %s
+jid %s has been banned in %s conferences.	jid %s забанений в %s конференціях.
+No reason!	Привід не вказаний!
+ban on %s since %s because: %s	бан терміном %s починаючи з %s через: %s
+I seen different people with this nick!	Я бачила різних людей з таким ніком!
+I don'n know %s, and use as is!	Я не в курсі, хто такий %s - баню як є!
+old ban time is %s	час старого бану %s
+just passed!	тільки прошло!
+Updated: %s	Поновлено: %s
+Command is locked!	Команда заблокована!
+I don't know %s	Я не знаю, хто такий %s
+Too long was without voice!	Надто довго був без голосу!
+Ban user.	Забанити учасника.
+Ban user by jid.	Забанити учасника за jid'ом.
+Unban user.	Розбанити учасника
+Unban user by jid.	Розбанити учасника за jid'ом.
+Temporary ban.\ntban show|del [jid] - show/del temporary bans\ntban nick\ntimeD|H|M|S\nreason - ban nick for time because reason.	Тимчасовий бан.\ntban show|del [jid] - показати/видалити тимчасові бани\ntban nick\ntimeD|H|M|S\nreason - бан ніка nick на термін time через reason
+Remove user affiliation.	Зняти повноваження з учасника.
+Get member affiliation.	Зробити учасника постійним.
+Kick user.	Вигнати учасника.
+Change role to participant.	Змінити роль до учасника.
+Revoke voice.	Відібрати голос.
+Grant moderator.	Підвищити роль до модератора
+Global ban. Available only for confernce owner.\nglobal_ban del - remove conference from banlist,\nglobal_ban add - add conference into banlist,\nglobal_ban <jid> - ban jid in all rooms, where bot is admin.	Глобальний бан. Доступний лише власникам конференцій.\nglobal_ban del - видалити конференцію зі списку глобального бану,\nglobal_ban add - додати конференцію в список глобального бану,\nglobal_ban <jid> - забанити jid в усіх конференціях, де бот - адмін.
+
+# file: plugins/mucfilter.py
+Warning! Your message are blocked by policy of room!	Увага! Ваше повідомлення заблоковане політикою кімнати!
+Warning! This participant don't want to receive private messages!	Увага! Цей учасник не бажає отримувати приватні повідомлення!
+Muted messages count overflow!	Перевищення кількості придушенних повідомленнь!
+You couldn't send private messages! Don't repeat!	Вам заборонено надсилати приватні повідомлення! Не повторюйте!
+You couldn't send public messages! Don't repeat!	Вам заборонено надсилати публічні повідомлення! Не повторюйте!
+Messages count overflow from newbie!	Перебільшення кількості повідомленнь від новачка!
+Your messages are blocked %ssec. after first join! Please, wait quiet!	Ваші повідомлення блокуються на протязі %s сек. з першого підключення. Будь ласка, чекайте тихо!
+Blocked by content!	Блокування по вмісту!
+AD-Block!	Блокування реклами
+Raw AD-Block!	Блокування прихованої реклами!
+Repeat message block!	Повідомлення дуже схожі
+Match message block!	Текст повідомлення дублюється
+Blocked by censor!	Блоковано цензором
+Blocked by raw censor!	Блокування прихованого мата цензором!
+Large message%s %s	Велике повідомлення%s %s
+Large message block!	Велике повідомлення заблоковано!
+Deny by history request!	Блоковано через статус історії!
+Deny by fast join! Try again later!	Заборонено через надто часту кількість входів. Спробуйте пізніше.
+Deny by validation!	Недопустимий параметр!
+Server %s was banned in %s	Сервер %s забанено в конференції %s
+Deny by node lock!	Заборонено по ноді!
+Deny by blacklist!	Обмеження по чорному списку!
+Deny by whitelist!	Обмеження по білому списку
+Large status block!	Блокування довгого статусного повідомлення
+Large nick block!	Блокування довгого ніка
+To many rejoins! Wait %s sec.	Занадто багато спроб входу! Чекайте %s с.
+Status-flood block!	Блокування статус-флуду
+
+# file: plugins/net.py
+What do you want to find?	Що ж будемо шукати?
+I can't resolve it	Не ресолвиться
+Port status at %s	Статус порту у %s
+Command nslookup	Команда nslookup
+Command host	Команда host
+Command dig	Команда dig
+Check port activity\nport server port1 [port2 ...]	Перевірка активності порту на сервері:\nport server port1 [port2 ...]
+Net Ping.\nnet_ping ip|domain	Сітьовий пінг.\nnet_ping ip-адреса|домен
+DNS resolver.	DNS-ресолвер.
+Search domain zones TLD.	Пошук доменних зон TLD.
+Show vendor of device by mac	Відображення виробника пристрою по mac
+
+# file: plugins/oboobs.py
+Show random picture from oboobs.ru	Показ випадковго зображення з oboobs.ru
+Show random picture from obutts.ru	Показ випадковго зображення з obutts.ru
+
+# file: plugins/paste.py
+%s pasted by %s	%s запостив(ла) %s
+Paste some text to server	Публікація тексту на сервері
+
+# file: plugins/phone.py
+Russia, Mobile	Росія, Мобільний
+Too many results!	Занадто багато результатів!
+Russia	Росія
+Ukraine	Україна
+Country: %s, Phone number not found	Країна: %s, Номер телефону не знайдено
+Country: %s\n%s	Країна: %s\n%s
+Information about telephone city code, DEF code or search code for city.	Інформація про код міста, DEF-код, пошук коду за назвою.
+
+# file: plugins/psto.py
+What message do you want to find?	Який пост знайти?
+Message posted to Psto.	Повідомлення відправлене в блог Psto.
+Miniblogs http://psto.net\npsto [#]post[/[from_comment][-][to_comment]] - show post	Мініблоги http://psto.net\npsto [#]post[/[from_comment][-][to_comment]] - показати пост
+Send message to blog at psto.net	Відправка повідомлення в блог на psto.net
+
+# file: plugins/quotes.py
+Quotes:\n	Цитати:\n
+rand	випадково
+by number	за номером
+search	пошук
+Can't searching random quote!	Не знайдена випадкова цитата!
+Can't searching quote by number!	Не знайдена цитата за номером!
+Quote from Internet. Exaples:\nquote list - list of resources\nquote [<key> [number|text]]	Інтернет-цитати. Приклад:\nquote list - список ресурсів\nquote [<ресурс> [номер|текст]]
+Quote from ithappens.ru\nithap [number]	Цитата с ithappens.ru\nithap [номер]
+Show random aphorism from skio.ru	Показує випадковий афоризм з ресурсу skio.ru
+
+# file: plugins/redirect.py
+Redirect command output in private.	Перенаправляє виведення команди в приват.
+Redirect command output in groupchat.	Перенаправляє виведення команди в конференцію.
+
+# file: plugins/say.py
+"Say" command. Bot say in conference text after command. Example:\nsay text1[|text2[|text3[...]]]	Команда "Сказати". Бот видасть в поточну конференцію те, що буде після команди say. Приклад:\nsay текст1[|текст2[|текст3[...]]]
+"Say" command. Bot say in private all text after command.\npsay <nick>\ntext	Команда "Сказати до привату". Бот скаже заданий текст учаснику в приват.\npsay <nick>\ntext
+Global message in all conferences, where bot is present.	Глобальне оголошення у всіх конференціях, де знаходиться бот.
+Set conference topic.	Установка теми конференції
+
+# file: plugins/sayto.py
+You access level is to low!	Для вас ця функція недоступна!
+for	для
+Not transfered messages: %s	Не передані повідомлення: %s
+I will convey your message.	Передам.
+Or am I a fool or %s is here.	Чи я дурепа, чи %s знаходиться тут...
+I seen some people with this nick, and I can convey is incorrect. Coincidence: %s, and count convey messages: %s	Я бачила кілька людей з таким ніком і можу помилково передати. Збігів: %s, буде передано повідомлень: %s
+All people with this nickname are here!	Усі, кого я бачила з таким ніком, знаходяться в конфі!
+This jid is here!	Даний jid знаходиться в конфі!
+I didn't seen user with jid %s, but if he join here I convey your message.	Я не бачила учасника з jid'ом %s, але якщо побачу - передам
+I didn't see user with nick %s. You can use jid.	Я не бачила %s в конференції. Ви можете вказати jid.
+What convey to?	Кому що передати?
+There is no memo for you!	Ти не залишав нагадуваннь!
+I'll remember it to you.	Я запам'ятаю це за тебе.
+What remember to you?	Що запам'ятати?
+%s (%s ago) convey for you: %s	%s (%s тому) просив передати: %s
+You ask remember: %s	Ти просив нагадати: %s
+%s convey for you: %s	%s просив передати: %s
+%s from conference %s convey message for you: %s	%s з конференції %s передав: %s
+"Say to" command.\nsayto jid|nick message - if jid or nick join in conference, bot send "message". Messages saves 14 days, after if message didn't be send this message remove.	Команда "передати".\nsayto jid|nick message - при вході в конференцію jid'a або ніка відправити повідомлення "message". Повідомлення зберігаються 14 днів, після чого недоставлені повідомлення видаляються.
+Send message to jid\n sayjid jid message.	Відправити повідомлення на jid.\nsayjid jid message
+Send a message to yourself at next join	Надіслати повідомлення самому собі при наступному вході
+
+# file: plugins/setnick.py
+You can't do it!	Тобі не можна!
+Change bot nick. Available only for conference owner.	Зміна ніка. Доступна лише власнику конференції.
+
+# file: plugins/shell.py
+Execute shell command.	Виконання shell-команди.
+Execute shell command without output result.	Виконання shell-команди без показу виведення команди.
+
+# file: plugins/shortlink.py
+URL Shortener	Сервіс скорочення посиланнь
+QR-code generator	Сервіс генерації QR-кодів
+
+# file: plugins/shutdown.py
+%s by command from %s	%s за командою %s
+reason: %s	привід: %s
+Shutdown	Завершення роботи
+Restart	Перезапуск
+Update	Поновлення
+Soft update activated!	Запущено м'яке поновлення!
+Soft update finished! Plugins loaded: %s. Commands: %s	М'яrе поновлення завершене! Завантажено плагінів: %s. Команд: %s
+Shutting down the bot. You can set reason.	Завершення роботи бота. Можна вказати параметр, який буде показаний в статусі бота при виході.
+Restart the bot. You can set reason.	Перезапуск бота. Можна вказати параметр, який буде показаний в статусі бота при виході.
+Update from VCS. You can set reason.	Поновлення бота з VCS. Можна вказати параметр, який буде показаний в статусі бота при виході.
+Soft update from VCS.	М'яке поновлення із VCS.
+
+# file: plugins/sokr.py
+Abbreviations.\nExamples: sokr abbr, sokr 6 abbr, sokr 3-7 abbr	Абревіатури. Приклади використання: sokr abbr, sokr 6 abbr, sokr 3-7 abbr
+
+# file: plugins/sovm.py
+Sign not found!	Знак не знайдено!
+Reconcilability between zodiac signs	Сумісність знаків зодіаку
+
+# file: plugins/spellcheck.py
+Spellchecker. Example: spell [uk|ru|en] sentence	Перевірка орфографії. Приклад: spell [uk|ru|en] речення
+
+# file: plugins/spy.py
+what do you want to add?	що додати?
+not given tracking	не задані параметри спостереження
+is not specified criterion tracking	не вказаний критерій спостереження
+I am not in the %s 	Мене немає в %s
+what do you want remove?	що видалити?
+Monitoring conferences:	Спостереження за конференціями:
+\nNext scanning across %s	\nНаступне сканування через %s
+I leave your conference because low activity	Виходжу через низьку активність конференції
+I leave conference %s by condition spy plugin: %s	Конференція %s залишена за умовою spy-плагіна: %s
+Check conference activity\nspy add <conference>[ u<number>][ m<number>] - add conference to list. u - count users, m - count message per night. At default At least one condition - the bot will leave the conference\nspy del <conference> - remove conference from list\nspy show - show active monitoring.	Перевірка активності конференції\nspy add <conference>[ u<number>][ m<number>] - додати конференцію в список моніторингу активності. u - середня кількість учасників, m - кількість повідомлень за добу. За невиконанням хоча б однієї умови бот залишить конференцію\nspy del <conference> - видалити конференцію зі списку моніторингу\nspy show - показати активне спостереження
+
+# file: plugins/steam.py
+Hidden	Приховано
+Nick: %s\nName: %s\nCountry: %s\nCreated: %s\nLast logoff: %s\nTotal friends: %s\nFriends: %s\nProfile: %s	Нік: %s\nІм'я: %s\nКраїна: %s\nСтворений: %s\nОстанній вихід: %s\nВсього друзів: %s\nДрузі: %s\nПрофіль: %s
+Steam user not found!	Користувача Steam не знайдено!
+Steam API is broken!	Steam API поламане!
+Steam API key is wrong!	Невірний Steam API ключ!
+Steam ID should be digital!	Steam ID повинен бути цифровим!
+Show information about Steam profile	Показ інформації про профіль Steam
+
+# file: plugins/svn.py
+en_EN.UTF8	ru_RU.UTF8
+Read user manual for commands...	Вивчаємо інструкції до команд...
+Show svn log.\nsvn [http://]url [limit] - show last revision(s) limit\nsvn [http://]url rXXX - show XXX revision	Показ svn-лога.\nsvn [http://]url [limit] - показ останньої ревізії або кількох, якщо вказан параметр limit\nsvn [http://]url rXXX - показ ревізії з номером XXX
+
+# file: plugins/talkers.py
+Talkers:\nNick\t\tWords\tPhrases\tEffect\tConf.	Базіки:\nНік\t\tСлів\tФраз\tКоеф.\tКонфа
+Talkers:\nNick\t\tWords\tPhrases\tEffect	Базіки:\nНік\t\tСлів\tФраз\tКоеф.
+Show local talkers	Показ локальної бази "Базік"
+Show global talkers	Показ глобальної бази "Базік"
+
+# file: plugins/test.py
+Passed!	Дві смужки!
+Check bot activity.	Перевірка на "живість" бота.
+
+# file: plugins/th.py
+\nActive: %s\n%s	\nАктивно: %s\n%s
+Executed threads: %s | Error(s): %s	Виконано тредів: %s | Помилок виконання тредів: %s
+Threads statistic	Статистика роботи тредів
+
+# file: plugins/todate.py
+days	днів
+day	день
+Days	дні
+was %s %s ago	був %s %s тому
+today	сьогодні
+will be in %s %s	буде через %s %s
+before the %s remained	до %s залишилось
+Date has already in past!	Дата вже пройшла!
+Calculate count of days for requested date, if the date is holiday, that returned title of holiday.\nSupported date formats: dd.mm.yyyy, dd.mm, dd.mm.yy, yyyy.mm.dd\nSupported splitters: ,-.:/\\ntodate 05.09\ntodate 5/9/2010	Розрахунок кількості днів від поточної дати до заданої, якщо на задану дату припадає свято, то повертається назва свята замість запитуваної дати\nПідтримувані формати дати: dd.mm.yyyy, dd.mm, dd.mm.yy, yyyy.mm.dd\nПідтримувані роздільники: ,-.:/\\ntodate 05.09\ntodate 5/9/2010
+Calculate count of days for requested date.\nSupported date formats: dd.mm.yyyy, dd.mm, dd.mm.yy, yyyy.mm.dd\nSupported splitter: ,-.:/\\ntodate 05.09 before New year remained\ntodate 5/9/2010 before New year remained	Розрахунок кількості днів від поточної дати до заданої з можливістю вставки власного тексту\nПідтримувані формати дати: dd.mm.yyyy, dd.mm, dd.mm.yy, yyyy.mm.dd\nПідтримувані роздільники: ,-.:/\\ntodate 05.09 До Дня Перемоги залишилось\ntodate 5/9/2010 До Дня Перемоги залишилось
+
+# file: plugins/train.py
+Train schedules by Yandex. Example: train city1 - city2	Розклад поїздів від Яндекса. Приклад: train місто1 - місто2
+
+# file: plugins/translate.py
+%s%s[Source: %s]	%s%s[Джерело: %s]
+Incorrect language settings for translate. translate list - available languages.	Невірно вказано мову або відсутній тексту для перекладу. translate list - доступні мови
+Command's format: translate [from] to text	Формат команди: translate [з_якого] на_який текст
+Translator from translate.ru\ntranslate [from_language] to_language text - translate text\ntranslate list - list for available languages for translate\ntranslate info <reduction> - get info about language reduction\ntranslate lang <expression> - get languages by expression	Переклад від translate.ru\ntranslate [з_якої_мови] на_яку_мову текст - переклад тексту\ntranslate list - список мов для перекладу\ntranslate info <скорочення> - розшифровка скорочення мови\ntranslate lang <вираз> - знайти мови за виразом
+
+# file: plugins/turn.py
+qwertyuiop[]asdfghjkl;'zxcvbnm,.`QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>~	йцукенгшщзхїфівапролджєячсмитьбюёЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬБЮЁqwertyuiop[]asdfghjkl;'zxcvbnm,.`QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>~
+QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>~qwertyuiop[]asdfghjkl;'zxcvbnm,.`	qwertyuiop[]asdfghjkl;'zxcvbnm,.`QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>~йцукенгшщзхїфівапролджєячсмитьбюёЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬБЮЁ
+Turn text from one layout to another.	Якщо текст не заданий - "перевертає" останнє повідомлення з української розкладки на англійську та назад.
+
+# file: plugins/watcher.py
+Timeout for ask: %s | Timeout for answer: %s | Last ask: %s | Total checks: %s	Таймаут запитів: %s | Таймаут відповідей: %s | Останній запит: %s | Усього перевірок: %s
+Last activity in room(s):\n%s	Остання активність в конференції:\n%s
+Connection activity control.	Контроль активності з'єднання.
+Show activity of conferences.	Відображення активності конференцій.
+
+# file: plugins/whowas.py
+For a last day i see: %s	Протягом останньої доби я бачила: %s
+All who i see for a last day now is here.	Всі, кого я бачила протягом доби, знаходяться тут.
+Show list of users for last day	Показ списку учасників за добу
+
+# file: plugins/wot.py
+Use more characters in the name of the tank	Використовуйте більше символів в назві танку
+none	відсутня
+3 class	3 степінь
+2 class	2 степінь
+1 class	1 степінь
+master	майстер
+\n%s (%s/%s - %s%%), mastery: %s	\n%s (%s/%s - %s%%), класність: %s
+ not founded tank	 танк не знайдено
+Impossible to get tanks' statistics	Неможливо отримати статистику танків
+\nUp to %s%% win left: %s battles	\nДо %s%% перемог залишилося: %s битв
+\nAv. damage: %s	\nСер. дамаг: %s
+\nAv. destroyed: %s	\nВ сер. знищено: %s
+\nAv. spotted: %s	\nВ сер. знайдено: %s
+\nAv. captured points: %s	\nВ сер. очків захвату: %s
+\nAv. defense points: %s	\nВ сер. очків захисту: %s
+\nAv. tank lvl: %s	\nСер. рівень танків: %s
+\nEfficiency rating: %s (XVM: %s)	\nРейтинг ефективності: %s (XVM: %s)
+ - bad player	 - поганий гравець
+ - player below average	 - гравець нижче середнього
+ - average player	 - середній гравець
+ - good player	 - хороший гравець
+ - great player	 - чудовий гравець
+ - unicum	 - унікум
+\nWN6 rating: %s (XVM: %s)	\nРейтинг WN6: %s (XVM: %s)
+\nArmor-rating: %s	\nРейтинг Бронесайту: %s
+ - virtuoso	 - віртуоз
+ - master tanker	 - майстер-танкіст
+ - tanker 1st class	 - танкіст 1-го класу
+ - tanker 2nd class	 - танкіст 2-го класу
+ - tanker 3rd class	 - танкіст 3-го класу
+ - deerhead 3rd class	 - оленевід 3-го класу
+ - deerhead 2nd class	 - оленевід 2-го класу
+ - deerhead 1st class	 - оленевід 1-го класу
+ - master deerhead	 - майстер-оленевід
+Impossible to get statistics	Неможливо отримати статистику
+Query error	Помилка запиту
+Player not found	Гравця не знайдено
+Name: %s [%s]	Назва: %s [%s]
+\nOwner: %s	\nВласник: %s
+\nCreated at: %s	\nДата створення: %s
+\nCount of members: %s	\nКількість учасників: %s
+\nMotto: %s	\nДевіз: %s
+Clan not found	Клан не знайдено
+Impossible to get info	Неможливо отримати інформацію
+World of Tanks - info about user. Usage: wot [nick [tank]]	World of Tanks - інформація про користувача. Використання: wot [нік [танк]]
+World of Tanks - info about clan. Usage: wotclan clan	World of Tanks - інформація про клан. Приклад: wotclan клан
+World of Tanks - info about offers. Usage: wotoffers [active|all] [real|prem|info]	World of Tanks - інформація про акції. Приклад: wotoffers [active|all] [real|prem|info]
+
+# file: plugins/wtf.py
+I know that %s is %s	Я знаю, що %s - %s
+from %s: %s	від %s: %s
+What search?	Що ж будемо шукати?
+Some matches in definitions: %s	Дещо схоже я бачила в: %s
+No matches.	Хм. Нічого схожого я не знаю...
+What need to find?	Що ж будемо шукати?
+All I know is: %s	Все що я знаю - це: %s
+Locale definition: %s\nGlobal: %s\nImported: %s\nTotal: %s	В цій конфі визначень: %s\nГлобальних: %s\nІмпортовано: %s\nУсього: %s
+Send to private %s	Відправлено до привату %s
+\nfrom: %s %s	\nвід: %s %s
+I know that %s was defined by %s %s %s	Я знаю, що %s було визначено: %s %s %s
+This is global definition and not allowed to change!	Це глобальне визначення і його не можна змінити!
+Definition removed!	Шкода, що таку корисну фігенцію потрібно забути...
+This definition is not Your!	Це визначення не Ваше!
+Definition updated!	Боян, але я запам'ятаю!
+Nothing to remove!	Досить бухати! Я такого не знаю!
+Definition saved!	Ммм.. Щось новеньке, зараз запам'ятаю!
+What need to remember?	Що ж потрібно запам'ятати?
+Not enough rights!	Ти ще малий і дурний для цього!
+Random definition from base.	Показ випадкового визначення з бази слів.
+List of definitions in conference.\nwtfnames [all|global|import]	Показ списку визначень в конференції.\nwtfnames [all|global|import]
+Definitions count.	Показ кількості визначень в конференції.
+Search in definitions base.	Пошук по базі визначень.
+All definitions of word.	Всі визначення слова.
+Information about definition commiter.	Показ інформації про те, хто зробив визначення.
+Show definition with nick and date.	Показ визначення разом з ніком і датою.
+Show definition in private.\nwtfp word\n[nick]	Показ визначення в приват. Не залежить від того, звідки прийшла команда.\nwtfp word - показати визначення word собі в приват\nwtfp word\nnick - показати визначення word в приват nick
+Show definition.	Показ визначення.
+Set definition.\ndfn word=definition - remember definition as word\ndfn word= - remove definition word	Установка визначення.\ndfn word=definition - запам'ятовує definition як визначення word\ndfn word= - видаляє визначення word
+Set global definition.\ngdfn word=definition - remember definition as word\ngdfn word= - remove definition word	Установка глобального визначення.\ngdfn word=definition - запам'ятовує definition як визначення word\ngdfn word= - видаляє визначення word
+
+# file: plugins/www.py
+Bad url or rss/atom not found!	Помилка url або новини не знайдені!
+Found feed(s):%s%s	Канал(и):%s%s
+It's just you. %s is up.	Лише у тебе. %s працює.
+It's not just you! %s looks down from here.	Не лише у тебе. %s лежить.
+RegExp not found!	RegExp не знайдений!
+Content length %s	Розмір вмісту %s
+Title: %s	Заголовок: %s
+Length of %s is %s	Розмір %s - %s
+Show web page.\nwww [count (0 for all)] regexp\n[http://]url - page after regexp\nwww [http://]url - without html tags	Показує вміст веб-сторінки.\nwww [кількість результатів (0 для всих)] regexp\n[http://]url - сторінка, оброблена regexp\nwww [http://]url - сторінка з видаленими html-тегами
+Show net header	Показує заголовок файлу
+Check works site	Перевіока роботи сайту
+Search RSS/ATOM feeds	Пошук RSS/ATOM каналу
+
+# file: plugins/wz.py
+City not found!	Місто не знайдено!
+Weather by airport code. Full version.	Погода за кодом аеропорту. Неоптимізований варіант.
+Weather by airport code. Short version.	Погода за кодом аеропорту. Вкорочений варіант.
+Weather by airport code. Optimized version.	Погода за кодом аеропорту. Оптимізований варіант.
+Search weather by code, city, country.	Пошук погоди по коду міста, місту, країні.
+
+# file: plugins/youtube.py
+Search at YouTube	Пошук по YouTube
+
+# file: Generic
+Automatic show lenght of content in conference	Автоматичне відображення розміру контенту за посиланням в конференції
+Karma. None affiliation when karma is lower than %s	Позбавляти повноважень при зниженні карми до %s
+Revoke affiliation when karma is lower than defined value	Позбавляти повноважень при зниженні карми менше вказаного значення
+Bomb. Allow take a bomb %s	Bomb. Дозволити роздачу бомб: %s
+Allow take a bomb in current conference	Дозволити роздачу бомб в даній конференції
+Hard rule for karma is %s	Жорстке правило для зміни карми %s
+Not allow any symbols between nick and karma digit	Заборонити будь-які символи між ніком та цифрою карми
+Validate caps version %s	Перевірка версії в капсі %s
+Validate caps version	Перевірка версії в капсі
+Bomb. Persent of mistakes for time between random bombs %s	Bomb. Погрішність часу між випадковими бомбами в процентах: %s
+Persent of mistakes for time between random bombs	Погрішність часу між випадковими бомбами в процентах
+Paste xhtml images %s	Розміщувати xhtml-зображеняя: %s
+Detect and paste xhtml images in messages	Визначення та розміщення xhtml-зображеннь в повідомленнях
+Bomb. Timer is %s	Bomb. Таймер бомби: %s
+Time to deactivate a bomb	Таймер бомби
+Karma. Member affiliation when karma is higher than %s	Надавати повноваження постійного учасника при підвищенні карми до %s
+Give a member affiliation when karma is higher than defined value	Надавати повноваження постійного учасника при підвищенні карми вище вказаного значення
+Time period for autophrases is %s	Період для автофраз: %s
+Time period for autophrases	Період для автофраз
+Hash. Check activity %s	Хеш. Перевірка активності: %s
+Actions by hash activity	Дії по активності хешу
+Repeat phrase after match %s	Повторювати фразу після збігу %s
+Repeat phrase after match same messages	Повторювати фразу після кількох однакових повідомленнь
+Hash. Ban if hash activity %s	Хеш. Бан при активності хешу %s
+Actions for ban by hash activity	Бан при активності хешу
+Jid's per stanza for affiliations in backup is %s	Кількість Jid'ів в станзі зміни аффіляції при відновленні копії конференції %s
+Count of jid's per stanza for affiliations change in backup	Количество Jid'ов в станзе смены аффиляции при восстановлении копии конференции. Рекомендації: ejabberd - 200, prosody - 1
+Karma. Reason for actions by karma change is %s	Karma. Різон для дії при зміні карми: %s
+Reason for change role/affiliation by karma change	Різон для дії при зміні карми
+Censor muc filter is %s	Muc-цензор: %s
+Censor filter	Muc-цензор
+Blacklist %s	Чорний список %s
+Blacklist for caps	Чорний список для капсів
+Time for visitors action %s	Час для дії над гостем %s
+Time for visitors action	NOЧас для дії над гостем
+Type of list %s	Тип списку %s
+Type of list for caps	Тип списку для капсів
+Bomb. Action for bomb explode %s	Bomb. Дія при вибуху: %s
+Type of action for bomb explode	Дія при вибуху
+Blacklist rules for nick's %s	Чорный список. Правила для ніків: %s
+Nick's rules for blacklist via muc filter.	Правила для ніків для чорного списку через muc-фільтр
+Repeat presence muc filter is %s	Презенс-флуд: %s
+Repeat presence muc filter	Фільтр презенс-флуду
+Mute all private messages %s	Придушення всих приватних повідомленнь %s
+Mute all private messages	Придушення всих приватних повідомленнь
+Validate resource %s	Перевірка ресурсу %s
+Validate resource	Перевірка ресурсу
+Bomb. Allow random bombs only in active room %s	Bomb. Випадкові бомби тільки в активній конференції: %s
+Allow random bombs only in active room	Випадкові бомби тільки в активній конференції
+Karma. Revoke voice when karma is lower than %s	Позбавляти голосу при зниженні карми до %s
+Revoke voice when karma is lower than defined value	Позбавляти голосу при зниженні карми менше вказаного значення
+Adblock muc filter for presence is %s	Блокування реклами в презенсах: %s
+Adblock filter for presence	Фільтр блокування реклами в презенсах
+Raw adblock muc filter for presence is %s	Блокування прихованої реклами в презенсах: %s
+Raw adblock filter for presence	Блокування прихованої реклами в презенсах
+Persent of short words for raw actions is %s	Процент коротких слів для увімкнення перевірки прихованих дій: %s
+Persent of short words for raw actions	Процент коротких слів для увімкнення перевірки прихованих дій
+Censor muc filter for presence is %s	Цензор для презенсів: %s
+Censor muc filter for presence	Цензор для презенсів
+Reduce spaces in message %s	Блокувати численні проміжки в повідомленнях: %s
+Reduce duplicates of spaces in message	Блокувати численні проміжки в повідомленнях
+Adblock muc filter is %s	Блокування реклами: %s
+Adblock filter	Фільтр блокування реклами
+Karma. Moderator role when karma is higher than %s	Надавати повноваження модератора при підвищенні карми до %s
+Give a moderator role when karma is higher than defined value	Надавати повноваження модератора при підвищенні карми вище вказаного значення
+Hash. Time to disable action %s	Хеш. Час відключення дії: %s
+Time to disable action	Час відключення дії при підвищеній активності хешу
+Custom rules for censor is %s	Правила для користувацького цензора %s
+Custom rules for censor	Правила для користувацького цензора
+Bomb. Reason %s	Bomb. Причина з якою буде дія: %s
+Reason for bomb explode	Причина з якою буде дія
+Raw censor muc filter is %s	Блокування цензором прихованого мата: %s
+Raw censor filter	Блокування цензором прихованого мата
+Mute newbie %s	Блокувати повідомлення від новачків: %s
+Mute all messages from newbie	Блокувати всі повідомлення від новачків в конференції
+Karma. Kick when karma is lower than %s	Karma. Виганяти при зниженні карми до %s
+Kick when karma is lower than defined value	Виганяти вхід при зниженні карми менше вказаного значення
+Ban joins without history %s	Банити заблоковані входи без історії %s
+Additional ban joins without history	Дрдатково банити заблоковані входи без історії
+Count of messages for action %s	Кількість повідомленнь для дії %s
+Count of messages for action	Кількість повідомленнь для дії
+Raw censor muc filter for presence is %s	Блокування цензором прихованого мата в презенсах: %s
+Raw censor muc filter for presence	Блокування цензором прихованого мата в презенсах
+Jid's for servers ban notify %s	Jid'и для нотифікацій про бан серверів
+Jid's for servers ban notify	Jid'и для нотифікацій про бан серверів
+New line in message muc filter is %s	Блокування повідомленнь з новими рядками: %s
+New line muc filter	Блокування статусів з новими рядками
+Match muc filter is %s	Повтори всередині повідомлень: %s
+Repeat text in message filter	Фільтр повторів всередині повідомлень
+Deny by hash %s	Заборона на вхід по хешу: %s
+Lock joins via hash	Блокування входу по хешу клієнту
+Validate caps node %s	Перевірка ноди в капсі %s
+Validate caps node	Перевірка ноди в капсі
+Karma. Actions for karma change is %s	Karma. Дії при зміні карми: %s
+Allow change role/affiliation by karma change	Дозволити зміну статусу учасника в залежності від карми
+Whitelist %s	Білий список %s
+Whitelist for caps	Білий список для капсів
+Time period for autoflood's start: %s	Період часу для початку автофлуду: %s
+Time period for autoflood's start	Період часу для початку автофлуду
+Censor warning is %s	Цензор-нотифікатор: %s
+Warning for moderators and higher	Попередження для модераторів і вище
+Hash. Timeout for clean hash activity %s	Хеш. Таймаут між підключеннями для бана по хешу %s
+Time period for clean hash activity	Таймаут між підключеннями для бана по хешу
+Large status muc filter is %s	Довгі статуси: %s
+Large status muc filter	Фільтр довгих статусів
+Set default locale %s	Встановити локалізацію за замовчуванням %s
+Ignore users locale and use one locale for all users in room	Ігнорувати локалізації користувачів і використовувати одну локалізацію для всих користувачів в кімнаті
+Autophrases is %s	Автофрази: %s
+Autophrases	Автофрази
+Bomb. Allow bot take a bomb to random user %s	Bomb. Видавати бомбу випадковому користувачеві: %s
+Allow bot take a bomb to random user	Видавати бомбу випадковому користувачеві
+Large nick muc filter is %s	Довгі ніки: %s
+Large nick muc filter	Фільтр довгих ніків
+ACL multiaction is %s	Мультидії в ACL %s
+Execute more than one action per pass in ACL.	Виконувати більше однієї дії за один прохід в ACL.
+Repeat join muc filter is %s	Багаторазові входи: %s
+Repeat join muc filter	Фільтр багаторазові входів
+Hash. Action for already joined %s	Хеш. Дія для вже підключених: %s
+Action for already joined	Дія для вже підключених клієнтів
+Bomb. Allow random unexplosive bombs %s	Bomb. Іноді не підривати бомби: %s
+Allow some times take unexplosive bombs	Іноді не підривати бомби
+Action for visitors is %s	Дія над гостем %s
+Action for visitors	Дія над гостем
+Action for invalid items %s	Дія для некоректних елементів %s
+Action for invalid items	Дія для некоректних елементів
+Mute all public messages %s	Придушення всих публічних повідомленнь %s
+Mute all public messages	Придушення всих публічних повідомленнь
+Value of limits for karma change %s	Значення обмеженнь карми %s
+Value of limitation of karma's change. Depends of access level	Значення обмеженнь зміни карми в залежності від рівня доступу
+Exception for ban servers %s	Виключення серверів для бану %s
+Exception for ban servers	Вийнятки для бана серверів
+Large muc filter is %s	Великі повідомлення: %s
+Large message filter	Фільтр великих повідомлень
+Custom censor is %s	Користувацький цензор %s
+Custom censor	Користувацький цензор
+Whitelist is %s	Білий список: %s
+Whitelist via muc filter	Білий список через muc-фільтр
+Count of messages for newbie %s	Кількість повідомленнь для новачка %s
+Count of messages for newbie for action	Кількість повідомленнь для новачка для дій
+New line in presence muc filter is %s	Блокування статусів з новими рядками: %s
+Bomb. Idle for unable get the bomb %s	Bomb. Час мовчання учасника, після якого йому неможна давати бомбу %s
+Idle for unable get the bomb	Час мовчання учасника, після якого йому неможна давати бомбу
+Bomb. Time for detect room as unactive %s	Bomb. Час протягом якого конференція вважається активною: %s
+Time for detect room as unactive	Час протягом якого конференція вважається активною
+Hash. Jid's for servers ban notify %s	Хеш. Jid'и для нотифікацій про бан серверів %s
+Bomb. Persent of fault bombs %s	Bomb. Процент неробочих бомб: %s
+Persent of fault bombs	Процент неробочих бомб
+Censor action for member is %s	Дія цензора на постійних учасників: %s
+Censor action for member	Дія цензора на постійних учасників
+Mute newbie time %s	Вік новачків: %s
+Time of mute all messages from newbie	Час, на протязі якого учасник вважається новачком
+New line count in message muc filter is %s	Кількість нових рядків в повідомленні для блокування: %s
+Count of new line muc filter	Кількість нових рядків для блокування
+Karma. Participant affiliation when karma is higher than %s	Надавати повноважень при підвищенні карми до %s
+Give a participant affiliation when karma is higher than defined value	Надавати повноважень при підвищенні карми вище вказаного значення
+Hash. Exception for ban servers %s	Хеш. Вийнятки для бана серверів %s
+Count of fast joins %s	Кількість швидких входів %s
+Count of fast joins	Кількість швидких входів
+Lock fast joins %s	Блокування швидких входів %s
+Lock fast joins	Блокування швидких входів
+Action for messages overflow for newbie %s	Дія при перевищенні кількості повідомленнь від новачка %s
+Action for messages overflow for newbie	Дія при перевищенні кількості повідомленнь від новачка
+Raw adblock muc filter is %s	Блокування прихованої реклами: %s
+Raw adblock filter	Блокування прихованої реклами
+Repeat muc filter is %s	Повтор повідомлень: %s
+Repeat same messages filter	Фільтр повторів схожих повідомлень
+Censor is %s	Цензор: %s
+Censor	Ввімкнення вимкнення цензора
+Bomb. Time between random bombs %s	Bomb. Час між випадковими бомбами: %s
+Time between random bombs	Час між випадковими бомбами
+Block joins without history %s	Блокувати входи без історії %s
+Block joins without history	Блокувати входи без історії
+New line count in presence muc filter is %s	Кількість нових рядків для блокування: %s
+Hash. Count of rejoins from server for ban %s	Хеш. Кількість підключеннь для бана сервера %s
+Count of rejoins from server for ban	Кількість підключеннь для бана сервера
+Url title is %s	Показ заголовків посилань: %s
+Automatic show title of urls in conference	Автоматичний показ заголовків посилань
+Karma. Ban when karma is lower than %s	Karma. Забороняти вхід при зниженні карми до %s
+Ban when karma is lower than defined value	Забороняти вхід при зниженні карми менше вказаного значення
+Autoturn layout of text is %s	Автозміна розкладки тексту: %s
+Store Users URL %s	Зберігати посилання користувачів %s
+Store Users URL	Зберігати посилання користувачів
+Clear notification by %s	Сповіщення при очищенні %s
+Clear notification by presence or message	Тип сповіщень при очищенні: повідомлення чи презенси
+Hash. Time for events %s	Хеш. Період перевірки: %s
+Time period for events	Період часу для перевірки активності хешів
+Censor action for non member is %s	Дія цензора на не постійних учасників: %s
+Censor action for non member	Дія цензора на не постійних учасників
+Flood is %s	Флуд: %s
+Autoanswer	Ввімкнення/вимкнення самонавчального відповідача
+Trusted servers %s	Довірені сервера %s
+Servers list marked as trusted. They are excluded from any actions with servers	Сервера, відмічені як довірені. Дані сервера виключаються із будь-яких дій з серверами.
+Bomb. Wire count is %s	Bomb. Кількість проводів у бомби: %s
+Wire count for bomb	Кількість проводів у бомби
+Bomb. Persent of skiped random bombs %s	Bomb. Процент не установки випадкових бомб: %s
+Persent of mistakes skiped random bombs	Процент не установки випадкових бомб
+Reduce spaces in presence %s	Блокувати численні проміжки в презенсах: %s
+Reduce duplicates of spaces in presence	Блокувати численні проміжки в презенсах
+Smiles in logs is %s	Смайли в логах: %s
+Smiles in logs	Смайли в логах
+Limits for karma change is %s	Обмеження зміни карми %s
+Limitation of karma's change. Depends of access level	Обмеження зміни карми в залежності від рівня доступу
+Count of invalid items %s	Кількість некоректних елементів %s
+Count of invalid items for action	Кількість некоректних елементів для дії
+Number of message for autoflood's start: %s	Кількість повідомленнь для початку автофлуду: %s
+Number of message for autoflood's start	Кількість повідомленнь для початку автофлуду
+Action for messages overflow %s	Дія при перевищенні кількість повідомленнь %s
+Action for messages overflow	Дія при перевищенні кількості повідомленнь
+Validate nick %s	Перевірка ніку %s
+Validate nick	Перевірка ніку
+Parse define is %s	Пошук визначень %s
+Automatic parse definition via google	Автоматичний пошук визначень через Google
+Bomb. Don't use action when access level lower than or equal %s	Не використовувати дію, якщо доступ нижче чи рівний %s
+Ignore bomb action depends from access level	Ігнорування дії бомби в залежності від доступу
+Hash. Action type %s	Хеш. Тип дії при активності: %s
+Type of action	Тип дії при підвищеній активності хешу
+Blacklist rules for jid's %s	Чорный список. Правила для jid'ів: %s
+Jid's rules for blacklist via muc filter.	Правила для jid'ів для чорного списку через muc-фільтр
+Hash. Events count %s	Хеш. Кількість подій: %s
+Events count per time period	Кількість подій за заданий проміжок часу
+Muc filter is %s	Muc-фільтр: %s
+Message filter for participants	Фільтр повідомлень для учасників
+Blacklist is %s	Чорний список %s
+Blacklist via muc filter	Чорний список через muc-фільтр
+Time for count of fast joins %s	Інтервал між швидкими входами %s
+Time for count of fast joins	Інтервал між швидкими входами
+Hash. Ban server by hash activity %s	Хеш. Банити сервери при активності хешу %s
+Ban server by hash activity	Банити сервери при активності хешу
+Validate login %s	Перевірка логіну %s
+Validate login	Перевірка логіну
+Autoflood is %s	Автофлуд: %s
+Autoflood	Автофлуд
+Deny hashes list %s	Список заборонених хешів: %s
+Hashes list for lock joins	Список хешів для блокування входу
+Hash. Timeout of rejoins from server for ban %s	Хеш. Таймаут на підключення з сервера для бана %s
+Timeout of rejoins from server for ban	Таймаут на підключення з сервера для бана
+General Muc-filter settings	Основні налаштування для Muc-фільтру
+Muc-filter settings for newbie	Muc-фільтр для новачків
+Muc-filter settings for hash	Muc-фільтр для дій по хешу
+Muc-filter settings by content	Muc-фільтр для дій по вмісту
+Muc-filter settings for raw-actions	Muc-фільтр для підозрілих дій
+Muc-filter settings for censor/ad-block	Muc-фільтр для цензора/блокування реклами
+Muc-filter settings for while/black lists	Muc-фільтр для білого/чорного списків
+Muc-filter settings for while/black lists by caps	Muc-фільтр для списків по капсам
+Muc-filter settings for validate items	Muc-фільтр для перевірки коректності елементів
+Muc-filter settings for fast action	Muc-фільтр для швидких операцій
+Other settings	Інші налаштування
+Settings for bomb-joke	Налаштування бомби-жарту
+Actions for karma change	Дії при зміні карми
+Censor settings	Налаштування цензора
+Flood settings	Налаштування флуду
+Muc-filter. Message limit	Muc-filter. Ліміт розміру повідомлень
+Backup. Requests delay for backup command	Backup. Затримка при запитах команди backup
+Karma. Difference between two action in karma	Karma. Різниця між двома діями карми
+Iq. Allow answer to time request	Iq. Дозвіл відповідати на запит часу бота
+Logger. Enable system logs	Logger. Ввімкнення системних логів
+Muc-filter. Time for reconnect count	Muc-filter. Проміжок часу на перез'єднання
+Logger. Enable status change logging	Logger. Запис в логи зміни статусів
+Muc-filter. Notify about abnormal activity	Muc-filter. Повідомлення. Повідомлення про ненормальну активність
+Troll. Default message number for troll command	Troll. Кількість повідомлень для команди troll
+Troll. Delay between messages for troll command	Troll. Затримка відправки повідомлень для команди troll
+Karma. Minimal karma for allow krama change for participants	Karma. Мінімальна карма з якою зміна карми доступна не постійним учасникам
+Iq. Allow answer to service discovery	Iq. Дозвіл відповідати на запит огляду сервісів бота
+Msgtoadmin. Time limit for next message for msgtoadmin	Ліміт часу наступної відправки повідомлення для команди msgtoadmin
+Muc-filter. A kind words count	Muc-filter. Лічильник однакових символів
+Whereis. Frequency for answer check for whereis command	Whereis. Частота перевірки відповіді для команди whereis
+Kernel. Bot status. Show different status for bot loading	Kernel. Bot status. Особливий статус при завантаженні
+Kernel. Time of ignore for anti-ddos	Kernel. Час ігнору при ddos'і в залежності від рівня доступу
+Karma. Time for karma change from access level	Karma. Час через який дозволено міняти карму в залежності від рівня доступу
+Clear. Delay between massages in clear command	Clear. Затримка між повідомленнями при команді clear
+Muc-filter. Number of reconnects for monitoring	Muc-filter. Кількість перез'єднань для моніторингу
+Iq. Timeout for iq queries	Iq. Таймаут в секундах на iq запити
+Muc-filter. Jid's for notify	Muc-filter. Повідомлення. Jid'и для повідомленнь
+Karma. Lower value of karma for control action	Нижня межа карми при перевірці правильності значень
+Youtube. Page size limit	Youtube. Ліміт розміру сторінки при завантаженні
+Logger. Additional text for logs	Logger. Додатковий текст в кінці html лога
+Sayto. Timeout for sayto base cleanup	Sayto. Час через який проводяться зачистки sayto-бази
+Age. Default number of users for age commands	Age. Кількість учасників за замовчуванням для плагіна age
+Sayto. Age of message in sayto before delete it from base with undelivered	Sayto. Час життя повідомлень, які бот не зміг передати за командою sayto
+Kernel. Bot status. Message while loading	Kernel. Bot status. Статус-повідомлення при завантаженні
+Disco. Maximus andwers count for disco command	Disco. Максимальна кількість відповідей для команди disco
+Spy. Time for reaction on spy scan	Spy. Інтервал реакції на сканування для команди spy
+Iq. Allow answer to version request	Iq. Дозвіл відповідати на запит версії бота
+Muc-filter. Time between notifies	Muc-filter. Повідомлення.Час між повідомленнями
+Watcher. Frequency of requests in watcher	Watcher. Період запитів в секундах для плагіна watcher
+Logger. Use GMT time in MUC logs	Logger. Використовувати GMT-час в логах конференцій
+Iq. Allow answer to ping	Iq. Дозвіл відповідати на запит пінгу бота
+Muc-filter. Number of kind parts in message	Muc-filter. Кількість однакових слів в повідомленні
+Rss. Maximum rss count	RSS. Максимальна кількість новин
+Clear. Maximal message number for clear command	Clear. Максимальна кількість повідомлень при команді clear
+Kernel. Iq anti-ddos. Requests number	Kernel. Iq anti-ddos. Кількість запитів
+Kernel. Bot status. Show percent of loading	Kernel. Bot status. Показувати процент завантаження
+Logger. Enable role and affiliation logging	Logger. Запис в логи зміни афіляцій і ролей
+Disco. Exclude from disco by regexps	Disco. Видаляти з обзору по регекспу
+Kernel. Restart timeout for error at bot initial (no connection, auth error)	Kernel. Таймаут рестартів бота на стадії підключення (немає iнету, помилка авторизації)
+Msgtoadmin. Size limit for msgtoadmin	Msgtoadmin. Ліміт розміру повідомлення для команди msgtoadmin
+Muc-filter. Time peroid for notify	Muc-filter. Повідомлення. Період часу для повідомленнь
+LastFM. Number of answers for lastfm plugin	LastFM. Кількість відповідей для команди плагіна lastfm
+Www. User-agent for web queries	Www. User-agent для більшості web-запитів
+Muc-filter. Number of empty new lines	Muc-filter. Кількість пустих переводів рядків
+Karma. Upper value of karma for control action	Karma. Верхня межа карми при перевірці правильності значень
+Watcher. Timeout for no actions in room for rejoin	Watcher. Таймаут неактивності конференцій для перезаходу
+Kernel. Notify when bot is kicked or banned	Kernel. Notify. Повідомляти про те, що бота вигнали чи забанили
+Muc-filter. Maximux status-message size	Muc-filter. Максимальний розмір статус-повідомлення
+Watcher. Try rejoin in rooms with low activity	Watcher. Намагатися перезаходити в малоактивні кімнати
+City. Yandex.Map API-key	City. Yandex.Map API-ключ
+Paste. Paste as html. Otherwize as text	Paste. Html розмічення, інакше в вигляді тексту
+Kernel. Notify jid for bot kick or ban	Kernel. Notify. Список jid'ів для повідомлень про кік чи бан бота
+Karma. Default length of list karma top+/-	Karma. Кількість учасників за замовчуванням при показі результатів команди karma top+/-
+Muc-filter. Timeout for repeat message	Muc-filter. Таймаут повторів схожих повідомлень
+Kernel. Bot status. Show join to room while loading	Kernel. Bot status. Показувати конференції, в які бот заходить при завантаженні
+Rss. Timeout for rss request from server in seconds	Rss. Таймаут запиту новини з сервера в секунду
+Karma. Maximal length of list karma top+/-	Karma. Максимальна кількість учасників для показу результатів команди karma top+/-
+Muc-filter. Message size for filter	Muc-filter. Розмір повідомлення для фільтра
+Calendar. Default splitter for calendar	Calendar. Типовий розділювач для календаря
+LastFM. Api for lastfm plugin	LastFM. API для роботи плагіна lastfm
+Anek. Anekdote size for private send	Anek. Розмір понад який анекдот буде відправлено до привату
+Muc-filter. Maximum nick size	Muc-filter. Максимальний розмір ніка
+Kernel. Text for hide censore	Kernel. Текст для закриття мату
+Youtube. Default links number	Youtube. Кількість посилань за замовчуванням
+Logger. Html logs. Otherwize in text	Logger. Ведення логів в html, інакше у вигляді звичайного тексту
+Juick. Number of posts	Juick. Кількість постів
+Iq. Allow answer to uptime request	Iq. Дозвіл відповідати на запит аптайму бота
+Bing. Translator API-key	Bing. Api-ключ перекладача
+Clear. Default message number for clear command	Clear. Кількість повідомлень при команді clear
+Kernel. Send new hash into rooms after soft update	Kernel. Надсилати новий хеш до конференції після м'якого поновлення
+Youtube. Default language	Youtube. Мова за замовчуванням
+Juick. Number of answers	Juick. Кількість відповідей
+Muc-filter. Number of empty parts in message	Muc-filter. Кількість пустих частин в повідомленні
+Rss. Minimal time for rss check in minutes	RSS. мінімальний час для перевірки новин
+Spy. Time for spy scan	Spy. Інтервал сканування для команди scan
+Iq. Show bot rooms in service discovery	Iq. Показувати конференції бота при огляді сервісів
+Juick. Number of symbols in post	Juick. Кількість символів в пості
+Kernel. Bot status. Status while loading	Kernel. Bot status. Статус при завантаженні
+Muc-filter. Repeat count	Muc-filter. Кількість повторів схожих повідомлень
+Youtube. Maximal links number	Youtube. Максимальна кількість посилань при показі
+Watcher. Allow self ping	Watcher. Пінгувати самого себе
+Troll. Maximal message number for troll command	Troll. Максимальна кількість повідомлень для команди troll
+Kernel. Iq anti-ddos. Time limits for requests	Kernel. Iq anti-ddos. Ліміт часу на запити
+Muc-filter. Count of events for notify	Muc-filter. Повідомлення. Кількість подій для повідомлення
+Iq. Number after point in ping	Iq. Кількість знаків після коми при пінгу
+Steam. API-key	Steam. API-ключ
+Muc-filter. Time between presences	Muc-filter. Проміжок часу на статус-презенси
+Notepad	Блокнот
+Kernel. Anti-ddos time delay between messages	Kernel. Проміжок між повідомленнями для вмикання анти-ddos
+Muc-filter. Number of precences per time	Muc-filter. Кількість статус-презенсів за час
+Kernel. Exclude symbols from bot's messages	Kernel. Видалити символи із повідомленнь бота
+Kernel. 1st April joke	Kernel. Першотравневий жарт
+Kernel. Schedule time	Час перевірки розкладу
+Kernel. Paranoic mode. Disable all execute possibles on bot	Kernel. Режим для параноїків. Заборона виконання будь-якого зовнішнього коду
+Www. Limit of page in bytes for www command	Www. Ліміт розміру сторінки в байтах для команди www
+Age. Maximal number of users for age commands	Age. Максимальна кількість учасників для плагіну age
+Juick. Number of tags	Juick. Кількість тегів
+Message for admin settings	Налаштування повідомлень адміну
+RSS settings	Налаштування RSS
+Clear settings	Налаштування clear
+Kernel settings	Налаштування ядра
+LastFM settings	Налаштування LastFM
+Whereis settings	Налаштування whereis
+Watcher settings	Налаштування watcher
+Antitroll settings	Налаштування антитроля
+WWW settings	Налаштування WWW
+Karma settings	Налаштування карми
+Sayto settings	Налаштування sayto
+Age settings	Налаштування age
+Muc-filter settings	Налаштування muc-фільтру
+Iq requests settings	Налаштування iq запитів
+Juick settings	Налаштування Juick
+Logs settings	Налаштування логів
+Youtube settings	Налаштування Youtube
+API settings	Налаштування API
+
+# write locale file: ua.txt
+# total: 1478
+# regenarated without mistakes!

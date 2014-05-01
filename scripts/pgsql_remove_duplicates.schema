@@ -1,0 +1,452 @@
+-- --------------------------------------------------------------------------- --
+--                                                                             --
+--    Postgresql scheme for iSida Jabber Bot                                   --
+--    Copyright (C) 2012 diSabler <dsy@dsy.name>                               --
+--                                                                             --
+--    This program is free software: you can redistribute it and/or modify     --
+--    it under the terms of the GNU General Public License as published by     --
+--    the Free Software Foundation, either version 3 of the License, or        --
+--    (at your option) any later version.                                      --
+--                                                                             --
+--    This program is distributed in the hope that it will be useful,          --
+--    but WITHOUT ANY WARRANTY; without even the implied warranty of           --
+--    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the            --
+--    GNU General Public License for more details.                             --
+--                                                                             --
+--    You should have received a copy of the GNU General Public License        --
+--    along with this program.  If not, see <http://www.gnu.org/licenses/>.    --
+--                                                                             --
+-- --------------------------------------------------------------------------- --
+
+-- --------------------------------------------------------------------------- --
+-- Base of ages
+--
+CREATE TABLE tmp (
+	room text,
+	nick text,
+	jid text,
+	time integer,
+	age integer,
+	status integer,
+	type text,
+	message text,
+	no_case_nick text
+);
+
+INSERT INTO tmp SELECT DISTINCT * FROM age;
+DROP TABLE age;
+ALTER TABLE tmp RENAME TO age;
+
+CREATE INDEX age_rj ON age (room,jid);
+
+CREATE INDEX age_rnj ON age (room,nick,jid);
+
+CREATE TABLE tmp (
+	login text,
+	server text,
+	resourse text
+);
+
+INSERT INTO tmp SELECT DISTINCT * FROM jid;
+DROP TABLE jid;
+ALTER TABLE tmp RENAME TO jid;
+
+CREATE INDEX jid_log ON jid (login);
+CREATE INDEX jid_srv ON jid (server);
+CREATE INDEX jid_res ON jid (resourse);
+
+-- --------------------------------------------------------------------------- --
+-- Base of talkers
+--
+CREATE TABLE tmp (
+	room text,
+	jid text,
+	nick text,
+	words integer,
+	frases integer
+);
+
+INSERT INTO tmp SELECT DISTINCT * FROM talkers;
+DROP TABLE talkers;
+ALTER TABLE tmp RENAME TO talkers;
+
+CREATE INDEX talkers_rj ON talkers (room,jid);
+CREATE INDEX talkers_rjn ON talkers (room,jid,nick);
+
+-- --------------------------------------------------------------------------- --
+-- Base for `WTF` commands
+--
+CREATE TABLE tmp (
+	ind integer,
+	room text,
+	jid text,
+	nick text,
+	wtfword text,
+	wtftext text,
+	time integer,
+	lim integer
+);
+
+INSERT INTO tmp SELECT DISTINCT * FROM wtf;
+DROP TABLE wtf;
+ALTER TABLE tmp RENAME TO wtf;
+
+CREATE INDEX wtf_r ON wtf (room);
+CREATE INDEX wtf_rj ON wtf (room,jid);
+CREATE INDEX wtf_rw ON wtf (room,wtfword);
+
+-- --------------------------------------------------------------------------- --
+-- Answers base for random flood
+--
+CREATE TABLE tmp (
+	ind integer,
+	body text
+);
+
+INSERT INTO tmp SELECT DISTINCT * FROM answer;
+DROP TABLE answer;
+ALTER TABLE tmp RENAME TO answer;
+
+-- INSERT INTO answer VALUES(1,';-)');
+-- INSERT INTO answer VALUES(2,'Hi!');
+CREATE INDEX answer_id ON answer (ind);
+
+-- --------------------------------------------------------------------------- --
+-- Base for `SayTo` plugin
+--
+CREATE TABLE tmp (
+	who text,
+	room text,
+	jid text,
+	message text
+);
+
+INSERT INTO tmp SELECT DISTINCT * FROM sayto;
+DROP TABLE sayto;
+ALTER TABLE tmp RENAME TO sayto;
+
+CREATE INDEX sayto_rj ON sayto (room,jid);
+
+-- --------------------------------------------------------------------------- --
+-- User distances for `Dist` plugin
+--
+CREATE TABLE tmp (
+	point text,
+	latitude text,
+	longtitude text
+);
+
+INSERT INTO tmp SELECT DISTINCT * FROM dist;
+DROP TABLE dist;
+ALTER TABLE tmp RENAME TO dist;
+
+CREATE INDEX dist_di ON dist (point);
+
+CREATE TABLE tmp (
+	point text,
+	latitude text,
+	longtitude text
+);
+
+INSERT INTO tmp SELECT DISTINCT * FROM dist_user;
+DROP TABLE dist_user;
+ALTER TABLE tmp RENAME TO dist_user;
+
+CREATE INDEX dist_user_di ON dist_user (point);
+
+-- --------------------------------------------------------------------------- --
+-- Karma base
+--
+CREATE TABLE tmp (
+	room text,
+	jid text,
+	karma int
+);
+
+INSERT INTO tmp SELECT DISTINCT * FROM karma;
+DROP TABLE karma;
+ALTER TABLE tmp RENAME TO karma;
+
+CREATE INDEX karma_krj ON karma (room,jid);
+CREATE INDEX karma_crjk ON karma (room,jid,karma);
+
+CREATE TABLE tmp (
+	room text,
+	jid text,
+	karmajid text,
+	last int
+);
+
+INSERT INTO tmp SELECT DISTINCT * FROM karma_commiters;
+DROP TABLE karma_commiters;
+ALTER TABLE tmp RENAME TO karma_commiters;
+
+CREATE INDEX karma_commiters_rjk on karma_commiters (room,jid,karmajid);
+
+CREATE TABLE tmp (
+	room text,
+	jid text,
+	log text
+);
+
+INSERT INTO tmp SELECT DISTINCT * FROM karma_limits;
+DROP TABLE karma_limits;
+ALTER TABLE tmp RENAME TO karma_limits;
+
+CREATE INDEX karma_limits_lrj ON karma_limits (room,jid);
+
+-- --------------------------------------------------------------------------- --
+-- Action list base
+--
+CREATE TABLE tmp (
+	jid text,
+	action text,
+	type text,
+	text text,
+	command text,
+	time int,
+	level int default 9
+);
+
+INSERT INTO tmp SELECT DISTINCT * FROM acl;
+DROP TABLE acl;
+ALTER TABLE tmp RENAME TO acl;
+
+CREATE INDEX acl_jid ON acl (jid,action,type);
+
+-- --------------------------------------------------------------------------- --
+-- Base for `GisMeteo` plugin
+--
+CREATE TABLE tmp (
+	code text,
+	city text,
+	lcity text
+);
+
+INSERT INTO tmp SELECT DISTINCT * FROM gis;
+DROP TABLE gis;
+ALTER TABLE tmp RENAME TO gis;
+
+CREATE INDEX gis_clcc ON gis (code,lcity,city);
+
+-- --------------------------------------------------------------------------- --
+-- DEF-Codes
+--
+CREATE TABLE tmp (
+	phone text,
+	region text,
+	city text
+);
+
+INSERT INTO tmp SELECT DISTINCT * FROM def_ru_stat;
+DROP TABLE def_ru_stat;
+ALTER TABLE tmp RENAME TO def_ru_stat;
+
+CREATE INDEX def_ru_stat_ph ON def_ru_stat (phone,city);
+
+CREATE TABLE tmp (
+	phone text,
+	region text,
+	city text
+);
+
+INSERT INTO tmp SELECT DISTINCT * FROM def_ua_stat;
+DROP TABLE def_ua_stat;
+ALTER TABLE tmp RENAME TO def_ua_stat;
+
+CREATE INDEX def_ua_stat_ph ON def_ua_stat (phone,city);
+
+CREATE TABLE tmp (
+	provider text,
+	region text,
+	def integer,
+	defbegin integer,
+	defend integer,
+	date text
+);
+
+INSERT INTO tmp SELECT DISTINCT * FROM def_ru_mobile;
+DROP TABLE def_ru_mobile;
+ALTER TABLE tmp RENAME TO def_ru_mobile;
+
+CREATE INDEX def_ru_mobile_ph ON def_ru_mobile (def,defbegin,defend);
+
+-- --------------------------------------------------------------------------- --
+-- WZ Weather base
+--
+CREATE TABLE tmp (
+	code text,
+	city text,
+	counry text
+);
+
+INSERT INTO tmp SELECT DISTINCT * FROM wz;
+DROP TABLE wz;
+ALTER TABLE tmp RENAME TO wz;
+	
+CREATE INDEX wz_ccc ON wz (code,city,counry);
+
+-- --------------------------------------------------------------------------- --
+-- Muc-filter lock base
+--
+CREATE TABLE tmp (
+	room text,
+	jid text
+);
+
+INSERT INTO tmp SELECT DISTINCT * FROM muc_lock;
+DROP TABLE muc_lock;
+ALTER TABLE tmp RENAME TO muc_lock;
+
+CREATE INDEX muc_lock_rj ON muc_lock (room,jid);
+
+-- --------------------------------------------------------------------------- --
+-- Versions base
+--
+CREATE TABLE tmp (
+	room text,
+	jid text,
+	client text,
+	version text,
+	os text,
+	time integer
+);
+
+INSERT INTO tmp SELECT DISTINCT * FROM versions;
+DROP TABLE versions;
+ALTER TABLE tmp RENAME TO versions;
+
+CREATE INDEX versions_rj ON versions (room,jid);
+CREATE INDEX versions_cvo ON versions (client,version,os);
+CREATE INDEX versions_rjcvo ON versions (room,jid,client,version,os);
+
+-- --------------------------------------------------------------------------- --
+-- Issues base
+--
+CREATE TABLE tmp (
+	id integer,
+	room text,
+	jid text,
+	nick text,
+	level integer,
+	tags text,
+	body text,
+	status integer,
+	date integer,
+	comment text,
+	accept_by text,
+	accept_date integer
+);
+INSERT INTO tmp SELECT DISTINCT * FROM issues;
+DROP TABLE issues;
+ALTER TABLE tmp RENAME TO issues;
+
+CREATE INDEX issues_r ON issues (room,id);
+CREATE INDEX issues_d ON issues (room,date);
+
+-- --------------------------------------------------------------------------- --
+-- Cron base
+--
+CREATE TABLE tmp (
+	room text,
+	jid text,
+	nick text,
+	time integer,
+	repeat text,
+	command text,
+	level integer
+);
+
+INSERT INTO tmp SELECT DISTINCT * FROM cron;
+DROP TABLE cron;
+ALTER TABLE tmp RENAME TO cron;
+
+CREATE INDEX cron_r ON cron (room);
+CREATE INDEX cron_rt ON cron (room,time);
+CREATE INDEX cron_rtr ON cron (room,time,repeat);
+
+-- --------------------------------------------------------------------------- --
+-- Conference config
+--
+CREATE TABLE tmp (
+	room text,
+	option text,
+	value text
+);
+
+INSERT INTO tmp SELECT DISTINCT * FROM config_conf;
+DROP TABLE config_conf;
+ALTER TABLE tmp RENAME TO config_conf;
+
+CREATE INDEX config_conf_r ON config_conf (room);
+CREATE INDEX config_conf_ro ON config_conf (room,option);
+
+-- --------------------------------------------------------------------------- --
+-- Aliases
+--
+CREATE TABLE tmp (
+	room text,
+	match text,
+	cmd text
+);
+
+INSERT INTO tmp SELECT DISTINCT * FROM alias;
+DROP TABLE alias;
+ALTER TABLE tmp RENAME TO alias;
+
+CREATE INDEX alias_r ON alias (room);
+CREATE INDEX alias_rm ON alias (room,match);
+
+-- --------------------------------------------------------------------------- --
+-- Comm ON/OFF
+--
+CREATE TABLE tmp (
+	room text,
+	cmd text
+);
+
+INSERT INTO tmp SELECT DISTINCT * FROM commonoff;
+DROP TABLE commonoff;
+ALTER TABLE tmp RENAME TO commonoff;
+
+CREATE INDEX commonoff_r ON commonoff (room);
+CREATE INDEX commonoff_rm ON commonoff (room,cmd);
+
+-- --------------------------------------------------------------------------- --
+-- Feeds
+--
+CREATE TABLE tmp (
+	url text,
+	update text,
+	type text,
+	time integer,
+	room text,
+	hash text array[10]
+);
+
+INSERT INTO tmp SELECT DISTINCT * FROM feed;
+DROP TABLE feed;
+ALTER TABLE tmp RENAME TO feed;
+
+CREATE INDEX feed_r ON feed (room);
+CREATE INDEX feed_rt ON feed (room,time);
+
+-- --------------------------------------------------------------------------- --
+-- Temporary ban
+--
+CREATE TABLE tmp (
+	room text,
+	jid text,
+	time integer
+);
+
+INSERT INTO tmp SELECT DISTINCT * FROM tmp_ban;
+DROP TABLE tmp_ban;
+ALTER TABLE tmp RENAME TO tmp_ban;
+
+CREATE INDEX tmp_ban_r ON tmp_ban (room);
+CREATE INDEX tmp_ban_rt ON tmp_ban (room,time);
+
+-- --------------------------------------------------------------------------- --
+-- THE END
+-- --------------------------------------------------------------------------- --

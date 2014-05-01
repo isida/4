@@ -1,0 +1,40 @@
+# --------------------------------------------------------------------------- #
+#                                                                             #
+#    Russian Phrases for AI plugin for iSida Jabber Bot                       #
+#    Copyright (C) diSabler <dsy@dsy.name>                                    #
+#                                                                             #
+#    This program is free software: you can redistribute it and/or modify     #
+#    it under the terms of the GNU General Public License as published by     #
+#    the Free Software Foundation, either version 3 of the License, or        #
+#    (at your option) any later version.                                      #
+#                                                                             #
+#    This program is distributed in the hope that it will be useful,          #
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of           #
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the            #
+#    GNU General Public License for more details.                             #
+#                                                                             #
+#    You should have received a copy of the GNU General Public License        #
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.    #
+#                                                                             #
+# --------------------------------------------------------------------------- #
+
+### plugin IQ ###
+ver {PAR}	версия|без капса|покаж|какая|?||моя|меня
+ver+ {PAR}	версия| и | капс | с капсом |покаж|какая|какие|какой|?||моя|мои|меня
+caps {PAR}	капс|нода|покаж|какой|какая|?||мой|меня
+ping {PAR}	какой|пинга|пингу|пинг |пинг|пинг|меня|?||мой|меня
+ping_old {PAR}	какой|старый|по старом|устаревш|пинга|пингу|пинг |пинг|пинг|меня|?||мой|меня
+time_old {PAR}	старый|по старом|устаревш|врем|который|час|меня|?||меня|мое|моё
+time {PAR}	врем|который|час|меня|?||меня|мое|моё
+time_old_raw {PAR}	без |обработ|как|есть|старый|по старом|устаревш|врем|который|час|?||моё|меня|мое
+time_raw {PAR}	без |обработ|как|есть|врем|который|час|?||моё|меня|мое
+stats {PAR}	статистик|какая|какой|покажи
+vcard_raw {PAR} визитка|вкард|информация|кто такой|кто такая||моя|мой|меня
+uptime {PAR}	сколько|работает|аптайм|какой||мой|меня
+
+### Other commands ###
+anek	анекд|расска|?
+calend {DATE}	праздник|?|какой|что|сегодня
+calend {DATE+D1}	праздник|?|какой|что|завтра
+oboobs	сиськи|сиську|титьки|титьку|покажи|покаж
+obutts	попу|попку|зад|жопу|покажи|покаж

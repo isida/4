@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {font-family:"Segoe UI";
+font-size:14px;
+padding:0px; margin:0px
+}
+
+body {background-color:fafafa;
+background-image:url(i/back2.gif)}
+
+.heart {float:right}
+
+.paste{font-family: "Courier New", Courier, monospace;
+font-size:14px;
+padding:0px; margin:0px
+}
+
+.main {margin-left:16px;
+margin-right:16px;
+margin-top:7px;
+background-image:url(i/back.gif);}
+
+a{text-decoration:none;
+color:#6f94d1}
+
+a:hover{text-decoration:none;
+color:#9e4573}
+
+.top {background-image:url(i/top.gif);
+background-position:left top;
+background-repeat:repeat-x;
+height:22px;
+line-height:22px;
+}
+
+.conference {background-image:url(i/lefttop.gif);
+background-repeat:no-repeat;
+background-position:left top;
+color:#fafafa;
+font-size:14px;
+padding-left:3px;
+}
+
+.heart {background-image:url(i/righttop.gif);
+background-repeat:no-repeat;
+background-position:right top;
+padding-right:3px;
+}
+
+.container {border-color:#706a6c;
+border-left:1px solid #706a6c;
+border-right:1px solid #706a6c;
+border-bottom:1px solid #706a6c}
+
+p {padding-left:3px;}
+
+.time {color:#003871}
+
+.nick {font-weight:bold;
+color:#535c68}
+
+.status {color:#57a478}
+.unavailable {color:#7396a4}
+.me {font-weight:bold;
+color:#7a5b8c;}
+
+.topic {color:#5f7894;}

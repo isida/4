@@ -1,0 +1,334 @@
+aero	air-transport industry	Must verify eligibility for registration; only those in various categories of air-travel-related entities may register.
+asia	Asia-Pacific region	This is a TLD for companies, organizations, and individuals based in the region of Asia, Australia, and the Pacific.
+biz	business	This is an open TLD; any person or entity is permitted to register; however, registrations may be challenged later if they are not held by commercial entities in accordance with the domain's charter. This TLD was created to provide relief for the wildly popular .com TLD.
+cat	Catalan	This is a TLD for Web sites in the Catalan language or related to Catalan culture.
+com	commercial	This is an open TLD; any person or entity is permitted to register. Though originally intended for use by for-profit business entities, for a number of reasons it became the "main" TLD for domain names and is currently used by all types of entities including nonprofits, schools and private individuals. Domain name registrations may be challenged if the holder cannot prove an outside relation justifying reservation of the name, to prevent "squatting".
+coop	cooperatives	The .coop TLD is limited to cooperatives as defined by the Rochdale Principles.
+info	information	This is an open TLD; any person or entity is permitted to register.
+int	international organizations	The .int TLD is strictly limited to organizations, offices, and programs which are endorsed by a treaty between two or more nations. However, there are a few grandfathered domain names that do not meet these criteria.
+jobs	companies	The .jobs TLD is designed to be added after the names of established companies with jobs to advertise. At this time, owners of a "company.jobs" domain are not permitted to post jobs of third party employers.
+mobi	mobile devices	Must be used for mobile-compatible sites in accordance with standards.
+museum	museums	Must be verified as a legitimate museum.
+name	individuals, by name	This is an open TLD; any person or entity is permitted to register; however, registrations may be challenged later if they are not by individuals (or the owners of fictional characters) in accordance with the domain's charter.
+net	network	This is an open TLD; any person or entity is permitted to register. Originally intended for use by domains pointing to a distributed network of computers, or "umbrella" sites that act as the portal to a set of smaller websites.
+org	organization	This is an open TLD; any person or entity is permitted to register. Originally intended for use by non-profit organizations, and still primarily used by some.
+post	postal services	The .post TLD is restricted to Postal Administrations as defined in the Universal Postal Union constitution, and their large customers who wish to provide "Trusted Postal Services".
+pro	professions	Currently, .pro is reserved for licensed or certified professionals worldwide. A professional seeking to register a .pro domain must provide their registrar with the appropriate credentials.
+tel	Internet communication services	A contact directory housing all types of contact information directly in the Domain Name
+travel	travel and tourism industry related sites	Must be verified as a legitimate travel-related entity.
+xxx	adult entertainment	For sites providing sexually explicit content, such as pornography.
+edu	educational	The .edu TLD is limited to specific educational institutions such as, but not limited to, primary schools, middle schools, secondary schools, colleges, and universities. In the US, its usability was limited in 2001 to post-secondary institutions accredited by an agency on the list of nationally recognized accrediting agencies maintained by the United States Department of Education. This domain is therefore almost exclusively used by US colleges and universities. Some institutions that do not meet the current registration criteria have grandfathered domain names.
+gov	governmental	The .gov TLD is limited to governmental entities and agencies in the US.
+mil	US military	The .mil TLD is limited to use by the US military.
+ac	Ascension Island Commonly used for academic websites, such as universities
+ad	Andorra Local trademark, trade name or citizenship required
+ae	United Arab Emirates
+af	Afghanistan
+ag	Antigua and Barbuda
+ai	Anguilla
+al	Albania Citizenship required
+am	Armenia (Also unofficially used by AM Radio Stations or related business)
+an	Netherlands Antilles Local presence required; Netherlands Antilles were dissolved on October 10, 2010;
+ao	Angola
+aq	Antarctica Antarctique	Defined by the Antarctic Treaty as everything south of latitude 60°S. AQ domain names are available to government organizations who are signatories to the Antarctic Treaty and to other registrants who have a physical presence in Antarctica.
+ar	Argentina
+as	American Samoa
+at	Austria
+au	Australia Includes Ashmore and Cartier Islands and Coral Sea Islands. ABN required.
+aw	Aruba Aruba, West Indies Restricted to registered Aruban companies, organisations and citizens
+ax	Åland
+az	Azerbaijan
+ba	Bosnia and Herzegovina
+bb	Barbados
+bd	Bangladesh
+be	Belgium (Also unofficially used in the canton of Berne, Switzerland)
+bf	Burkina Faso
+bg	Bulgaria
+bh	Bahrain
+bi	Burundi
+bj	Benin
+bm	Bermuda Local corporate registration required
+bn	Brunei
+bo	Bolivia
+br	Brazil Restricted. Registration is done under several categories (i.e.: .com.br for businesses, .gov.br for government agencies, etc.)
+bs	Bahamas
+bt	Bhutan
+bv	Bouvet Island t in use (Norwegian dependency; see .no).
+bw	Botswana
+by	Belarus Byelorussia
+bz	Belize
+ca	Canada Subject to Canadian Presence Requirements.
+cc	Cocos (Keeling) Islands (Australian territory: do not confuse with Cocos islands in Guam. Also used as a free domain service to the public as cc.cc, cu.cc or cz.cc domain.)
+cd	Democratic Republic of the Congo
+cf	Central African Republic
+cg	Republic of the Congo
+ch	Switzerland Confoederatio Helvetica (Latin)
+ci	Côte d'Ivoire
+ck	Cook Islands
+cl	Chile
+cm	Cameroon	A local entity/company in Cameroon is required to register a domain name.
+cn	People's Republic of China	A local company in China is required to register a domain name. Hong Kong and Macau also maintain TLDs.
+co	Colombia Marketed as a global domain - recognized as a gccTLD by Google. Anyone can register.
+cr	Costa Rica
+cs	Czechoslovakia Czecho-Slovakia domain has not been use since 1993. The ISO-code cs was later allocated for Serbia and Montenegro, which used .yu instead.
+cu	Cuba
+cv	Cape Verde
+cx	Christmas Island
+cy	Cyprus
+cz	Czech Republic
+dd	East Germany Deutsche Demokratische Republik	Was proposed, but never implemented due to German re-unification.
+de	Germany Deutschland German postal address for administrative contact (admin-c) required. Proxy registrations are allowed.
+dj	Djibouti
+dk	Denmark
+dm	Dominica
+do	Dominican Republic
+dz	Algeria Dzayer
+ec	Ecuador
+ee	Estonia Eesti	Anyone can register but local administrative contact is required.
+eg	Egypt
+eh	Western Sahara .eh is reserved for Western Sahara, but does not exist in the root.
+er	Eritrea Inactive	The domain registrar Eritrea Telecommunication Services Corporation offers no services to register domains.
+es	Spain España
+et	Ethiopia
+eu	European Union Restricted to legal and natural persons in European Union member states.
+fi	Finland Open for registration to individuals/companies around Europe.
+fj	Fiji
+fk	Falkland Islands
+fm	Federated States of Micronesia (Also unofficially used by FM Radio Stations or related business)
+fo	Faroe Islands Føroyar
+fr	France Restricted to individuals and companies in European Union, Switzerland, Norway, Iceland and Liechtenstein.
+ga	Gabon
+gb	United Kingdom Great Britain Deprecated. The primary ccTLD used for the United Kingdom is .uk.
+gd	Grenada
+ge	Georgia To register you must be either a citizen of Georgia, or a Georgian company.
+gf	French Guiana Guyane française
+gg	Guernsey
+gh	Ghana
+gi	Gibraltar
+gl	Greenland (Also unofficially used in Galicia, Spain)
+gm	The Gambia
+gn	Guinea A local contact is required
+gp	Guadeloupe Still used for Saint-Barthélemy and Saint-Martin
+gq	Equatorial Guinea Guinée Équatoriale
+gr	Greece
+gs	South Georgia and the South Sandwich Islands
+gt	Guatemala
+gu	Guam
+gw	Guinea-Bissau
+gy	Guyana
+hk	Hong Kong Special administrative region of the People's Republic of China.
+hm	Heard Island and McDonald Islands
+hn	Honduras
+hr	Croatia Hrvatska
+ht	Haiti
+hu	Hungary Restricted to Hungarian companies, organisations and citizens
+id	Indonesia
+ie	Ireland In 2002, registration was expanded to include persons or businesses with a "real and substantive" connection with the island of Ireland (including Northern Ireland).
+il	Israel
+im	Isle of Man
+in	India Under INRegistry since April 2005 (except: gov.in, nic.in, mil.in, ac.in, edu.in, res.in).
+io	British Indian Ocean Territory
+iq	Iraq
+ir	Iran
+is	Iceland Ísland
+it	Italy Restricted to companies and individuals in the European Union.
+je	Jersey
+jm	Jamaica
+jo	Jordan
+jp	Japan Restricted to individuals or companies with a physical address in Japan.
+ke	Kenya
+kg	Kyrgyzstan
+kh	Cambodia Khmer, former Kâmpŭchea
+ki	Kiribati
+km	Comoros Komori
+kn	Saint Kitts and Nevis
+kp	Democratic People's Republic of Korea
+kr	Republic of Korea
+kw	Kuwait
+ky	Cayman Islands Restricted to qualified Cayman entities
+kz	Kazakhstan
+la	Laos Currently being marketed as the unofficial domain for Los Angeles
+lb	Lebanon Restricted to registration with a company in Lebanon
+lc	Saint Lucia
+li	Liechtenstein
+lk	Sri Lanka
+lr	Liberia
+ls	Lesotho
+lt	Lithuania
+lu	Luxembourg
+lv	Latvia
+ly	Libya
+ma	Morocco Maroc
+mc	Monaco
+md	Moldova Marketed for Medical use (Doctors)
+me	Montenegro
+mg	Madagascar
+mh	Marshall Islands
+mk	Macedonia Makedonija	Restricted to registration with a company in Macedonia
+ml	Mali
+mm	Myanmar
+mn	Mongolia	Some second-level domains are reserved for special use .mn
+mo	Macau Macao	Special administrative region of the People's Republic of China.
+mp	Northern Mariana Islands
+mq	Martinique
+mr	Mauritania
+ms	Montserrat
+mt	Malta
+mu	Mauritius
+mv	Maldives
+mw	Malawi
+mx	Mexico
+my	Malaysia	Restricted to registration by an individual or company in Malaysia
+mz	Mozambique
+na	Namibia
+nc	New Caledonia
+ne	Niger
+nf	Norfolk Island
+ng	Nigeria
+ni	Nicaragua
+nl	Netherlands	First official country code TLD.
+no	Norway	Restricted to registration by a company in Norway. Individuals in the country can only register under .priv.no.
+np	Nepal
+nr	Nauru	Also used as a free domain service to the public as co.nr.
+nu	Niue	Commonly used by Danish, Dutch and Swedish websites, because in those languages "nu" means "now".
+nz	New Zealand
+om	Oman	Registrant must have company or trademark registered in Oman as well as a local administrative contact.
+pa	Panama
+pe	Peru
+pf	French Polynesia Polynésie française With Clipperton Island
+pg	Papua New Guinea
+ph	Philippines
+pk	Pakistan	Operated by PKNIC since 1992
+pl	Poland
+pm	Saint-Pierre and Miquelon	Restricted to individuals and companies in European Union, Switzerland, Norway, Iceland and Liechtenstein.
+pn	Pitcairn Islands
+pr	Puerto Rico
+ps	Palestinian Territory, Occupied
+pt	Portugal
+pw	Palau Pelew
+py	Paraguay
+qa	Qatar
+re	Réunion	Restricted to individuals and companies in European Union, Switzerland, Norway, Iceland and Liechtenstein.
+ro	Romania
+rs	Serbia Republika Srbija
+ru	Russia See also .su, still in use, and .рф.
+rw	Rwanda
+sa	Saudi Arabia	Registrant must have a registered trademark in Saudi Arabia matching the domain name to register or provide company incorporation documents of a company in Saudi Arabia or for personal registrations a copy of valid ID. A letter on the official letterhead of your organization addressed to SaudiNIC requesting the domain name registration is also required. Local administrative contact required. 2LD registrations rolled out in 2011.
+sb	Solomon Islands	British Solomon Islands
+sc	Seychelles
+sd	Sudan
+se	Sweden
+sg	Singapore
+sh	Saint Helena
+si	Slovenia
+sj	Svalbard and Jan Mayen Islands
+sk	Slovakia	Restricted to Slovakian companies, organisations and citizens
+sl	Sierra Leone
+sm	San Marino	Domain name must be same as company name or trademark
+sn	Senegal
+so	Somalia	Relaunched on November 1st, 2010
+sr	Suriname
+ss	South Sudan
+st	São Tomé and Príncipe
+su	Soviet Union
+sv	El Salvador
+sx	Sint Maarten Sint Maarten Landrush phase
+sy	Syria
+sz	Swaziland
+tc	Turks and Caicos Islands .TC domains are also marketed in Turkey. The official abbreviation of 'Türkiye Cumhuriyeti' is TC.
+td	Chad Tchad Chadian (.td) domains are available for registration to entities connected with Chad only.
+tf	French Southern and Antarctic Lands Terres australes et antarctiques françaises Seldom used. Restricted to individuals and companies in European Union, Switzerland, Norway, Iceland and Liechtenstein.
+tg	Togo
+th	Thailand
+tj	Tajikistan
+tk	Tokelau	Also used as a free domain service to the public. Used in the Netherlands because tk means 'for sale' in Dutch.
+tl	East Timor	Timor-Leste Old code .tp is still in use.
+tm	Turkmenistan
+tn	Tunisia
+to	Tonga	Often used unofficially for Torrent, Turin, Toronto, or Tokyo
+tp	East Timor	Timor Português ISO code has changed to TL; .tl is now assigned but .tp is still in use.
+tr	Turkey	.nc.tr used by Northern Cyprus
+tt	Trinidad and Tobago
+tv	Tuvalu	Used as an abbreviation of television, the domain is currently operated by dotTV, a VeriSign company; the Tuvalu government owns twenty percent of the company.
+tw	Taiwan	Registration allowed worldwide, local presence not required. In line with ISO 3166-1, IANA's official position is that “TW” is "designated for use to represent "Taiwan, Province of China."
+tz	Tanzania	Must have a presence in Tanzania
+ua	Ukraine	Україна/Ukraina Ukrainian trademark required
+ug	Uganda
+uk	United Kingdom	The ISO 3166-1 for the United Kingdom code is GB. UK a specially reserved ISO 3166-1 code for the UK. However, the creation of the .uk TLD predates the ISO 3166-1 list of ccTLD and is the primary TLD for the United Kingdom.
+us	United States of America	Commonly used by US State and local governments instead of .gov TLD
+uy	Uruguay 2LD rollout began on 10 July 2012.
+uz	Uzbekistan
+va	Vatican City Limited to the official sites of the Vatican/Holy See
+vc	Saint Vincent and the Grenadines
+ve	Venezuela
+vg	British Virgin Islands
+vi	United States Virgin Islands
+vn	Vietnam
+vu	Vanuatu
+wf	Wallis and Futuna Restricted to individuals and companies in European Union, Switzerland, Norway, Iceland and Liechtenstein.
+ws	Samoa Formerly Western Samoa Marketed to be used in general WebSites
+ye	Yemen
+yt	Mayotte	Restricted to individuals and companies in European Union, Switzerland, Norway, Iceland and Liechtenstein.
+yu	SFR Yugoslavia FR Yugoslavia After dissolution of Yugoslavia used for Serbia and Montenegro. Not used after 2010.
+za	South Africa Zuid-Afrika
+zm	Zambia
+zw	Zimbabwe
+الجزائر.	xn--lgbbat1ad8j Algeria al-jaza'ir Arabic .dz
+বাংলা	xn--54b7fta0cc Bangladesh bangla Bengalit delegated .bd
+中国	xn--fiqs8s China zhōngguó Simplified Chinese .cn
+中國	xn--fiqz9s China zhōngguó Traditional Chinese .cn
+مصر.	xn--wgbh1c Egypt masr Arabic .eg
+გე	xn--node Georgia ge Georgiant delegated .ge
+香港	xn--j6w193g Hong Kong hoeng1 gong2 Both Traditional and Simplified Chinese .hk
+भारत	xn--h2brj9c India bhārat Devanagarit in use .in
+بھارت.	xn--mgbbh1a71e India bhārat Urdut in use .in
+భారత్	xn--fpcrj9c3d India bhārat Telugut in use .in
+ભારત	xn--gecrj9c India bhārat Gujaratit in use .in
+ਭਾਰਤ	xn--s9brj9c India bhārat Gurmukhit in use .in
+இந்தியா	xn--xkc2dl3a5ee0h India inthiyaa Tamilt in use .in
+ভারত	xn--45brj9c India bhārat Bengalit in use .in
+ایران.	xn--mgba3a4f16a Iran īrān Persiant in use .ir
+الاردن.	xn--mgbayh7gpa Jordan al'urdun Arabic .jo
+қаз	xn--80ao21a Kazakhstan qaz Cyrillic .kz
+مليسيا.	xn--mgbx4cd0ab Malaysia Malaysia Arabict in use .my
+мон	xn--l1acc Mongolia mon Mongolian Cyrillict delegated .mn
+المغرب.	xn--mgbc0a9azcg Morocco al-maghrib Arabic .ma
+عمان.	xn--mgb9awbf Oman Oman Arabict in use .om
+پاکستان.	xn--mgbai9azgqp6j Pakistan Pakistan Urdut delegated .pk
+فلسطين.	xn--ygbi2ammx Palestinian territories filastīn Arabic .ps
+قطر.	xn--wgbl6a Qatar Qatar Arabic .qa
+рф	xn--p1ai Russia RF Cyrillic .ru
+السعودية.	xn--mgberp4a5d4ar Saudi Arabia as-saʢūdiyyah Arabic .sa
+срб	xn--90a3ac Serbia srb Cyrillic .rs
+新加坡	xn--yfro4i67o Singapore Xīnjiāpō/Sin-ka-po Both Traditional and Simplified Chinese .sg
+சிங்கப்பூர்	xn--clchc0ea0b2g2a9gcd Singapore cinkappūr Tamil .sg
+한국	xn--3e0b707e South Korea hangūk̚ Hangul .kr
+ලංකා	xn--fzc2c9e2c Sri Lanka lanka Sinhala language .lk
+இலங்கை	xn--xkc2al3hye2a Sri Lanka ilangai Tamil .lk
+سودان.	xn--mgbpl2fh Sudan sudan Arabict delegated .sd
+سوريا.	xn--mgbtf8fl Syria sūryā Arabic .sy
+台湾	xn--kprw13d Taiwan táiwān/tâi-oân Simplified Chinese .tw
+台灣	xn--kpry57d Taiwan táiwān/tâi-oân Traditional Chinese .tw
+ไทย	xn--o3cw4h Thailand thai Thai script .th
+تونس.	xn--pgbs0dh Tunisia tūnis Arabic .tn
+укр	xn--j1amh Ukraine ukr Cyrillict delegated .ua
+امارات.	xn--mgbaam7a8h United Arab Emirates imārāt Arabic .ae
+اليمن.	xn--mgb2ddes Yemen alyemen Arabict delegated .ye
+бг	xn--90ae Bulgaria bg Bulgarian Cyrillic .bg String rejected
+ελ	xn--qxam Greece el Greek .gr String rejected
+ישראל.‎	xn--4dbrk0ce Israel Israel Hebrew .il
+日本	xn--wgv71a Japan Nippon or Nihon Kanji (both Kyūjitai and Shinjitai) .jp
+日本国	xn--vcst06ab2a Nippon-koku or Nihon-koku Kanji (Shinjitai)
+ລາວ	xn--q7ce6a Laos Lao or Laao Lao .la
+ليبيا.‎	xn--mgbb7fyab Libya Lībyā Arabic .ly
+إختبار	xn--kgbechtv ik͡htibār Arabic Arabic	http://مثال.إختبار
+آزمایشی	xn--hgbk6aj7f53bba ậzmạy̰sẖy Persian Perso-Arabic	http://مثال.آزمایشی
+测试	xn--0zwm56d cèshì Chinese Simplified Chinese	http://例子.测试
+測試	xn--g6w251d cèshì Chinese Traditional Chinese	http://例子.測試
+испытание	xn--80akhbyknj4f ispytánije Russian Cyrillic	http://пример.испытание
+परीक्षा	xn--11b5bs3a9aj6g parīkṣā Hindi Devanagari	http://उदाहरण.परीक्षा
+δοκιμή	xn--jxalpdlp dokimé Greek Greek	http://παράδειγμα.δοκιμή
+테스트	xn--9t4b11yi5a teseuteu Korean Hangul	http://실례.테스트
+טעסט	xn--deba0ad test Yiddish Hebrew	http://בײַשפּיל.טעסט
+テスト	xn--zckzah tesuto Japanese Katakana	http://例え.テスト
+பரிட்சை	xn--hlcj6aya9esc7a pariṭcai Tamil Tamil	http://உதாரணம்.பரிட்சை

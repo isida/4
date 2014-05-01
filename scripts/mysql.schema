@@ -1,0 +1,484 @@
+-- --------------------------------------------------------------------------- --
+--                                                                             --
+--    Postgresql scheme for iSida Jabber Bot                                   --
+--    Copyright (C) 2012 diSabler <dsy@dsy.name>                               --
+--                                                                             --
+--    This program is free software: you can redistribute it and/or modify     --
+--    it under the terms of the GNU General Public License as published by     --
+--    the Free Software Foundation, either version 3 of the License, or        --
+--    (at your option) any later version.                                      --
+--                                                                             --
+--    This program is distributed in the hope that it will be useful,          --
+--    but WITHOUT ANY WARRANTY; without even the implied warranty of           --
+--    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the            --
+--    GNU General Public License for more details.                             --
+--                                                                             --
+--    You should have received a copy of the GNU General Public License        --
+--    along with this program.  If not, see <http://www.gnu.org/licenses/>.    --
+--                                                                             --
+-- --------------------------------------------------------------------------- --
+
+-- --------------------------------------------------------------------------- --
+-- Create base
+--
+CREATE DATABASE isidabot DEFAULT CHARACTER SET 'utf8';
+USE isidabot;
+
+
+-- --------------------------------------------------------------------------- --
+-- Base of ages
+--
+CREATE TABLE age (
+	room text,
+	nick text,
+	jid text,
+	time integer,
+	age integer,
+	status integer,
+	type text,
+	message text,
+	no_case_nick text
+);
+
+CREATE INDEX age_rj ON age (room(64),jid(64));
+
+CREATE INDEX age_rnj ON age (room(64),nick(255),jid(64));
+
+CREATE TABLE jid (
+	login text,
+	server text,
+	resourse text
+);
+
+CREATE INDEX jid_log ON jid (login(255));
+CREATE INDEX jid_srv ON jid (server(255));
+CREATE INDEX jid_res ON jid (resourse(255));
+
+-- --------------------------------------------------------------------------- --
+-- Base of talkers
+--
+CREATE TABLE talkers (
+	room text,
+	jid text,
+	nick text,
+	words integer,
+	frases integer
+);
+
+CREATE INDEX talkers_rj ON talkers (room(64),jid(64));
+CREATE INDEX talkers_rjn ON talkers (room(64),jid(64),nick(255));
+
+-- --------------------------------------------------------------------------- --
+-- Base for `WTF` commands
+--
+CREATE TABLE wtf (
+	ind integer,
+	room text,
+	jid text,
+	nick text,
+	wtfword text,
+	wtftext text,
+	time integer,
+	lim integer
+);
+
+CREATE INDEX wtf_r ON wtf (room(64));
+CREATE INDEX wtf_rj ON wtf (room(64),jid(64));
+CREATE INDEX wtf_rw ON wtf (room(64),wtfword(255));
+
+-- --------------------------------------------------------------------------- --
+-- Answers base for random flood
+--
+CREATE TABLE answer (
+	ind integer,
+	body text
+);
+
+-- INSERT INTO answer VALUES(1,';-)');
+-- INSERT INTO answer VALUES(2,'Hi!');
+CREATE INDEX answer_id ON answer (ind);
+
+-- --------------------------------------------------------------------------- --
+-- Base for `SayTo` plugin
+--
+CREATE TABLE sayto (
+	who text,
+	room text,
+	jid text,
+	message text
+);
+
+CREATE INDEX sayto_rj ON sayto (room(64),jid(64));
+
+-- --------------------------------------------------------------------------- --
+-- User distances for `Dist` plugin
+--
+CREATE TABLE dist (
+	point text,
+	latitude text,
+	longtitude text
+);
+
+CREATE INDEX dist_di ON dist (point(255));
+
+CREATE TABLE dist_user (
+	point text,
+	latitude text,
+	longtitude text
+);
+
+CREATE INDEX dist_user_di ON dist_user (point(255));
+
+-- --------------------------------------------------------------------------- --
+-- Karma base
+--
+CREATE TABLE karma (
+	room text,
+	jid text,
+	karma int
+);
+
+CREATE INDEX karma_krj ON karma (room(64),jid(64));
+CREATE INDEX karma_crjk ON karma (room(64),jid(64),karma);
+
+CREATE TABLE karma_commiters (
+	room text,
+	jid text,
+	karmajid text,
+	last int
+);
+
+CREATE INDEX karma_commiters_rjk ON karma_commiters (room(64),jid(64),karmajid(64));
+
+CREATE TABLE karma_limits (
+	room text,
+	jid text,
+	log text
+);
+
+CREATE INDEX karma_limits_lrj ON karma_limits (room(64),jid(64));
+
+-- --------------------------------------------------------------------------- --
+-- Action list base
+--
+CREATE TABLE acl (
+	jid text,
+	action text,
+	type text,
+	text text,
+	command text,
+	time int,
+	level int default 9
+);
+
+CREATE INDEX acl_jid ON acl (jid(64),action(255),type(255));
+
+-- --------------------------------------------------------------------------- --
+-- Base for `GisMeteo` plugin
+--
+CREATE TABLE gis (
+	code text,
+	city text,
+	lcity text
+);
+
+CREATE INDEX gis_clcc ON gis (code(255),lcity(255),city(255));
+
+-- --------------------------------------------------------------------------- --
+-- DEF-Codes
+--
+CREATE TABLE def_ru_stat (
+	phone text,
+	region text,
+	city text
+);
+
+CREATE INDEX def_ru_stat_ph ON def_ru_stat (phone(255),city(255));
+
+CREATE TABLE def_ua_stat (
+	phone text,
+	region text,
+	city text
+);
+
+CREATE INDEX def_ua_stat_ph ON def_ua_stat (phone(255),city(255));
+
+CREATE TABLE def_ru_mobile (
+	provider text,
+	region text,
+	def integer,
+	defbegin integer,
+	defend integer,
+	date text
+);
+
+CREATE INDEX def_ru_mobile_ph ON def_ru_mobile (def,defbegin,defend);
+
+-- --------------------------------------------------------------------------- --
+-- WZ Weather base
+--
+CREATE TABLE wz (
+	code text,
+	city text,
+	counry text
+);
+
+CREATE INDEX wz_ccc ON wz (code(255),city(255),counry(255));
+
+-- --------------------------------------------------------------------------- --
+-- Muc-filter lock base
+--
+CREATE TABLE muc_lock (
+	room text,
+	jid text
+);
+
+CREATE INDEX muc_lock_rj ON muc_lock (room(64),jid(64));
+
+-- --------------------------------------------------------------------------- --
+-- Versions base
+--
+CREATE TABLE versions (
+	room text,
+	jid text,
+	client text,
+	version text,
+	os text,
+	time integer
+);
+
+CREATE INDEX versions_rj ON versions (room(64),jid(64));
+CREATE INDEX versions_cvo ON versions (client(255),version(255),os(255));
+CREATE INDEX versions_rjcvo ON versions (room(64),jid(64),client(255),version(255),os(255));
+
+-- --------------------------------------------------------------------------- --
+-- Issues base
+--
+CREATE TABLE issues (
+	id integer,
+	room text,
+	jid text,
+	nick text,
+	level integer,
+	tags text,
+	body text,
+	status integer,
+	date integer,
+	comment text,
+	accept_by text,
+	accept_date integer
+);
+
+CREATE INDEX issues_r ON issues (room(64),id);
+CREATE INDEX issues_d ON issues (room(64),date);
+
+-- --------------------------------------------------------------------------- --
+-- Cron base
+--
+CREATE TABLE cron (
+	room text,
+	jid text,
+	nick text,
+	time integer,
+	`repeat` text,
+	command text,
+	level integer
+);
+
+CREATE INDEX cron_r ON cron (room(64));
+CREATE INDEX cron_rt ON cron (room(64),time);
+CREATE INDEX cron_rtr ON cron (room(64),time,`repeat`(255));
+
+-- --------------------------------------------------------------------------- --
+-- Conference config
+--
+CREATE TABLE config_conf (
+	room text,
+	`option` text,
+	value text
+);
+
+CREATE INDEX config_conf_r ON config_conf (room(64));
+CREATE INDEX config_conf_ro ON config_conf (room(64),`option`(255));
+
+-- --------------------------------------------------------------------------- --
+-- Owner config
+--
+CREATE TABLE config_owner (
+	`option` varchar(255) unique,
+	value text
+);
+
+CREATE INDEX config_owner_o ON config_owner (`option`(255));
+
+-- --------------------------------------------------------------------------- --
+-- Top command
+--
+CREATE TABLE top (
+	room varchar(255) unique,
+	`count` integer,
+	time integer
+);
+
+CREATE INDEX top_r ON top (room(64));
+CREATE INDEX top_rc ON top (room(64),count);
+
+-- --------------------------------------------------------------------------- --
+-- Aliases
+--
+CREATE TABLE alias (
+	room text,
+	`match` text,
+	cmd text
+);
+
+CREATE INDEX alias_r ON alias (room(64));
+CREATE INDEX alias_rm ON alias (room(64),`match`(255));
+
+-- --------------------------------------------------------------------------- --
+-- Blacklist for rooms
+--
+CREATE TABLE blacklist (
+	room varchar(255) unique
+);
+
+-- --------------------------------------------------------------------------- --
+-- Comm ON/OFF
+--
+CREATE TABLE commonoff (
+	room text,
+	cmd text
+);
+
+CREATE INDEX commonoff_r ON commonoff (room(64));
+CREATE INDEX commonoff_rm ON commonoff (room(64),cmd(255));
+
+-- --------------------------------------------------------------------------- --
+-- Rooms list
+--
+CREATE TABLE conference (
+	room varchar(255) unique,
+	passwd text
+);
+
+-- --------------------------------------------------------------------------- --
+-- Feeds
+--
+CREATE TABLE feed (
+	url text,
+	`update` varchar(255),
+	type text,
+	time integer,
+	room text,
+	hash text,
+	changed text
+);
+
+CREATE INDEX feed_r ON feed (room(64));
+CREATE INDEX feed_rt ON feed (room(64),time);
+
+-- --------------------------------------------------------------------------- --
+-- Hiden rooms
+--
+CREATE TABLE hiden_rooms (
+	room varchar(255) unique
+);
+
+-- --------------------------------------------------------------------------- --
+-- Bot Ignore
+--
+CREATE TABLE bot_ignore (
+	pattern varchar(255) unique
+);
+
+CREATE INDEX bot_ignore_p ON bot_ignore (pattern(255));
+
+-- --------------------------------------------------------------------------- --
+-- Bot Owner
+--
+CREATE TABLE bot_owner (
+	jid varchar(255) unique
+);
+
+CREATE INDEX bot_owner_j ON bot_owner (jid(64));
+
+-- --------------------------------------------------------------------------- --
+-- Logs in rooms
+--
+CREATE TABLE log_rooms (
+	room varchar(255) unique
+);
+
+CREATE INDEX log_rooms_r ON log_rooms (room(64));
+
+-- --------------------------------------------------------------------------- --
+-- Spy for activity
+--
+CREATE TABLE spy (
+	room varchar(255) unique,
+	time integer,
+	participant integer,
+	message integer,
+	pattern text
+);
+
+CREATE INDEX spy_r ON spy (room(64));
+CREATE INDEX spy_rt ON spy (room(64),time);
+
+-- --------------------------------------------------------------------------- --
+-- Temporary ban
+--
+CREATE TABLE tmp_ban (
+	room text,
+	jid text,
+	time integer
+);
+
+CREATE INDEX tmp_ban_r ON tmp_ban (room(64));
+CREATE INDEX tmp_ban_rt ON tmp_ban (room(64),time);
+
+-- --------------------------------------------------------------------------- --
+-- Say to owner
+--
+CREATE TABLE saytoowner (
+	jid varchar(255) unique,
+	time integer
+);
+
+-- --------------------------------------------------------------------------- --
+-- Ignore ban for global_ban
+--
+CREATE TABLE ignore_ban (
+	room varchar(255) unique
+);
+
+-- --------------------------------------------------------------------------- --
+-- First join time
+--
+CREATE TABLE first_join (
+	room text,
+	jid text,
+	time integer
+);
+
+CREATE INDEX join_rj ON first_join (room(64),jid(64));
+
+-- --------------------------------------------------------------------------- --
+-- URL Storage
+--
+CREATE TABLE url (
+	room text,
+	jid text,
+	nick text,
+	time integer,
+	url text,
+	title text);
+
+CREATE INDEX url_r ON url (room(64));
+CREATE INDEX url_rj ON url (room(64),jid(64));
+CREATE INDEX url_rjn ON url (room(64),jid(64),nick(255));
+CREATE INDEX url_rt ON url (room(64),time);
+
+-- --------------------------------------------------------------------------- --
+-- THE END
+-- --------------------------------------------------------------------------- --

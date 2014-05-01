@@ -1,0 +1,39 @@
+-- --------------------------------------------------------------------------- --
+--                                                                             --
+--    Postgresql scheme for iSida Jabber Bot                                   --
+--    Copyright (C) 2012 diSabler <dsy@dsy.name>                               --
+--                                                                             --
+--    This program is free software: you can redistribute it and/or modify     --
+--    it under the terms of the GNU General Public License as published by     --
+--    the Free Software Foundation, either version 3 of the License, or        --
+--    (at your option) any later version.                                      --
+--                                                                             --
+--    This program is distributed in the hope that it will be useful,          --
+--    but WITHOUT ANY WARRANTY; without even the implied warranty of           --
+--    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the            --
+--    GNU General Public License for more details.                             --
+--                                                                             --
+--    You should have received a copy of the GNU General Public License        --
+--    along with this program.  If not, see <http://www.gnu.org/licenses/>.    --
+--                                                                             --
+-- --------------------------------------------------------------------------- --
+
+-- --------------------------------------------------------------------------- --
+-- URL Storage
+--
+CREATE TABLE url (
+	room text,
+	jid text,
+	nick text,
+	time integer,
+	url text,
+	title text);
+
+CREATE INDEX url_r ON url (room);
+CREATE INDEX url_rj ON url (room,jid);
+CREATE INDEX url_rjn ON url (room,jid,nick);
+CREATE INDEX url_rt ON url (room,time);
+
+-- --------------------------------------------------------------------------- --
+-- THE END
+-- --------------------------------------------------------------------------- --

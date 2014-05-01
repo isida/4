@@ -1,0 +1,51 @@
+{"ithap":
+    {"title": "IT happens",
+    "random": ["http://ithappens.ru/random", "<p class=&quot;text&quot; id=&quot;story_\\d+?&quot;>((?:.|\\s)+?)</p>"],
+    "number": ["http://ithappens.ru/story/%s", "<p class=&quot;text&quot; id=&quot;story_\\d+?&quot;>((?:.|\\s)+?)</p>"]},
+"bash":
+    {"title": "bash.im - Цитатник Рунета",
+    "random": ["http://bash.im/random", "<div class=&quot;text&quot;>((?:.|\\s)+?)</div>"],
+    "number": ["http://bash.im/quote/%s", "<div class=&quot;text&quot;>((?:.|\\s)+?)</div>"],
+    "search": ["http://bash.im/?text=%s", "<div class=&quot;text&quot;>((?:.|\\s)+?)</div>", "cp1251"]},
+"ibash":
+    {"title": "ibash.org.ru — Новый цитатник Рунета",
+    "random": ["http://ibash.org.ru/random.php", "<div class=&quot;quotbody&quot;>((?:.|\\s)+?)</div>"],
+    "number": ["http://ibash.org.ru/quote.php?id=%s", "<div class=&quot;quotbody&quot;>((?:.|\\s)+?)</div>"]},
+"ukrbash":
+    {"title": "УкрБаш — український цитатник!",
+    "random": ["http://ukrbash.org/random", "<div class=&quot;text&quot;>((?:.|\\s)+?)</div>"],
+    "number": ["http://ukrbash.org/quote/%s", "<meta name=&quot;description&quot; content=&quot;((?:.|\\s)+?)&quot; />"],
+    "search": ["http://ukrbash.org/search?q=%s", "<div class=&quot;text&quot;>((?:.|\\s)+?)</div>", "utf-8"]},
+"zadolbali":
+    {"title": "zadolba.li",
+    "random": ["http://zadolba.li/random/", "<p class=&quot;the&quot; id=&quot;story_\\d+?&quot;>((?:.|\\s)+?)</p>"],
+    "number": ["http://zadolba.li/story/%s", "<p class=&quot;the&quot; id=&quot;story_\\d+?&quot;>((?:.|\\s)+?)</p>"]},
+"bashbox":
+    {"title": "Анекдоты и приколы {BashBox}",
+    "random": ["http://bashbox.net/random", "<blockquote>((?:.|\\s)+?)</blockquote>"],
+    "number": ["http://bashbox.net/quote/%s", "<blockquote>((?:.|\\s)+?)</blockquote>"]},
+"lor":
+    {"title": "Избранные цитаты с сайта Linux.Org.Ru",
+    "number": ["http://www.lorquotes.ru/view-quote.php?id=%s", "<div class=&quot;q-text&quot;>((?:.|\\s)+?)</div>\\s+?<div class=&quot;q-sign&quot;>"]},  
+"wotq":
+    {"title": "Цитатник Мира Танков",
+    "number": ["http://wotq.ru/?q=id&id=%s", "<blockquote>((?:.|\\s)+?)</blockquote>"]},
+"short":
+    {"title": "Shortики - короткие и смешные",
+    "random": ["http://shortiki.com/random.php", "<div class=&quot;shortik&quot;>((?:.|\\s)+?)</div>"],
+    "number": ["http://shortiki.com/shortik.php?shortik=%s", "<div class=&quot;shortik&quot;>((?:.|\\s)+?)</div>"]},
+"det":
+    {"title": "Говорят дети",
+    "random": ["http://det.org.ru/?page=random", "<div class=&quot;history&quot;>((?:.|\\s)+?)</div>"],
+    "number": ["http://det.org.ru/?quote=%s", "<div class=&quot;history&quot;>((?:.|\\s)*?)</div>"],
+    "search": ["http://det.org.ru/?page=find&query=%s", "<div class=&quot;history&quot;>((?:.|\\s)+?)</div>", "cp1251"]},
+"afor":
+    {"title": "Юмор: афоризмы о юморе и юмористические высказывания",
+    "random": ["http://skio.ru/quotes/humour_quotes.php", "<form id=&quot;qForm&quot; method=&quot;post&quot;><div align=&quot;center&quot;>((?:.|\\s)+?)</div>"]},
+"nya":
+    {"title": "nya.sh - НЯШ",
+    "number": ["http://nya.sh/post/%s", "<div class=\"content\">((?:.|\\s)*?)</div>"]},
+"dev":
+    {"title": "devanswers.ru - Девелопер ответит",
+    "random": ["http://devanswers.ru/", "<a href=\"/\" id=\"lnkReload\"><span>(.*?)</span>"]}
+}
