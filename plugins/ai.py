@@ -83,6 +83,7 @@ def AI_PARSE(room, jid, nick, type, text):
 	if not WAS_PARAM:
 		if time_nolimit: time.sleep(time_nolimit)
 		com_parser(access_mode, nowname, type, room, nick, COMMAND, jid)
+	return True
 
 def AI_RATING(s, text, room):
 	r,s = 0.0,s.split('|')
