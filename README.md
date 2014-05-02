@@ -1,13 +1,17 @@
 4th version of iSida bot
 ======
+------
 
-New AI parser for messages!
+What's new?
+* AI parser for messages!
 
-======
+------
 
-* [Official site](http://isida-bot.com/wiki) 
+More info:
+* Official [site](http://isida-bot.com) 
 * Information about Installation or Update at [WIKI](http://isida-bot.com/wiki)
+* Xmpp conference [isida@conference.jabber.ru](xmpp:isida@conference.jabber.ru?join)
 
-======
+------
 
-(c) diSabler
+Copyright 2oo9..2o14 by [diSabler](http://dsy.name) under [GPLv3](http://www.gnu.org/licenses/gpl.txt) Licence
