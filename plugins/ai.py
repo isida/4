@@ -40,6 +40,8 @@ def AI_PARSE(room, jid, nick, type, text):
 	if not get_config(room,'ai'): return
 	LOC = get_L_('%s/%s' % (room,nick))
 	if not AI_PHRASES.has_key(LOC): return
+	access_mode = get_level(room,nick)[0]
+	if access_mode < 4: return
 	TEXT = ' %s ' % text.lower()
 	SCORE, CMD = 1.0, []
 	for PHRASES in AI_PHRASES[LOC]:
@@ -53,7 +55,6 @@ def AI_PARSE(room, jid, nick, type, text):
 	CMD = random.choice(CMD)
 	CMD_RAW = CMD[0].split()[0]
 	pprint('AI selected %s' % CMD_RAW,'cyan')
-	access_mode = get_level(room,nick)[0]
 	if cur_execute_fetchone('select * from commonoff where room=%s and cmd=%s',(room,CMD_RAW)): return
 	ptype = ''
 	for t in comms:
@@ -101,7 +102,6 @@ def AI_PARAMETER(body, type, room):
 		for NICK in NICKS:
 			if NICK in body:
 				P_NICK.append(NICK)
-				break
 
 	if 'jid' in type:
 		JID = re.findall(u'[-a-z0-9а-яё_]+@[-0-9a-z\.]+',body,re.S|re.I|re.U)
