@@ -23,6 +23,8 @@
 
 # [u'devel@conference.jabber.ru', u'sulci', u'moderator', u'admin', u'sulci@jabber.ru/Ocaml']
 
+AI_PREFIX = '!ai_'
+
 AI_PREV = {}
 AI_PHRASES_FOLDER = data_folder % 'ai/%s'
 AI_PHRASES_FILES = [t for t in os.listdir(AI_PHRASES_FOLDER % '') if t.endswith('.txt') and os.path.isfile(AI_PHRASES_FOLDER % t)]
@@ -35,6 +37,33 @@ for PH_LANG in AI_PHRASES_FILES:
 		if LINE.strip() and not LINE.strip().startswith('#') and '\t' in LINE:
 			if not AI_PHRASES.has_key(PH_L): AI_PHRASES[PH_L] = [LINE.split('\t',1)]
 			else: AI_PHRASES[PH_L].append(LINE.split('\t',1))
+
+def AI_UNIQUE(M):
+	m = []
+	for t in M:
+		if t not in m: m.append(t)
+	return m
+			
+def AI_RAW(CMD, RAW, RN):
+	CMD = CMD.replace(AI_PREFIX,'',1)
+	if CMD.startswith('drink') and os.path.isfile(date_file):
+		RAW_SPLIT = RAW.lower().replace('?','').strip().split()
+		DRINK = drink_dmas + drink_mmas1 + drink_mmas2 + drink_wday + drink_lday
+		INIT_DRINK = re.findall('[0-9]+', RAW, re.S)
+		if INIT_DRINK: INIT_DRINK = ['.'.join(INIT_DRINK)]
+		for t in DRINK:
+			DRINK_LOCALE = L(t, RN).lower()
+			if DRINK_LOCALE in RAW_SPLIT: INIT_DRINK.append(DRINK_LOCALE)
+		if len(INIT_DRINK) >= 2: return CMD.replace('{RAW}', ' '.join(AI_UNIQUE(INIT_DRINK))), True
+		else:
+			ddate = readfile(date_file).decode('UTF').lower().split('\n')
+			for DATE in ddate:
+				DATE_SPLIT = DATE.split()
+				for R in RAW_SPLIT:
+					if R in DATE_SPLIT: 
+						INIT_DRINK.append(R)
+			if INIT_DRINK: return CMD.replace('{RAW}', ' '.join(AI_UNIQUE(INIT_DRINK))), True
+	return '', False
 
 def AI_PARSE(room, jid, nick, type, text):
 	if not get_config(room,'ai'): return
@@ -64,6 +93,7 @@ def AI_PARSE(room, jid, nick, type, text):
 	if 'nick' in ptype and '||' in CMD[1]:
 		for t in CMD[1].split('||')[1].split('|'):
 			text = text.replace(t,nick)
+
 	PRM = AI_PARAMETER(text, ptype, room)
 	
 	if 'nick' in ptype:
@@ -75,17 +105,27 @@ def AI_PARSE(room, jid, nick, type, text):
 		if not PP: PRM.append(nick)
 
 	COMMAND = CMD[0]
-	COMMAND = COMMAND.replace('{TOMORROW}',time.strftime('%d.%m', time.localtime(time.time()+86400)))
-	WAS_PARAM = False
-	for PARAM in PRM:
-		if PARAM:
+	if COMMAND.startswith(AI_PREFIX):
+		for PHRASES in AI_PHRASES[LOC]:
+			if PHRASES[0] == COMMAND:
+				for t in PHRASES[1].split('||')[0].lower().split('|'):
+					TEXT = TEXT.lower().replace(t,'')
+		COMMAND, IS_PARSED = AI_RAW(COMMAND, TEXT, '%s/%s'%(jid,nick))
+		if IS_PARSED:
+			com_parser(access_mode, nowname, type, room, nick, COMMAND, jid)
+			return True
+	else:
+		COMMAND = COMMAND.replace('{TOMORROW}',time.strftime('%d.%m', time.localtime(time.time()+86400)))
+		WAS_PARAM = False
+		for PARAM in PRM:
+			if PARAM:
+				if time_nolimit: time.sleep(time_nolimit)
+				com_parser(access_mode, nowname, type, room, nick, COMMAND.replace('{PAR}',PARAM), jid)
+				WAS_PARAM = True
+		if not WAS_PARAM:
 			if time_nolimit: time.sleep(time_nolimit)
-			com_parser(access_mode, nowname, type, room, nick, COMMAND.replace('{PAR}',PARAM), jid)
-			WAS_PARAM = True
-	if not WAS_PARAM:
-		if time_nolimit: time.sleep(time_nolimit)
-		com_parser(access_mode, nowname, type, room, nick, COMMAND, jid)
-	return True
+			com_parser(access_mode, nowname, type, room, nick, COMMAND, jid)
+		return True
 
 def AI_RATING(s, text, room):
 	r,s = 0.0,s.split('|')

@@ -21,25 +21,18 @@
 #                                                                             #
 # --------------------------------------------------------------------------- #
 
+# translate: first,second,third,fourth,fifth,sixth,seventh,eighth,nineth,tenth,eleventh,twelveth,thirteenth,fourteenth,fivteenth,sixteenth,seventeenth,eighteenth,nineteenth,twentieth,twenty-first,twenty-second,twenty-third,twenty-fourth,twenty-fifth,twenty-sixth,twenty-seventh,twenty-eighth,twenty-nineth,thirtieth,thirty-first,january,february,march,april,may,june,july,august,september,october,november,december,January,February,March,April,May,June,July,August,September,October,November,December,monday,tuesday,wendesday,thirsday,friday,saturday,sunday,last,last,Last,last,Last,Last,lAst
+
+drink_dmas = ['first','second','third','fourth','fifth','sixth','seventh','eighth','nineth','tenth','eleventh','twelveth',
+			'thirteenth','fourteenth','fivteenth','sixteenth','seventeenth','eighteenth','nineteenth','twentieth',
+			'twenty-first','twenty-second','twenty-third','twenty-fourth','twenty-fifth','twenty-sixth','twenty-seventh',
+			'twenty-eighth','twenty-nineth','thirtieth','thirty-first']
+drink_mmas1 = ['january','february','march','april','may','june','july','august','september','october','november','december']
+drink_mmas2 = ['January','February','March','April','May','June','July','August','September','October','November','December']
+drink_wday = ['monday','tuesday','wendesday','thirsday','friday','saturday','sunday']
+drink_lday = ['last','last','Last','last','Last','Last','lAst']
+
 def to_drink(type, jid, nick, text):
-	dmas = [L('first','%s/%s'%(jid,nick)),L('second','%s/%s'%(jid,nick)),L('third','%s/%s'%(jid,nick)),L('fourth','%s/%s'%(jid,nick)),
-			L('fifth','%s/%s'%(jid,nick)),L('sixth','%s/%s'%(jid,nick)),L('seventh','%s/%s'%(jid,nick)),L('eighth','%s/%s'%(jid,nick)),
-			L('nineth','%s/%s'%(jid,nick)),L('tenth','%s/%s'%(jid,nick)),L('eleventh','%s/%s'%(jid,nick)),L('twelveth','%s/%s'%(jid,nick)),
-			L('thirteenth','%s/%s'%(jid,nick)),L('fourteenth','%s/%s'%(jid,nick)),L('fivteenth','%s/%s'%(jid,nick)),L('sixteenth','%s/%s'%(jid,nick)),
-			L('seventeenth','%s/%s'%(jid,nick)),L('eighteenth','%s/%s'%(jid,nick)),L('nineteenth','%s/%s'%(jid,nick)),('twentieth'),
-			L('twenty-first','%s/%s'%(jid,nick)),L('twenty-second','%s/%s'%(jid,nick)),L('twenty-third','%s/%s'%(jid,nick)),
-			L('twenty-fourth','%s/%s'%(jid,nick)),L('twenty-fifth','%s/%s'%(jid,nick)),L('twenty-sixth','%s/%s'%(jid,nick)),L('twenty-seventh','%s/%s'%(jid,nick)),
-			L('twenty-eighth','%s/%s'%(jid,nick)),L('twenty-nineth','%s/%s'%(jid,nick)),L('thirtieth','%s/%s'%(jid,nick)),L('thirty-first','%s/%s'%(jid,nick))]
-	mmas1 = [L('january','%s/%s'%(jid,nick)),L('february','%s/%s'%(jid,nick)),L('march','%s/%s'%(jid,nick)),L('april','%s/%s'%(jid,nick)),
-			 L('may','%s/%s'%(jid,nick)),L('june','%s/%s'%(jid,nick)),L('july','%s/%s'%(jid,nick)),L('august','%s/%s'%(jid,nick)),
-			 L('september','%s/%s'%(jid,nick)),L('october','%s/%s'%(jid,nick)),L('november','%s/%s'%(jid,nick)),L('december','%s/%s'%(jid,nick))]
-	mmas2 = [L('January','%s/%s'%(jid,nick)),L('February','%s/%s'%(jid,nick)),L('March','%s/%s'%(jid,nick)),L('April','%s/%s'%(jid,nick)),
-			 L('May','%s/%s'%(jid,nick)),L('June','%s/%s'%(jid,nick)),L('July','%s/%s'%(jid,nick)),L('August','%s/%s'%(jid,nick)),
-			 L('September','%s/%s'%(jid,nick)),L('October','%s/%s'%(jid,nick)),L('November','%s/%s'%(jid,nick)),L('December','%s/%s'%(jid,nick))]
-	wday = [L('monday','%s/%s'%(jid,nick)),L('tuesday','%s/%s'%(jid,nick)),L('wendesday','%s/%s'%(jid,nick)),L('thirsday','%s/%s'%(jid,nick)),
-			L('friday','%s/%s'%(jid,nick)),L('saturday','%s/%s'%(jid,nick)),L('sunday','%s/%s'%(jid,nick))]
-	lday = [L('last','%s/%s'%(jid,nick)),L('last','%s/%s'%(jid,nick)),L('Last','%s/%s'%(jid,nick)),L('last','%s/%s'%(jid,nick)),
-			L('Last','%s/%s'%(jid,nick)),L('Last','%s/%s'%(jid,nick)),L('lAst','%s/%s'%(jid,nick))]
 	if os.path.isfile(date_file):
 		ddate = readfile(date_file).decode('UTF')
 		week1 = ''
@@ -48,16 +41,15 @@ def to_drink(type, jid, nick, text):
 		else:
 			if len(text) <= 2:
 				ltim = tuple(time.localtime())
-				text = '%s %s' % (ltim[2], mmas2[ltim[1]-1])
-				week1 = '%s %s %s' % (ltim[2]/7+(ltim[2]%7 > 0), wday[ltim[6]], mmas2[ltim[1]-1])
-				if ltim[2]+7 > calendar.monthrange(ltim[0], ltim[1])[1]: week2 = '%s %s %s' % (lday[ltim[6]].lower(), wday[ltim[6]], mmas2[ltim[1]-1])
+				text = '%s %s' % (ltim[2], L(drink_mmas2[ltim[1]-1],'%s/%s'%(jid,nick)))
+				week1 = '%s %s %s' % (ltim[2]/7+(ltim[2]%7 > 0), L(drink_wday[ltim[6]],'%s/%s'%(jid,nick)), L(drink_mmas2[ltim[1]-1],'%s/%s'%(jid,nick)))
+				if ltim[2]+7 > calendar.monthrange(ltim[0], ltim[1])[1]: week2 = '%s %s %s' % (L(drink_lday[ltim[6]].lower(),'%s/%s'%(jid,nick)), L(drink_wday[ltim[6]],'%s/%s'%(jid,nick)), L(drink_mmas2[ltim[1]-1],'%s/%s'%(jid,nick)))
 			or_text = text
 			if text.count('.')==1: text = text.split('.')
 			elif text.count(' ')==1: text = text.split(' ')
 			else: text = [text]
 			msg = ''
 			ddate = ddate.split('\n')
-			ltxt = len(text)
 			for tmp in ddate:
 				if or_text.lower() in tmp.lower(): msg += '\n'+tmp
 				elif week1.lower() in tmp.lower() and week1 != '': msg += '\n'+tmp
@@ -66,13 +58,13 @@ def to_drink(type, jid, nick, text):
 					try:
 						ttmp = tmp.split(' ')[0].split('.')
 						tday = [ttmp[0]]
-						tday.append(dmas[int(ttmp[0])-1])
+						tday.append(L(drink_dmas[int(ttmp[0])-1],'%s/%s'%(jid,nick)))
 						tmonth = [ttmp[1]]
-						tmonth.append(mmas1[int(ttmp[1])-1])
-						tmonth.append(mmas2[int(ttmp[1])-1])
+						tmonth.append(L(drink_mmas1[int(ttmp[1])-1],'%s/%s'%(jid,nick)))
+						tmonth.append(L(drink_mmas2[int(ttmp[1])-1],'%s/%s'%(jid,nick)))
 						tmonth.append(str(int(ttmp[1])))
-						t = tday.index(text[0])
-						t = tmonth.index(text[1])
+						t = tday.index(L(text[0],'%s/%s'%(jid,nick)))
+						t = tmonth.index(L(text[1],'%s/%s'%(jid,nick)))
 						msg += '\n'+tmp
 					except: pass
 			if msg == '': msg = L('Holiday: %s not found.','%s/%s'%(jid,nick)) % or_text
@@ -106,5 +98,5 @@ def calend(type, jid, nick, text):
 
 global execute
 
-execute = [(3, 'drink', to_drink, 2, 'Find holiday\ndrink [name_holiday/date]'),
+execute = [(3, 'drink', to_drink, 2, 'Find holiday\ndrink [name_holiday/date]',['raw']),
 		(3, 'calend', calend, 2, 'Find holiday\ncalend [name_holiday/date]')]
