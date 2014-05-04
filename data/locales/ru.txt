@@ -328,6 +328,7 @@ sixteenth	шестнадцатое
 seventeenth	семнадцатое
 eighteenth	восемнадцатое
 nineteenth	девятнадцатое
+twentieth	двадцать
 twenty-first	двадцать первое
 twenty-second	двадцать второе
 twenty-third	двадцать третье
@@ -371,6 +372,10 @@ friday	пятница
 saturday	суббота
 sunday	воскресенье
 last	последний
+last	последний
+Last	последняя
+last	последний
+Last	последняя
 Last	последняя
 lAst	последнее
 Read file error.	Ошибка чтения файла.
@@ -644,16 +649,19 @@ KB	КБ
 users/all-hosts/total	всего пользователей на всех хостах
 users/all-hosts/online	онлайн пользователей на всех хостах
 users/total	всего пользователей
+Caps %s is %s	У %s капс %s
 I can't get caps of %s	Я не знаю капс %s
 %s has empty caps!	У %s пустой капс!
 vCard:	Визитка:
 Empty!	Пусто!
 type %s, %s	тип %s, %s
-Uptime: %s	Аптайм: %s
+Uptime %s: %s	Аптайм %s: %s
 I can't do it	Не получается...
 Ping from you %s sec.	Пинг от тебя %s сек.
 Ping from %s %s sec.	Пинг от %s %s сек.
+Time %s is %s	У %s время %s
 Unknown server answer!	Неизвестный ответ сервера!
+Version %s is %s	У %s версия %s
 Unavailable!	Недоступно!
 Server statistic: %s\n%s	Статистика сервера: %s\n%s
 Client version.	Версия клиента.
@@ -1832,5 +1840,5 @@ Youtube settings	Настройки youtube
 API settings	Настройки API
 
 # write locale file: ru.txt
-# total: 1480
-# missed translations: 2
+# total: 1419
+# regenarated without mistakes!

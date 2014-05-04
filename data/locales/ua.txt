@@ -371,6 +371,10 @@ friday	п'ятниця
 saturday	субота
 sunday	неділя
 last	останній
+last	останній
+Last	остання
+last	останній
+Last	остання
 Last	остання
 lAst	остання
 Read file error.	Помилка читання файлу.
@@ -649,7 +653,7 @@ I can't get caps of %s	Я не знаю капс %s
 vCard:	Візитка:
 Empty!	Пусто!
 type %s, %s	тип %s, %s
-Uptime: %s	Аптайм: %s
+Uptime %s: %s	Аптайм %s: %s
 I can't do it	Не виходить...
 Ping from you %s sec.	Пінг від тебе - %s сек.
 Ping from %s %s sec.	Пінг від %s - %s сек.
@@ -1832,5 +1836,5 @@ Youtube settings	Налаштування Youtube
 API settings	Налаштування API
 
 # write locale file: ua.txt
-# total: 1480
-# missed translations: 2
+# total: 1419
+# missed translations: 4
