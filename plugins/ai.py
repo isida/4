@@ -56,6 +56,7 @@ def AI_RAW(CMD, RAW, RN):
 			if DRINK_LOCALE in RAW_SPLIT: INIT_DRINK.append(DRINK_LOCALE)
 		if len(INIT_DRINK) == 2: return CMD.replace('{RAW}', ' '.join(AI_UNIQUE(INIT_DRINK))), True
 		else:
+			INIT_DRINK = []
 			ddate = readfile(date_file).decode('UTF').lower().split('\n')
 			for DATE in ddate:
 				DATE_SPLIT = DATE.split()
