@@ -60,8 +60,7 @@ def AI_RAW(CMD, RAW, RN):
 			for DATE in ddate:
 				DATE_SPLIT = DATE.split()
 				for R in RAW_SPLIT:
-					if R in DATE_SPLIT: 
-						INIT_DRINK.append(R)
+					if len(R) >= 3 and R in DATE_SPLIT: INIT_DRINK.append(R)
 			if INIT_DRINK: return CMD.replace('{RAW}', ' '.join(AI_UNIQUE(INIT_DRINK))), True
 	return '', False
 
