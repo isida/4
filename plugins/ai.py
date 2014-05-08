@@ -157,4 +157,4 @@ def AI_PARAMETER(body, type, room):
 		
 	return RESULT
 
-gmessage.append(AI_PARSE)
+gactmessage.append(AI_PARSE)
