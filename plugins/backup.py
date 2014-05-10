@@ -141,7 +141,7 @@ def conf_backup(type, jid, nick, text):
 							if not isit: cur_execute('insert into acl values (%s,%s,%s,%s,%s,%s,%s)', tuple([jid]+list(tmp)))
 						for tmp in raw_back['rss']:
 							isit = cur_execute_fetchone('select * from feed where room=%s and url=%s',(jid,tmp[0]))
-							if not isit: cur_execute('insert into feeed (url, update ,type,time,room,hash) values (%s,%s,%s,%s,%s,%s)',(tmp[0],tmp[1],tmp[2],tmp[3],jid,tmp[4]))
+							if not isit: cur_execute('insert into feed (url, update ,type,time,room,hash) values (%s,%s,%s,%s,%s,%s)',(tmp[0],tmp[1],tmp[2],tmp[3],jid,tmp[4]))
 						msg = L('Restore completed.','%s/%s'%(jid,nick))
 						msg += L('\nOwners: %s | Admins: %s | Members: %s | Banned: %s','%s/%s'%(jid,nick)) % (\
 							len(raw_back['owner'])-1,\
