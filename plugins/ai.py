@@ -54,14 +54,14 @@ def AI_RAW(CMD, RAW, RN):
 		for t in DRINK:
 			DRINK_LOCALE = L(t, RN).lower()
 			if DRINK_LOCALE in RAW_SPLIT: INIT_DRINK.append(DRINK_LOCALE)
-		if len(INIT_DRINK) >= 2: return CMD.replace('{RAW}', ' '.join(AI_UNIQUE(INIT_DRINK))), True
+		if len(INIT_DRINK) == 2: return CMD.replace('{RAW}', ' '.join(AI_UNIQUE(INIT_DRINK))), True
 		else:
+			INIT_DRINK = []
 			ddate = readfile(date_file).decode('UTF').lower().split('\n')
 			for DATE in ddate:
 				DATE_SPLIT = DATE.split()
 				for R in RAW_SPLIT:
-					if R in DATE_SPLIT: 
-						INIT_DRINK.append(R)
+					if len(R) > 3 and R in DATE_SPLIT: INIT_DRINK.append(R)
 			if INIT_DRINK: return CMD.replace('{RAW}', ' '.join(AI_UNIQUE(INIT_DRINK))), True
 	return '', False
 
@@ -157,4 +157,4 @@ def AI_PARAMETER(body, type, room):
 		
 	return RESULT
 
-gmessage.append(AI_PARSE)
+gactmessage.append(AI_PARSE)
