@@ -1707,7 +1707,7 @@ if os.path.isdir(sm_f):
 else: smiles_dirs, smiles_dirs_case = [], []
 
 logging.basicConfig(filename=LOG_FILENAME,level=logging.DEBUG,)	# включение логгирования
-capsNode = 'http://isida-bot.com/4'
+capsNode = 'http://v4.isida-bot.com'
 god = SuperAdmin.lower()
 
 pprint('-'*50,'blue')

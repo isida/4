@@ -649,18 +649,22 @@ KB	КБ
 users/all-hosts/total	всего пользователей на всех хостах
 users/all-hosts/online	онлайн пользователей на всех хостах
 users/total	всего пользователей
-Caps %s is %s	У %s капс %s
 I can't get caps of %s	Я не знаю капс %s
 %s has empty caps!	У %s пустой капс!
+Your caps is %s	Твой капс: %s
+Caps %s is %s	У %s капс %s
 vCard:	Визитка:
 Empty!	Пусто!
 type %s, %s	тип %s, %s
+Your uptime: %s	Твой аптайм: %s
 Uptime %s: %s	Аптайм %s: %s
 I can't do it	Не получается...
 Ping from you %s sec.	Пинг от тебя %s сек.
 Ping from %s %s sec.	Пинг от %s %s сек.
+Your time is %s	Твоё время: %s
 Time %s is %s	У %s время %s
 Unknown server answer!	Неизвестный ответ сервера!
+Your version is %s	Твоя версия: %s
 Version %s is %s	У %s версия %s
 Unavailable!	Недоступно!
 Server statistic: %s\n%s	Статистика сервера: %s\n%s
@@ -1840,5 +1844,5 @@ Youtube settings	Настройки youtube
 API settings	Настройки API
 
 # write locale file: ru.txt
-# total: 1419
+# total: 1423
 # regenarated without mistakes!

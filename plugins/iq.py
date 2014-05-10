@@ -97,9 +97,11 @@ def get_caps(room,nick):
 
 def noiq_caps(type, jid, nick, text):
 	text = [text,nick][text == '']
-	msg = L('Caps %s is %s','%s/%s'%(jid,nick)) % (text,get_caps(jid,text))
-	if not msg: msg = L('I can\'t get caps of %s','%s/%s'%(jid,nick)) % text
-	elif len(msg) == msg.count(' ')+msg.count('\n'): msg = L('%s has empty caps!','%s/%s'%(jid,nick)) % text
+	caps = get_caps(jid,text)
+	if not caps: msg = L('I can\'t get caps of %s','%s/%s'%(jid,nick)) % text
+	elif len(caps) == caps.count(' ') + caps.count('\n'): msg = L('%s has empty caps!','%s/%s'%(jid,nick)) % text
+	elif text == nick: msg = L('Your caps is %s','%s/%s'%(jid,nick)) % caps
+	else: msg = L('Caps %s is %s','%s/%s'%(jid,nick)) % (text,caps)
 	send_msg(type, jid, nick, msg)
 
 def iq_vcard(type, jid, nick, text):
@@ -171,7 +173,9 @@ def uptime_async(type, jid, nick, text, is_answ):
 	if not text: text = nick
 	isa = is_answ[1][0]
 	try:
-		msg = L('Uptime %s: %s','%s/%s'%(jid,nick)) % (text,un_unix(int(get_tag_item(isa,'query','seconds')),'%s/%s'%(jid,nick)))
+		tstr = un_unix(int(get_tag_item(isa,'query','seconds')),'%s/%s'%(jid,nick))
+		if text == nick: msg = L('Your uptime: %s','%s/%s'%(jid,nick)) % tstr
+		else: msg = L('Uptime %s: %s','%s/%s'%(jid,nick)) % (text,tstr)
 		up_stat = esc_min(get_tag(isa,'query'))
 		if len(up_stat): msg = '%s // %s' % (msg,up_stat)
 	except: msg = L('I can\'t do it','%s/%s'%(jid,nick))
@@ -226,7 +230,8 @@ def time_async(type, jid, nick, text, mode, is_answ):
 		msg = isa[0]
 		if mode: msg += ', Raw time: %s, TimeZone: %s' % (isa[1],isa[2])
 	else: msg = ' '.join(isa)
-	msg = L('Time %s is %s','%s/%s'%(jid,nick)) % (text,msg)
+	if text == nick: msg = L('Your time is %s','%s/%s'%(jid,nick)) % msg
+	else: msg = L('Time %s is %s','%s/%s'%(jid,nick)) % (text,msg)
 	send_msg(type, jid, nick, msg)
 
 def iq_utime(type, jid, nick, text):
@@ -250,13 +255,13 @@ def utime_async(type, jid, nick, text, mode, is_answ):
 		try:
 			ttup = isa[0].replace('T','-').replace('Z','').replace(':','-').split('-')+['0','0',str(tuple(time.localtime())[8])]
 			lt = time.localtime(time.mktime([int(tmp.split('.',1)[0]) for tmp in ttup])+(int(isa[1].split(':')[0])*60+int(isa[1].split(':')[1]))*60)
-			
 			timeofset = float(isa[1].replace(':','.'))
 			if timeofset < 0: t_gmt = 'GMT%s' % int(timeofset)
 			else: t_gmt = 'GMT+%s' % int(timeofset)
 			if timeofset%1: t_gmt += ':%02d' % int((timeofset%1*60/100) * 100)
-			
-			msg = L('Time %s is %s','%s/%s'%(jid,nick)) % (text,'%02d:%02d:%02d, %02d.%s\'%s, %s, %s' % (lt[3],lt[4],lt[5],lt[2],L(wmonth[lt[1]-1],'%s/%s'%(jid,nick)),lt[0],L(wday[lt[6]],'%s/%s'%(jid,nick)),t_gmt))
+			tstr = '%02d:%02d:%02d, %02d.%s\'%s, %s, %s' % (lt[3],lt[4],lt[5],lt[2],L(wmonth[lt[1]-1],'%s/%s'%(jid,nick)),lt[0],L(wday[lt[6]],'%s/%s'%(jid,nick)),t_gmt)
+			if text in ['',nick]: msg = L('Your time is %s','%s/%s'%(jid,nick)) % tstr
+			else: msg = L('Time %s is %s','%s/%s'%(jid,nick)) % (text,tstr)
 			if mode: msg = '%s | %s %s' % (msg,isa[0],isa[1])
 		except: msg = '%s %s' % (L('Unknown server answer!','%s/%s'%(jid,nick)),isa[0])
 	send_msg(type, jid, nick, msg)
@@ -280,7 +285,8 @@ def version_async(type, jid, nick, text, with_caps, is_answ):
 	if with_caps:
 		caps = get_caps(jid,[text,nick][text == ''])
 		if caps: msg += ' || %s' % caps
-	msg = L('Version %s is %s','%s/%s'%(jid,nick)) % (text,msg)
+	if text in ['',nick]: msg = L('Your version is %s','%s/%s'%(jid,nick)) % msg
+	else: msg = L('Version %s is %s','%s/%s'%(jid,nick)) % (text,msg)
 	send_msg(type, jid, nick, msg)
 
 def iq_stats(type, jid, nick, text):
