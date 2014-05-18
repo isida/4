@@ -3,6 +3,7 @@
 
 What's new?
 * AI parser for messages!
+* Developer tools are included.
 
 More info:
 * Official [site](http://isida-bot.com) 
