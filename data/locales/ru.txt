@@ -467,6 +467,12 @@ Info about your life. Example: life dd.mm.yy [hour:min:sec]	Информация
 Zalgo translate	Залго-транслитерация
 Information about hero from Godville.net.\ngodville [last|stat|extstat|inv|quest] username	Информация о герое на Godville.net.\ngodville [last|stat|extstat|inv|quest] имя_пользователя
 
+# file: plugins/geoip.py
+IP: %s\nAddress: %s, %s, %s, %s\nLat/lon: %s/%s | Metro/Area: %s/%s	IP: %s\nАдрес: %s, %s, %s, %s\nШир/дол: %s/%s | Метро/Зона: %s/%s
+GEO info not found!	ГЕО информация не найдена!
+I can't resolve it	Не резолвится
+GEOIP information about IP or domain	Информация о географической привязке IP адреса или домена
+
 # file: plugins/gis.py
 Night	Ночь
 Morning	Утро
@@ -1172,7 +1178,6 @@ Status-flood block!	Блокировка статус-флуда!
 
 # file: plugins/net.py
 What do you want to find?	Что искать то будем?
-I can't resolve it	Не резолвится
 Port status at %s	Статус порта у %s
 Command nslookup	Команда nslookup
 Command host	Команда host
@@ -1844,5 +1849,5 @@ Youtube settings	Настройки youtube
 API settings	Настройки API
 
 # write locale file: ru.txt
-# total: 1423
+# total: 1426
 # regenarated without mistakes!

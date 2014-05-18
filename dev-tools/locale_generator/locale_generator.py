@@ -157,6 +157,7 @@ log_folder 	= data_folder % 'conflogs/%s'
 public_log = log_folder % 'chatlogs/%s'
 system_log = log_folder % 'syslogs/%s'
 gactmessage = []
+base_type = 'pgsql'
 	
 locale_mark = 'NO_TRANSLATE'
 file_mark = '# file: '

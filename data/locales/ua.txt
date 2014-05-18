@@ -466,6 +466,9 @@ Info about your life. Example: life dd.mm.yy [hour:min:sec]	Інформація
 Zalgo translate	Залго-транслітерація
 Information about hero from Godville.net.\ngodville [last|stat|extstat|inv|quest] username	Інформація про героя на Godville.net.\ngodville [last|stat|extstat|inv|quest] ім'я_користувача
 
+# file: plugins/geoip.py
+I can't resolve it	Не ресолвиться
+
 # file: plugins/gis.py
 Night	Ніч
 Morning	Ранок
@@ -1164,7 +1167,6 @@ Status-flood block!	Блокування статус-флуду
 
 # file: plugins/net.py
 What do you want to find?	Що ж будемо шукати?
-I can't resolve it	Не ресолвиться
 Port status at %s	Статус порту у %s
 Command nslookup	Команда nslookup
 Command host	Команда host
@@ -1836,5 +1838,5 @@ Youtube settings	Налаштування Youtube
 API settings	Налаштування API
 
 # write locale file: ua.txt
-# total: 1423
-# missed translations: 8
+# total: 1426
+# missed translations: 11
