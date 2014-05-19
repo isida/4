@@ -240,9 +240,43 @@ CREATE TABLE versions (
 	time integer
 );
 
-CREATE INDEX versions_rj ON versions (room,jid);
-CREATE INDEX versions_cvo ON versions (client,version,os);
-CREATE INDEX versions_rjcvo ON versions (room,jid,client,version,os);
+DROP INDEX versions_rj;
+DROP INDEX versions_cvo;
+DROP INDEX versions_rjcvo;
+
+CREATE INDEX versions_01 ON versions (client);
+CREATE INDEX versions_02 ON versions (version);
+CREATE INDEX versions_03 ON versions (os);
+CREATE INDEX versions_04 ON versions (room,client);
+CREATE INDEX versions_05 ON versions (room,version);
+CREATE INDEX versions_06 ON versions (room,os);
+CREATE INDEX versions_07 ON versions (room,client,version);
+CREATE INDEX versions_08 ON versions (room,client,os);
+CREATE INDEX versions_09 ON versions (room,os,version);
+CREATE INDEX versions_10 ON versions (room,os,client);
+CREATE INDEX versions_11 ON versions (room,version,os);
+CREATE INDEX versions_12 ON versions (room,version,client);
+CREATE INDEX versions_13 ON versions (room,jid);
+CREATE INDEX versions_14 ON versions (client,version,os);
+CREATE INDEX versions_15 ON versions (room,jid,client,version,os);
+CREATE INDEX versions_16 ON versions (room,jid,os);
+CREATE INDEX versions_17 ON versions (room,jid,version);
+CREATE INDEX versions_18 ON versions (room,jid,client);
+CREATE INDEX versions_19 ON versions (room,jid,version,os);
+CREATE INDEX versions_20 ON versions (room,jid,client,os);
+CREATE INDEX versions_21 ON versions (room,jid,client,version);
+CREATE INDEX versions_22 ON versions (room,jid,version,client,os);
+CREATE INDEX versions_23 ON versions (room,jid,version,os,client);
+CREATE INDEX versions_24 ON versions (room,jid,os,client,version);
+CREATE INDEX versions_25 ON versions (room,jid,os,version,client);
+CREATE INDEX versions_26 ON versions (room,jid,client,os,version);
+CREATE INDEX versions_27 ON versions (room,jid,client,version,os);
+CREATE INDEX versions_28 ON versions (client,version);
+CREATE INDEX versions_29 ON versions (version,os);
+CREATE INDEX versions_30 ON versions (client,os);
+CREATE INDEX versions_31 ON versions (jid,client,version);
+CREATE INDEX versions_32 ON versions (jid,version,os);
+CREATE INDEX versions_33 ON versions (jid,client,os);
 
 -- --------------------------------------------------------------------------- --
 -- Issues base
