@@ -90,6 +90,12 @@ def clients_stats(type, jid, nick, text):
 		elif text: match = '%%%s%%' % reduce_spaces_all(' '.join(text))
 	else: is_short = is_global = is_os = is_user = False
 
+	# global os short
+	# select split_part(replace(replace(replace(replace(replace(replace(replace(lower(os),'/',' '),'"',''),'microsoft',''),'(c)',''),'©',''),'name=',''),'none',''),' ',1) as oss, count(*) as coss from versions group by oss order by coss desc;
+
+	# global short
+	# select split_part(client,' ',1) as clients, count(*) as cclients from versions group by clients order by cclients desc;
+
 	if is_global:
 		if is_user: req,par = 'select client,version,os from versions where jid=%s and (client ilike %s or version ilike %s or os ilike %s)',(cjid,match,match,match)
 		else: req,par = 'select client,version,os from versions where client ilike %s or version ilike %s or os ilike %s',(match,match,match)

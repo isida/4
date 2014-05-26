@@ -1308,127 +1308,129 @@ def rss(type, jid, nick, text):
 	elif mode in ['new','get']:
 		link = text[1]
 		if not re.findall('^http(s?)://',link[:10]): link = 'http://%s' % link
-		body, result = get_opener(enidna(link))
-		modified,need_update_feed = '',True
-		if result:
-			modified = body.headers.get('last-modified',None)
-			if not modified: modified = get_tag(load_page_size(link, 1024),'updated')
-		if modified:
-			changed = cur_execute_fetchone('select changed from feed where room=%s and url=%s;',(jid,link))[0]
-			if modified == changed: need_update_feed = False
-			else: cur_execute('update feed set changed=%s where room=%s and url=%s',(modified,jid,link))
-		is_rss_aton = 0
-		if need_update_feed:
-			try:
-				req = urllib2.Request(link.encode('utf-8'))
-				req.add_header('User-Agent',GT('user_agent'))
-				feed = urllib2.urlopen(url=req,timeout=GT('rss_get_timeout')).read(GT('size_overflow'))
-			except: feed = L('Unable to access server!','%s/%s'%(jid,nick))
-			fc = feed[:256]
-			if '<?xml version=' in fc:
-				if '<feed' in fc:
-					is_rss_aton = 2
-					t_feed = feed.split('<title>')
-					feed = t_feed[0]
-					for tmp in t_feed[1:]:
-						tm = tmp.split('</title>',1)
-						if ord(tm[0][-1]) == 208: tm[0] = tm[0][:-1] + '...'
-						feed += '<title>%s</title>%s' % tuple(tm)
-				elif '<rss' in fc or '<rdf' in fc: is_rss_aton = 1
-				feed = html_encode(feed)
-				feed = re.sub('(<span.*?>.*?</span>)','',feed)
-				feed = re.sub('(<div.*?>)','',feed)
-				feed = re.sub('(</div>)','',feed)
-		else: feed = L('New feeds not found!','%s/%s'%(jid,nick))
-		if is_rss_aton and feed != L('Encoding error!','%s/%s'%(jid,nick)) and feed != L('Unable to access server!','%s/%s'%(jid,nick)):
-			if is_rss_aton == 1:
-				if '<item>' in feed: fd = feed.split('<item>')
-				else: fd = feed.split('<item ')
-				feed = [fd[0]]
-				for tmp in fd[1:]: feed.append(tmp.split('</item>')[0])
-			else:
-				if '<entry>' in feed: fd = feed.split('<entry>')
-				else: fd = feed.split('<entry ')
-				feed = [fd[0]]
-				for tmp in fd[1:]: feed.append(tmp.split('</entry>')[0])
-			if len(text) > 2 and text[2].isdigit(): lng = int(text[2])
-			else: lng = len(feed)-1
-			if len(feed)-1 <= lng: lng = len(feed)-1
-			if lng > GT('rss_max_feed_limit'): lng = GT('rss_max_feed_limit')
-			elif len < 1: lng = 1
-			if len(text) > 3: submode = text[3]
-			else: submode = 'full'
-			msg = L('Feeds for','%s/%s'%(jid,nick))+' '
-			if 'url' in submode.split('-'): submode,urlmode = submode.split('-')[0],True
-			else:
-				urlmode = None
-				msg += link+' '
-			msg += get_tag(feed[0],'title')
-			try:
-				break_point = []
-				for tmp in feed[1:GT('rss_max_feed_limit')+1]:
-					ttitle = get_tag(tmp,'title').replace('&lt;br&gt;','\n')
-					break_point.append(hashlib.md5(ttitle.encode('utf-8')).hexdigest())
-				tstop = rss_flush(jid,link,break_point)
-				t_msg, new_count = [], 0
-				for mmsg in feed[1:GT('rss_max_feed_limit')+1]:
-					ttitle = get_tag(mmsg,'title').replace('&lt;br&gt;','\n')
-					if mode == 'get' or not (hashlib.md5(ttitle.encode('utf-8')).hexdigest() in tstop):
-						if is_rss_aton == 1: tbody,turl = get_tag(mmsg,'description').replace('&lt;br&gt;','\n'),get_tag(mmsg,'link')
-						else:
-							tbody = get_tag(mmsg,'content').replace('&lt;br&gt;','\n')
-							try:
-								tu1 = mmsg.find('href=\"',mmsg.index('<link'))+6
-								tu2 = mmsg.find('\"',tu1)
-								turl = mmsg[tu1:tu2].replace('&lt;br&gt;','\n')
-							except: turl = 'URL %s' % L('Not found!','%s/%s'%(jid,nick))
-						tsubj,tmsg,tlink = '','',''
-						if submode == 'full': tsubj,tmsg = replacer(ttitle),replacer(tbody.replace('<li>',u'\n♦ ').replace('</li>',''))
-						elif submode == 'body': tmsg = replacer(tbody.replace('<li>',u'\n♦ ').replace('</li>',''))
-						elif submode == 'head': tsubj = replacer(ttitle)
-						else: return
-						if urlmode: tlink = urllib.unquote(turl.encode('utf8')).decode('utf8','ignore')
-						t_msg.append((tsubj.replace('\n','; '),smart_concat(tmsg),tlink))
-						new_count += 1
-						if new_count >= lng: break
-				if new_count:
-					t_msg.reverse()
-					tmp = ''
-					for tm in t_msg: tmp += '!'.join(tm)
-					if len(tmp+msg)+len(t_msg)*12 >= msg_limit:
-						over = 100 * msg_limit / (len(tmp+msg)+len(t_msg)*12.0) # overflow in persent
-						tt_msg = []
+		if cur_execute_fetchone('select * from feed where room=%s and url=%s;',(jid,link)):			
+			body, result = get_opener(enidna(link))
+			modified,need_update_feed = '',True
+			if result:
+				modified = body.headers.get('last-modified',None)
+				if not modified: modified = get_tag(load_page_size(link, 1024),'updated')
+			if modified:
+				changed = cur_execute_fetchone('select changed from feed where room=%s and url=%s;',(jid,link))[0]
+				if modified == changed: need_update_feed = False
+				else: cur_execute('update feed set changed=%s where room=%s and url=%s',(modified,jid,link))
+			is_rss_aton = 0
+			if need_update_feed:
+				try:
+					req = urllib2.Request(link.encode('utf-8'))
+					req.add_header('User-Agent',GT('user_agent'))
+					feed = urllib2.urlopen(url=req,timeout=GT('rss_get_timeout')).read(GT('size_overflow'))
+				except: feed = L('Unable to access server!','%s/%s'%(jid,nick))
+				fc = feed[:256]
+				if '<?xml version=' in fc:
+					if '<feed' in fc:
+						is_rss_aton = 2
+						t_feed = feed.split('<title>')
+						feed = t_feed[0]
+						for tmp in t_feed[1:]:
+							tm = tmp.split('</title>',1)
+							if ord(tm[0][-1]) == 208: tm[0] = tm[0][:-1] + '...'
+							feed += '<title>%s</title>%s' % tuple(tm)
+					elif '<rss' in fc or '<rdf' in fc: is_rss_aton = 1
+					feed = html_encode(feed)
+					feed = re.sub('(<span.*?>.*?</span>)','',feed)
+					feed = re.sub('(<div.*?>)','',feed)
+					feed = re.sub('(</div>)','',feed)
+			else: feed = L('New feeds not found!','%s/%s'%(jid,nick))
+			if is_rss_aton and feed != L('Encoding error!','%s/%s'%(jid,nick)) and feed != L('Unable to access server!','%s/%s'%(jid,nick)):
+				if is_rss_aton == 1:
+					if '<item>' in feed: fd = feed.split('<item>')
+					else: fd = feed.split('<item ')
+					feed = [fd[0]]
+					for tmp in fd[1:]: feed.append(tmp.split('</item>')[0])
+				else:
+					if '<entry>' in feed: fd = feed.split('<entry>')
+					else: fd = feed.split('<entry ')
+					feed = [fd[0]]
+					for tmp in fd[1:]: feed.append(tmp.split('</entry>')[0])
+				if len(text) > 2 and text[2].isdigit(): lng = int(text[2])
+				else: lng = len(feed)-1
+				if len(feed)-1 <= lng: lng = len(feed)-1
+				if lng > GT('rss_max_feed_limit'): lng = GT('rss_max_feed_limit')
+				elif len < 1: lng = 1
+				if len(text) > 3: submode = text[3]
+				else: submode = 'full'
+				msg = L('Feeds for','%s/%s'%(jid,nick))+' '
+				if 'url' in submode.split('-'): submode,urlmode = submode.split('-')[0],True
+				else:
+					urlmode = None
+					msg += link+' '
+				msg += get_tag(feed[0],'title')
+				try:
+					break_point = []
+					for tmp in feed[1:GT('rss_max_feed_limit')+1]:
+						ttitle = get_tag(tmp,'title').replace('&lt;br&gt;','\n')
+						break_point.append(hashlib.md5(ttitle.encode('utf-8')).hexdigest())
+					tstop = rss_flush(jid,link,break_point)
+					t_msg, new_count = [], 0
+					for mmsg in feed[1:GT('rss_max_feed_limit')+1]:
+						ttitle = get_tag(mmsg,'title').replace('&lt;br&gt;','\n')
+						if mode == 'get' or not (hashlib.md5(ttitle.encode('utf-8')).hexdigest() in tstop):
+							if is_rss_aton == 1: tbody,turl = get_tag(mmsg,'description').replace('&lt;br&gt;','\n'),get_tag(mmsg,'link')
+							else:
+								tbody = get_tag(mmsg,'content').replace('&lt;br&gt;','\n')
+								try:
+									tu1 = mmsg.find('href=\"',mmsg.index('<link'))+6
+									tu2 = mmsg.find('\"',tu1)
+									turl = mmsg[tu1:tu2].replace('&lt;br&gt;','\n')
+								except: turl = 'URL %s' % L('Not found!','%s/%s'%(jid,nick))
+							tsubj,tmsg,tlink = '','',''
+							if submode == 'full': tsubj,tmsg = replacer(ttitle),replacer(tbody.replace('<li>',u'\n♦ ').replace('</li>',''))
+							elif submode == 'body': tmsg = replacer(tbody.replace('<li>',u'\n♦ ').replace('</li>',''))
+							elif submode == 'head': tsubj = replacer(ttitle)
+							else: return
+							if urlmode: tlink = urllib.unquote(turl.encode('utf8')).decode('utf8','ignore')
+							t_msg.append((tsubj.replace('\n','; '),smart_concat(tmsg),tlink))
+							new_count += 1
+							if new_count >= lng: break
+					if new_count:
+						t_msg.reverse()
+						tmp = ''
+						for tm in t_msg: tmp += '!'.join(tm)
+						if len(tmp+msg)+len(t_msg)*12 >= msg_limit:
+							over = 100 * msg_limit / (len(tmp+msg)+len(t_msg)*12.0) # overflow in persent
+							tt_msg = []
+							for tm in t_msg:
+								tsubj,tmsg,tlink = tm
+								cut = int(len(tsubj+tmsg+tlink)/100*over)
+								if cut < len(tlink): tsubj,tmsg,tlink = u'%s[…]' % tsubj[:cut],'',''
+								elif cut < len(tsubj+tlink): tsubj,tmsg = u'%s[…]' % tsubj[:cut-len(tlink)],''
+								else: tmsg = u'%s[…]' % tmsg[:cut-len(tlink+tsubj)]
+								tt_msg.append((tsubj,tmsg,tlink))
+							t_msg = tt_msg
+						tmp = ''
 						for tm in t_msg:
-							tsubj,tmsg,tlink = tm
-							cut = int(len(tsubj+tmsg+tlink)/100*over)
-							if cut < len(tlink): tsubj,tmsg,tlink = u'%s[…]' % tsubj[:cut],'',''
-							elif cut < len(tsubj+tlink): tsubj,tmsg = u'%s[…]' % tsubj[:cut-len(tlink)],''
-							else: tmsg = u'%s[…]' % tmsg[:cut-len(tlink+tsubj)]
-							tt_msg.append((tsubj,tmsg,tlink))
-						t_msg = tt_msg
-					tmp = ''
-					for tm in t_msg:
-						if submode == 'full': tmp += u'\n• %s\n%s' % tm[0:2]
-						elif submode == 'body': tmp += u'\n• %s' % tm[1]
-						elif submode == 'head': tmp += u'\n• %s' % tm[0]
-						if len(tm[2]): tmp += '\n'+tm[2]
-					msg = unhtml(msg+tmp)
-				elif mode == 'new':
+							if submode == 'full': tmp += u'\n• %s\n%s' % tm[0:2]
+							elif submode == 'body': tmp += u'\n• %s' % tm[1]
+							elif submode == 'head': tmp += u'\n• %s' % tm[0]
+							if len(tm[2]): tmp += '\n'+tm[2]
+						msg = unhtml(msg+tmp)
+					elif mode == 'new':
+						if text[4] == 'silent': nosend = True
+						else: msg = L('New feeds not found!','%s/%s'%(jid,nick))
+				except Exception,SM:
+					rss_flush(jid,link,None)
 					if text[4] == 'silent': nosend = True
-					else: msg = L('New feeds not found!','%s/%s'%(jid,nick))
-			except Exception,SM:
+					else: msg = L('Error! %s','%s/%s'%(jid,nick)) % SM
+			else:
 				rss_flush(jid,link,None)
 				if text[4] == 'silent': nosend = True
-				else: msg = L('Error! %s','%s/%s'%(jid,nick)) % SM
-		else:
-			rss_flush(jid,link,None)
-			if text[4] == 'silent': nosend = True
-			else:
-				if need_update_feed:
-					if feed in [L('Encoding error!','%s/%s'%(jid,nick)),L('Unable to access server!','%s/%s'%(jid,nick))]: title = feed
-					else: title = html_encode(get_tag(feed,'title'))
-					msg = L('Bad url or rss/atom not found at %s - %s','%s/%s'%(jid,nick)) % (link,title)
-				else: msg = feed
+				else:
+					if need_update_feed:
+						if feed in [L('Encoding error!','%s/%s'%(jid,nick)),L('Unable to access server!','%s/%s'%(jid,nick))]: title = feed
+						else: title = html_encode(get_tag(feed,'title'))
+						msg = L('Bad url or rss/atom not found at %s - %s','%s/%s'%(jid,nick)) % (link,title)
+					else: msg = feed
+		else: msg = L('Not found!','%s/%s'%(jid,nick))
 	if not nosend: send_msg(type, jid, nick, msg)
 
 def configure(type, jid, nick, text):
