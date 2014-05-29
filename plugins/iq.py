@@ -254,8 +254,9 @@ def utime_async(type, jid, nick, text, mode, is_answ):
 	else:
 		try:
 			ttup = isa[0].replace('T','-').replace('Z','').replace(':','-').split('-')+['0','0',str(tuple(time.localtime())[8])]
-			lt = time.localtime(time.mktime([int(tmp.split('.',1)[0]) for tmp in ttup])+(int(isa[1].split(':')[0])*60+int(isa[1].split(':')[1]))*60)
-			timeofset = float(isa[1].replace(':','.'))
+			tzo = '0:0' if isa[1] == 'Z' else isa[1]
+			lt = time.localtime(time.mktime([int(tmp.split('.',1)[0]) for tmp in ttup])+(int(tzo.split(':')[0])*60+int(tzo.split(':')[1]))*60)
+			timeofset = float(tzo.replace(':','.'))
 			if timeofset < 0: t_gmt = 'GMT%s' % int(timeofset)
 			else: t_gmt = 'GMT+%s' % int(timeofset)
 			if timeofset%1: t_gmt += ':%02d' % int((timeofset%1*60/100) * 100)
