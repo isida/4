@@ -27,6 +27,7 @@ def svn_get(type, jid, nick,text):
 		count,revn = 1,0
 		if '-v' in text.split(): text,verb = reduce_spaces_all(text.replace('-v','')),True
 		else: verb = False
+		text = ''.join(re.findall('[-a-z/:.0-9]+', text, re.S+re.I+re.U))
 		if ' ' in text:
 			text = text.split(' ')
 			url = text[0]
