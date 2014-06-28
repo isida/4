@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='windows-1251'?>
+<icondef>
+	<meta>
+		<name>Android by Disabler</name>
+		<version>0.3</version>
+		<description>from Android SDK</description>
+		<creation>2009-12-19</creation>
+		<author email='dissy@isida-bot.com' jid='dissy@isida-bot.com' www='http://isida-bot.com'>Disabler</author>
+	</meta>
+	<icon>
+		<text>:-)</text>
+		<text>:)</text>
+		<text>=)</text>
+		<text>=-)</text>
+		<object mime="image/png">01.png</object>
+	</icon>
+	<icon>
+		<text>:-(</text>
+		<text>:(</text>
+		<text>=(</text>
+		<text>=-(</text>
+		<object mime="image/png">02.png</object>
+	</icon>
+	<icon>
+		<text>;-)</text>
+		<text>;)</text>
+		<object mime="image/png">03.png</object>
+	</icon>
+	<icon>
+		<text>:-P</text>
+		<text>:-p</text>
+		<text>:P</text>
+		<text>:p</text>
+		<object mime="image/png">04.png</object>
+	</icon>
+	<icon>
+		<text>=-O</text>
+		<text>=O</text>
+		<text>=-o</text>
+		<text>=o</text>
+		<text>:-o</text>
+		<text>:-O</text>
+		<object mime="image/png">05.png</object>
+	</icon>
+	<icon>
+		<text>:-*</text>
+		<text>:*</text>
+		<object mime="image/png">06.png</object>
+	</icon>
+	<icon>
+		<text>:O</text>
+		<text>:o</text>
+		<object mime="image/png">07.png</object>
+	</icon>
+	<icon>
+		<text>B-)</text>
+		<text>B)</text>
+		<object mime="image/png">08.png</object>
+	</icon>
+	<icon>
+		<text>:-$</text>
+		<text>:$</text>
+		<object mime="image/png">09.png</object>
+	</icon>
+	<icon>
+		<text>:-!</text>
+		<text>:!</text>
+		<object mime="image/png">10.png</object>
+	</icon>
+	<icon>
+		<text>:-[</text>
+		<text>:[</text>
+		<object mime="image/png">11.png</object>
+	</icon>
+	<icon>
+		<text>o:-)</text>
+		<text>O:-)</text>
+		<text>o:)</text>
+		<text>O:)</text>
+		<object mime="image/png">12.png</object>
+	</icon>
+	<icon>
+		<text>:-\</text>
+		<text>:\</text>
+		<object mime="image/png">13.png</object>
+	</icon>
+	<icon>
+		<text>:'(</text>
+		<text>:'-(</text>
+		<object mime="image/png">14.png</object>
+	</icon>
+	<icon>
+		<text>:-X</text>
+		<text>:-x</text>
+		<text>:X</text>
+		<text>:x</text>
+		<object mime="image/png">15.png</object>
+	</icon>
+	<icon>
+		<text>:-D</text>
+		<text>:-d</text>
+		<text>:D</text>
+		<text>:d</text>
+		<object mime="image/png">16.png</object>
+	</icon>
+	<icon>
+		<text>o_O</text>
+		<text>o_О</text>
+		<text>о_O</text>
+		<text>о_О</text>
+		<object mime="image/png">17.png</object>
+	</icon>
+	<icon>
+		<text>O_o</text>
+		<text>О_o</text>
+		<text>O_о</text>
+		<text>О_о</text>
+		<object mime="image/png">18.png</object>
+	</icon>
+	<icon>
+		<text>O_O</text>
+		<text>О_О</text>
+		<object mime="image/png">19.png</object>
+	</icon>
+	<icon>
+		<text>o_o</text>
+		<text>о_о</text>
+		<text>:-|</text>
+		<object mime="image/png">20.png</object>
+	</icon>
+	<icon>
+		<text>x_x</text>
+		<text>X_X</text>
+		<text>х_х</text>
+		<text>Х_Х</text>
+		<object mime="image/png">21.png</object>
+	</icon>
+	<icon>
+		<text>];-#</text>
+		<text>]>[</text>
+		<text>>:o</text>
+		<text>:@</text>
+		<text>:-@</text>
+		<text>}:-></text>
+		<text>]:-></text>
+		<object mime="image/png">22.png</object>
+	</icon>
+	<icon>
+		<text>:ninja:</text>
+		<text>:NINJA:</text>
+		<text>*ninja*</text>
+		<text>*NINJA*</text>
+		<text>|-)</text>
+		<text>|)</text>
+		<object mime="image/png">23.png</object>
+	</icon>
+	<icon>
+		<text>^_^</text>
+		<object mime="image/png">24.png</object>
+	</icon>
+	<icon>
+		<text>&gt;_&gt;</text>
+		<object mime="image/png">25.png</object>
+	</icon>
+	<icon>
+		<text>&lt;_&lt;</text>
+		<object mime="image/png">26.png</object>
+	</icon>
+	<icon>
+		<text>&gt;_&lt;</text>
+		<object mime="image/png">27.png</object>
+	</icon>
+</icondef>
