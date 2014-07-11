@@ -900,6 +900,14 @@ def messageCB(sess,mess):
 	message_in += 1
 	type=unicode(mess.getType())
 	room=unicode(mess.getFrom().getStripped())
+	allow_execute = True
+	if getRoom(Settings['jid']) == getRoom(room):
+		allow_execute = False
+		msg = 'Warning! Self-message detected!'
+		pprint('!!! %s Stanza:\n%s' % (msg,unicode(mess)))
+		own = cur_execute_fetchall('select * from bot_owner;')
+		if own:
+			for ajid in own: send_msg('chat', ajid[0], '', msg)
 	text=unicode(mess.getBody())
 	id = mess.getID()
 	try: was_send = messages_log.pop(id)
@@ -938,6 +946,7 @@ def messageCB(sess,mess):
 	ft = back_text = text
 	rn = '%s/%s' % (room,nick)
 	access_mode,jid = get_level(room,nick)
+	if not allow_execute: access_mode = -1
 	nowname = get_xnick(room)
 	if '@' not in jid and (jid == 'None' or jid.startswith('j2j.')) and is_owner(room): access_mode = 9
 	if type == 'groupchat' and nick != '' and access_mode >= 0 and jid not in ['None',Settings['jid']]: talk_count(room,jid,nick,text)
