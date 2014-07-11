@@ -133,7 +133,7 @@ def get_content_title(link):
 		for t in url_watch_ignore:
 			if ll.endswith('.%s' % t): raise
 		link = enidna(link)
-		original_page = load_page_size(urllib2.Request(link),8192)
+		original_page = load_page_size(urllib2.Request(link),16384)
 		page = html_encode(original_page)
 		if '<title' in page: tag = 'title'
 		elif '<TITLE' in page: tag = 'TITLE'
