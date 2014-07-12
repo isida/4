@@ -44,4 +44,4 @@ def geoip(type, jid, nick, text):
 
 global execute
 
-if base_type == 'pgsql': execute = [(4, 'geo', geoip, 2, 'GEOIP information about IP or domain')]
+if base_type in ['pgsql','sqlite3']: execute = [(4, 'geo', geoip, 2, 'GEOIP information about IP or domain')]
