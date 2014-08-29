@@ -23,7 +23,7 @@
 # --------------------------------------------------------------------------- #
 
 filename_chars_limit = 48
-last_url_watch = ''
+last_url_watch = {}
 url_watch_ignore = ['pdf','sig','spl','class','ps','torrent','dvi','gz','pac','swf','tar','tgz','tar','zip','mp3','m3u','wma',\
 					'wax','ogg','wav','gif','jar','jpg','jpeg','png','xbm','xpm','xwd','css','asc','c','cpp','log','conf','text',\
 					'txt','dtd','xml','mpeg','mpg','mov','qt','avi','asf','asx','wmv','bz2','tbz','tar','so','dll','exe','bin',\
@@ -182,19 +182,19 @@ def parse_url_in_message(room,jid,nick,type,text):
 	if get_config(getRoom(room),'url_title'):
 		try:
 			link = re.findall(r'(http[s]?://.*)',text)[0].split(' ')[0].split('"')[0].split('\'')[0]
-			if link and last_url_watch != link and pasteurl not in link:
+			if link and last_url_watch.get(getRoom(room),'') != link and pasteurl not in link:
 				if content_title and content_title[0] == link: ttext = content_title[1]
 				else: ttext = get_content_title(link)
 				if ttext:
 					pprint('Show url-title: %s in %s' % (link,room),'white')
 					was_shown = True
 					send_msg(type, room, '', L('Title: %s','%s/%s'%(jid,nick)) % to_censore(rss_del_html(rss_replace(ttext)),room))
-					last_url_watch = link
+					last_url_watch[getRoom(room)] = link
 		except: pass
 	if not was_shown and get_config(getRoom(room),'content_length'):
 		try:
 			link = re.findall(u'(http[s]?://[-0-9a-zа-я.]+\/[-a-zа-я0-9._?#=@%/]+\.[a-z0-9]{2,7})',text,re.I+re.U+re.S)[0]
-			if link and last_url_watch != link and pasteurl not in link:
+			if link and last_url_watch.get(getRoom(room),'') != link and pasteurl not in link:
 				is_file = False
 				ll = link.lower()
 				for t in url_watch_ignore:
@@ -202,13 +202,13 @@ def parse_url_in_message(room,jid,nick,type,text):
 						is_file = True
 						break
 				if is_file:
-					last_url_watch = enidna(link)
-					body, result = get_opener(last_url_watch)
+					last_url_watch[getRoom(room)] = enidna(link)
+					body, result = get_opener(last_url_watch[getRoom(room)])
 					pprint('Show content length: %s in %s' % (link,room),'white')
 					if result:
 						mt = float(body.headers.get('Content-Length',0))
 						if mt:
-							link_end = urllib2.unquote(last_url_watch.rsplit('/',1)[-1]).decode('utf-8')
+							link_end = urllib2.unquote(last_url_watch[getRoom(room)].rsplit('/',1)[-1]).decode('utf-8')
 							link_end = u'…%s%s' % (['/',''][len(link_end)>filename_chars_limit], link_end[-filename_chars_limit:])
 							send_msg(type, room, '', L('Length of %s is %s','%s/%s'%(jid,nick)) % (to_censore(link_end,room),get_size_human(mt)))
 		except: pass
