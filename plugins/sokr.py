@@ -26,7 +26,11 @@ def sokr(type, jid, nick, text):
 	text = text.strip()
 	if not text: msg = L('What?','%s/%s'%(jid,nick))
 	else:
-		if re.search('\A\d+?(-\d+?)? ', text): target, text = text.split(' ', 1)
+		tmp_target = re.search('(\A| )\d+?(-\d+?)?(\Z| )', text)
+		if tmp_target:
+			target = tmp_target.group().strip()
+			text = text.replace(target, ' ')
+		text = reduce_spaces_all(text)
 		if re.match('[a-zA-Z]+\Z', text):
 			data = load_page('http://www.abbreviations.com/%s' % text)
 			results = re.findall('<p class="desc">(.+?)</p>', data)
