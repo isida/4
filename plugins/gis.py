@@ -21,6 +21,8 @@
 #                                                                             #
 # --------------------------------------------------------------------------- #
 
+gis_limit = 20
+
 def gweather_raw(type, jid, nick, text, fully):
 	def get_date(body):
 		tmp = get_tag_item(body,'FORECAST','day')+'.'+get_tag_item(body,'FORECAST','month')
@@ -48,10 +50,10 @@ def gweather_raw(type, jid, nick, text, fully):
 
 	if len(text.strip()):
 		text = text.lower()
-		wzc = cur_execute_fetchall('select * from gis where code ilike %s or lcity ilike %s',(text,text))
+		wzc = cur_execute_fetchall('select * from gis where code ilike %s or lcity ilike %s limit %s',(text,text,gis_limit))
 		if not wzc:
 			ttext = '%%%s%%' % text
-			wzc = cur_execute_fetchall('select * from gis where code ilike %s or lcity ilike %s',(ttext,ttext))
+			wzc = cur_execute_fetchall('select * from gis where code ilike %s or lcity ilike %s limit %s',(ttext,ttext,gis_limit))
 		if not wzc and text.isdigit() and 4 <= len(text) <= 5: wzc = [(text,'','')]
 		if wzc:
 			if len(wzc) == 1:
