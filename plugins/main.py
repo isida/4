@@ -1854,7 +1854,11 @@ owner_prefs = {'syslogs_enable': ['Logger. Enable system logs','b',True],
 				'exclude_messages':['Kernel. Exclude symbols from bot\'s messages','m256e',u'([؀-ۿ])\n([ݐ-ݿ])\n([ﭐ-﷿])\n([ﹰ-﻿])','message_exclude_update()'],
 				'1st_april_joke':['Kernel. 1st April joke','b',True],
 				'soft_update_resend_hash':['Kernel. Send new hash into rooms after soft update','b',False],
-				'notepad':['Notepad','m4096','']
+				'notepad':['Notepad','m4096',''],
+				'wot_region':['Region of API Server', 'd', 'RU', ['RU','EU','COM', 'SEA', 'KR']],
+				'wot_appid':['World of Tanks. Application ID','t64','demo'],
+				'wot_delay':['World of Tanks. Time of delay','i',2],
+				'wot_retries':['World of Tanks. Count of retries','i',2]
 				}
 
 owner_group_mucfilter = ['Muc-filter settings','#owner-mucfilter',
@@ -1930,13 +1934,16 @@ owner_group_spy = ['Spy settings','#owner-spy',
 owner_group_notepad = ['Notepad','#owner-notepad',
 				['notepad']]
 
+owner_group_wot = ['World of Tanks settings','#owner-wot',
+				['wot_region','wot_appid', 'wot_delay', 'wot_retries']]
+
 owner_groups = [owner_group_amsg,owner_group_rss,owner_group_clear,
 				owner_group_kernel,owner_group_lastfm,owner_group_whereis,
 				owner_group_watcher,owner_group_troll,owner_group_www,
 				owner_group_karma,owner_group_sayto,owner_group_age,
 				owner_group_mucfilter,owner_group_iq,owner_group_juick,
 				owner_group_logs,owner_group_youtube,owner_group_other,
-				owner_group_api,owner_group_notepad]
+				owner_group_api,owner_group_notepad,owner_group_wot]
 
 comms = [
 	 (0, 'help', helpme, 2, 'Help system. Helps without commands: about, donation, access'),

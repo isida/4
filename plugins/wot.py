@@ -4,7 +4,7 @@
 # --------------------------------------------------------------------------- #
 #                                                                             #
 #    Plugin for iSida Jabber Bot                                              #
-#    Copyright (C) 2013 Vit@liy <vitaliy@root.ua>                             #
+#    Copyright (C) 2013 VitaliyS <hetleven@yandex.ua>                         #
 #                                                                             #
 #    This program is free software: you can redistribute it and/or modify     #
 #    it under the terms of the GNU General Public License as published by     #
@@ -21,9 +21,8 @@
 #                                                                             #
 # --------------------------------------------------------------------------- #
 
-# RU
-API_ADDR = 'http://api.worldoftanks.ru';
-APP_ID = '171745d21f7f98fd8878771da1000a31';
+API_ADDR = 'http://api.worldoftanks.%s' % {'RU': 'ru', 'EU': 'eu', 'COM': 'com', 'SEA': 'asia', 'KR': 'kr'}[GT('wot_region')]
+APP_ID = GT('wot_appid')
 
 clantags = re.compile('(\(.*?\))|(\[.*?\])')
 
@@ -34,10 +33,6 @@ def get_tanks_data():
 	for i in d['data']:
 		n18 = d['data'][i]['name_i18n'].rsplit(':', 1)[-1].replace('_', ' ')
 		n = d['data'][i]['name'].rsplit(':', 1)[-1].replace('_', ' ')
-		if n18[:2] == 'GB':
-			n18 = n18[5:]
-		if n[:2] == 'GB':
-			n = n[5:]
 		res[i] = {'name_i18n': n18, 'name': n, 'level': d['data'][i]['level']}
 	return res
 
@@ -67,8 +62,6 @@ def wot(type, jid, nick, text):
 			vdata = json.loads(data)
 
 			data = load_page('%s/2.0/account/tanks/?application_id=%s&account_id=%s&fields=mark_of_mastery,tank_id' % (API_ADDR, APP_ID, player_id))
-			vdata_old = json.loads(data)
-			vdata_old = dict([[i['tank_id'], i['mark_of_mastery']] for i in vdata_old['data'][player_id]])
 
 			data = load_page('%s/2.0/account/info/?application_id=%s&account_id=%s&fields=nickname,statistics,global_rating' % (API_ADDR, APP_ID, player_id))
 			pdata = json.loads(data)
@@ -101,9 +94,17 @@ def wot(type, jid, nick, text):
 							if str(t['tank_id']) in tids:
 								tank_win = t['all']['wins']
 								tank_battle = t['all']['battles']
-								mom = [L('none','%s/%s'%(jid,nick)), L('3 class','%s/%s'%(jid,nick)), L('2 class','%s/%s'%(jid,nick)), L('1 class','%s/%s'%(jid,nick)), L('master','%s/%s'%(jid,nick))][t['mark_of_mastery']]
 								if tank_battle:
-									msg += L('\n%s (%s/%s - %s%%), mastery: %s','%s/%s'%(jid,nick)) % (tanks_data[str(t['tank_id'])]['name_i18n'], tank_win, tank_battle, round(100.0*tank_win/tank_battle, 2), mom)
+									tank_avgxp = t['all']['battle_avg_xp']
+									tank_maxxp = t['max_xp']
+									mom = [	L('none','%s/%s'%(jid,nick)),
+										L('3 class','%s/%s'%(jid,nick)),
+										L('2 class','%s/%s'%(jid,nick)),									L('1 class','%s/%s'%(jid,nick)),
+										L('master','%s/%s'%(jid,nick))][t['mark_of_mastery']]
+									tank_dmg = int(round(t['all']['damage_dealt'] / float(tank_battle), 0))
+									tank_name = tanks_data[str(t['tank_id'])]['name_i18n']
+									tank_wins = round(100.0*tank_win/tank_battle, 2)
+									msg += L('\n%s: %s/%s (%s%%), avg.damage: %s, xp (avg/max): %s/%s, mastery: %s','%s/%s'%(jid,nick)) % (tank_name, tank_win, tank_battle, tank_wins, tank_dmg, tank_avgxp, tank_maxxp, mom)
 								else:
 									msg += '\n%s (%s/%s)' % (tanks_data[str(t['tank_id'])]['name_i18n'], tank_win, tank_battle)
 						if not msg.count('\n'):

@@ -1375,7 +1375,7 @@ none	отсутствует
 2 class	2 степень
 1 class	1 степень
 master	мастер
-\n%s (%s/%s - %s%%), mastery: %s	\n%s (%s/%s - %s%%), классность: %s
+\n%s: %s/%s (%s%%), avg.damage: %s, xp (avg/max): %s/%s, mastery: %s	\n%s: %s/%s (%s%%), ср.урон: %s, опыт (ср/макс): %s/%s, классность: %s
  not founded tank	 танк не найден
 Impossible to get tanks' statistics	Невозможно получить статистику танков
 \nUp to %s%% win left: %s battles	\nДо %s%% побед осталось: %s битв
@@ -1393,6 +1393,7 @@ Impossible to get tanks' statistics	Невозможно получить ста
  - great player	 - превосходный игрок
  - unicum	 - уникум
 \nWN6 rating: %s (XVM: %s)	\nРейтинг WN6: %s (XVM: %s)
+\nWG rating: %s	\nРейтинг WG: %s
 \nArmor-rating: %s	\nРейтинг Бронесайта: %s
  - virtuoso	 - виртуоз
  - master tanker	 - мастер-танкист
@@ -1409,7 +1410,7 @@ Player not found	Игрок не найден
 Name: %s [%s]	Название: %s [%s]
 \nOwner: %s	\nВладелец: %s
 \nCreated at: %s	\nДата создания: %s
-\nCount of members: %s	\nКоличество учасников: %s
+\nCount of members: %s	\nКоличество участников: %s
 \nMotto: %s	\nДевиз: %s
 Clan not found	Клан не найден
 Impossible to get info	Невозможно получить информацию
