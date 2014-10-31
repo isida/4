@@ -49,22 +49,23 @@ def get_tld(type, jid, nick, text):
 	else: msg = L('What do you want to find?','%s/%s'%(jid,nick))
 	send_msg(type, jid, nick, msg)
 
+def is_valid_ip(ipstr):
+        try: socket.inet_pton(socket.AF_INET, ipstr)
+        except:
+                try: socket.inet_pton(socket.AF_INET6, ipstr)
+                except: return False
+        return True
+
 def get_dns(type, jid, nick, text):
-	is_ip = None
-	if text.count('.') == 3:
-		is_ip = True
-		for ii in text:
-			if not nmbrs.count(ii):
-				is_ip = None
-				break
-	if is_ip:
+	if is_valid_ip(text):
 		try: msg = socket.gethostbyaddr(text)[0]
 		except: msg = L('I can\'t resolve it','%s/%s'%(jid,nick))
 	else:
 		try:
-			ans = socket.gethostbyname_ex(text.encode('idna'))[2]
+			ans = socket.getaddrinfo(text.encode('idna'), None, 0, 0, socket.IPPROTO_TCP)
 			msg = text+' - '
-			for an in ans: msg += an + ' | '
+			for an in ans:
+                                msg += an[4][0] + ' | '
 			msg = msg[:-2]
 		except: msg = L('I can\'t resolve it','%s/%s'%(jid,nick))
 	send_msg(type, jid, nick, msg)
