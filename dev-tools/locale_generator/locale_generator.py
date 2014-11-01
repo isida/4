@@ -26,8 +26,9 @@ import os,re,time
 def L(t): return t
 
 def GT(t):
-	if t in ['disco_exclude','lfm_api']: return ''
+	if t in ['wot_appid','disco_exclude','lfm_api']: return ''
 	elif t in ['html_logs_enable']: return 0
+	elif t == 'wot_region': return 'RU'
 	else: return None
 
 def readfile(filename):

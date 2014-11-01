@@ -1839,5 +1839,5 @@ Youtube settings	Налаштування Youtube
 API settings	Налаштування API
 
 # write locale file: ua.txt
-# total: 1426
-# missed translations: 11
+# total: 1432
+# missed translations: 16

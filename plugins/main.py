@@ -1855,7 +1855,7 @@ owner_prefs = {'syslogs_enable': ['Logger. Enable system logs','b',True],
 				'1st_april_joke':['Kernel. 1st April joke','b',True],
 				'soft_update_resend_hash':['Kernel. Send new hash into rooms after soft update','b',False],
 				'notepad':['Notepad','m4096',''],
-				'wot_region':['Region of API Server', 'd', 'RU', ['RU','EU','COM', 'SEA', 'KR']],
+				'wot_region':['Region of API Server', 'd', 'RU', ['RU','EU','COM','SEA','KR']],
 				'wot_appid':['World of Tanks. Application ID','t64','demo'],
 				'wot_delay':['World of Tanks. Time of delay','i',2],
 				'wot_retries':['World of Tanks. Count of retries','i',2]
@@ -1887,7 +1887,7 @@ owner_group_other = ['Other settings','#owner-other',
 				'disco_max_limit','disco_exclude','html_paste_enable']]
 
 owner_group_api = ['API settings','#owner-api',
-				['yandex_api_key','bing_api_key','steam_api_key','lfm_api']]
+				['yandex_api_key','bing_api_key','steam_api_key','lfm_api','wot_appid']]
 
 owner_group_karma = ['Karma settings','#owner-karma',
 				['karma_limit','karma_show_default_limit','karma_show_max_limit','karma_timeout','karma_discret','karma_discret_lim_up','karma_discret_lim_dn']]

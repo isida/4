@@ -1775,6 +1775,8 @@ Kernel. Restart timeout for error at bot initial (no connection, auth error)	Ker
 Msgtoadmin. Size limit for msgtoadmin	Msgtoadmin. Лимит размера сообщения для команды msgtoadmin
 Muc-filter. Time peroid for notify	Muc-filter. Уведомления. Период времени для уведомления
 LastFM. Number of answers for lastfm plugin	LastFM. Количество ответов для команд плагина lastfm
+World of Tanks. Application ID	World of Tanks. Идентификатор приложения
+World of Tanks. Count of retries	World of Tanks. Количество ответов
 Www. User-agent for web queries	Www. User-agent для большинства web-запросов
 Muc-filter. Number of empty new lines	Muc-filter. Количество пустых переводов строк
 Karma. Upper value of karma for control action	Karma. Верхний предел кармы при проверки правильности значений
@@ -1795,6 +1797,7 @@ Calendar. Default splitter for calendar	Calendar. Разделитель по у
 LastFM. Api for lastfm plugin	LastFM. Api для работы плагина lastfm
 Anek. Anekdote size for private send	Anek. Размер, свыше которого анекдот будет посылаться в приват
 Muc-filter. Maximum nick size	Muc-filter. Максимальный размер ника
+Region of API Server	Регион сервера API
 Kernel. Text for hide censore	Kernel. Текст для закрытия мата
 Youtube. Default links number	Youtube. Количество ссылок по умолчанию
 Logger. Html logs. Otherwize in text	Logger. Ведение логов в html, иначе в виде текста
@@ -1822,6 +1825,7 @@ Steam. API-key	Steam. API-ключ
 Muc-filter. Time between presences	Muc-filter. Промежуток времени на статус-презенсы
 Notepad	Блокнот
 Kernel. Anti-ddos time delay between messages	Kernel. Промежуток между сообщениями для включения анти-ddos
+World of Tanks. Time of delay	World of Tanks. Время ответа
 Muc-filter. Number of precences per time	Muc-filter. Количество статус-презенсов за время
 Kernel. Exclude symbols from bot's messages	Kernel. Исключить символы из сообщений бота
 Kernel. 1st April joke	Kernel. Первоапрельская шутка
@@ -1848,7 +1852,8 @@ Juick settings	Настройки juick
 Logs settings	Настройки логов
 Youtube settings	Настройки youtube
 API settings	Настройки API
+World of Tanks settings	Настройки плагина World of Tanks
 
 # write locale file: ru.txt
-# total: 1426
+# total: 1432
 # regenarated without mistakes!
