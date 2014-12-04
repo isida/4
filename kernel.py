@@ -768,7 +768,8 @@ def iqCB(sess,iq):
 	if getServer(Settings['jid']) == room: nnj = True
 
 	if iq.getType()=='error' and was_request:
-		er_name = get_tag(unicode(iq),'error').replace('<','').split()[0]
+		try: er_name = get_tag(unicode(iq),'error').replace('<','').split()[0]
+		except: er_name = 'Unknown error!'
 		iq_async(id,time.time(),er_name,'error')
 
 	elif iq.getType()=='result' and was_request:
