@@ -328,6 +328,7 @@ sixteenth	шістнадцяте
 seventeenth	сімнадцяте
 eighteenth	вісімнадцяте
 nineteenth	дев'ятнадцяте
+twentieth	двадцять
 twenty-first	двадцять перше
 twenty-second	двадцять друге
 twenty-third	двадцять трете
@@ -467,7 +468,10 @@ Zalgo translate	Залго-транслітерація
 Information about hero from Godville.net.\ngodville [last|stat|extstat|inv|quest] username	Інформація про героя на Godville.net.\ngodville [last|stat|extstat|inv|quest] ім'я_користувача
 
 # file: plugins/geoip.py
+IP: %s\nAddress: %s, %s, %s, %s\nLat/lon: %s/%s | Metro/Area: %s/%s	IP: %s\nАдреса: %s, %s, %s, %s\nШир/довг: %s/%s | Метро/Зона: %s/%s
+GEO info not found!	ГЕО-інформація не знайдена!
 I can't resolve it	Не ресолвиться
+GEOIP information about IP or domain	ІнформацІя про географічну прив'язку IP-адреси чи домену
 
 # file: plugins/gis.py
 Night	Ніч
@@ -653,14 +657,21 @@ users/all-hosts/online	онлайн користувачів на всіх хо�
 users/total	всього користувачів
 I can't get caps of %s	Я не знаю капс %s
 %s has empty caps!	У %s пустий капс!
+Your caps is %s	Твій капс: %s
+Caps %s is %s	У %s капс %s
 vCard:	Візитка:
 Empty!	Пусто!
 type %s, %s	тип %s, %s
+Your uptime: %s	Твій аптайм: %s
 Uptime %s: %s	Аптайм %s: %s
 I can't do it	Не виходить...
 Ping from you %s sec.	Пінг від тебе - %s сек.
 Ping from %s %s sec.	Пінг від %s - %s сек.
+Your time is %s	Твій час: %s
+Time %s is %s	У %s час %s
 Unknown server answer!	Невідома відповідь сервера
+Your version is %s	Твоя версія: %s
+Version %s is %s	У %s версія %s
 Unavailable!	Недоступно!
 Server statistic: %s\n%s	Статистика серверу: %s\n%s
 Client version.	Версія клієнта.
@@ -1764,6 +1775,8 @@ Kernel. Restart timeout for error at bot initial (no connection, auth error)	Ker
 Msgtoadmin. Size limit for msgtoadmin	Msgtoadmin. Ліміт розміру повідомлення для команди msgtoadmin
 Muc-filter. Time peroid for notify	Muc-filter. Повідомлення. Період часу для повідомленнь
 LastFM. Number of answers for lastfm plugin	LastFM. Кількість відповідей для команди плагіна lastfm
+World of Tanks. Application ID	World of Tanks. Ідентифікатор додатку
+World of Tanks. Count of retries	World of Tanks. Кількість відповідей
 Www. User-agent for web queries	Www. User-agent для більшості web-запитів
 Muc-filter. Number of empty new lines	Muc-filter. Кількість пустих переводів рядків
 Karma. Upper value of karma for control action	Karma. Верхня межа карми при перевірці правильності значень
@@ -1784,6 +1797,7 @@ Calendar. Default splitter for calendar	Calendar. Типовий розділю�
 LastFM. Api for lastfm plugin	LastFM. API для роботи плагіна lastfm
 Anek. Anekdote size for private send	Anek. Розмір понад який анекдот буде відправлено до привату
 Muc-filter. Maximum nick size	Muc-filter. Максимальний розмір ніка
+Region of API Server	Регіон сервера API
 Kernel. Text for hide censore	Kernel. Текст для закриття мату
 Youtube. Default links number	Youtube. Кількість посилань за замовчуванням
 Logger. Html logs. Otherwize in text	Logger. Ведення логів в html, інакше у вигляді звичайного тексту
@@ -1811,6 +1825,7 @@ Steam. API-key	Steam. API-ключ
 Muc-filter. Time between presences	Muc-filter. Проміжок часу на статус-презенси
 Notepad	Блокнот
 Kernel. Anti-ddos time delay between messages	Kernel. Проміжок між повідомленнями для вмикання анти-ddos
+World of Tanks. Time of delay	World of Tanks. Час відповіді
 Muc-filter. Number of precences per time	Muc-filter. Кількість статус-презенсів за час
 Kernel. Exclude symbols from bot's messages	Kernel. Видалити символи із повідомленнь бота
 Kernel. 1st April joke	Kernel. Першотравневий жарт
@@ -1837,7 +1852,8 @@ Juick settings	Налаштування Juick
 Logs settings	Налаштування логів
 Youtube settings	Налаштування Youtube
 API settings	Налаштування API
+World of Tanks settings	Налаштування плагіна World of Tanks
 
 # write locale file: ua.txt
 # total: 1432
-# missed translations: 16
+# regenarated without mistakes!
