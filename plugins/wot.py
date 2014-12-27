@@ -114,7 +114,7 @@ def wot(type, jid, nick, text):
 					msg = '%s: %s/%s' % (wotname, wins, battles)
 
 				else:
-					if 1: #try:
+					try:
 						win_percent = round(100.0 * wins / battles, 2)
 						msg = '%s: %s/%s  (%s%%)' % (wotname, wins, battles, win_percent)
 
@@ -223,8 +223,8 @@ def wot(type, jid, nick, text):
 						msg = L('%s\n- in battle: %s','%s/%s'%(jid,nick)) % (msg, datetime.datetime.fromtimestamp(pdata[player_id]['last_battle_time']))
 						msg = L('%s\n- online: %s','%s/%s'%(jid,nick)) % (msg, datetime.datetime.fromtimestamp(pdata[player_id]['logout_at']))
 						
-					#except:
-					#	msg = L('Impossible to get statistics','%s/%s'%(jid,nick))
+					except:
+						msg = L('Impossible to get statistics','%s/%s'%(jid,nick))
 		elif not pdata['status']:
 			msg = L('Query error','%s/%s'%(jid,nick))
 		else:
