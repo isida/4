@@ -21,19 +21,19 @@
 #                                                                             #
 # --------------------------------------------------------------------------- #
 
-API_ADDR = 'http://api.worldoftanks.%s' % {'RU': 'ru', 'EU': 'eu', 'COM': 'com', 'SEA': 'asia', 'KR': 'kr'}[GT('wot_region')]
-APP_ID = GT('wot_appid')
+import wgpapi
+
+wot_api = wgpapi.Session(getattr(wgpapi.Server, GT('wot_region')), GT('wot_appid'), GT('wot_retries'), GT('wot_delay'))
 
 clantags = re.compile('(\(.*?\))|(\[.*?\])')
 
 def get_tanks_data():
-	data = urllib.urlopen('%s/wot/encyclopedia/tanks/?application_id=%s&fields=level,name_i18n,name' % (API_ADDR, APP_ID))
-	d = json.load(data)
+	d = wot_api.fetch('wot/encyclopedia/tanks', 'fields=level,name_i18n,name')
 	res = {}
-	for i in d['data']:
-		n18 = d['data'][i]['name_i18n'].rsplit(':', 1)[-1].replace('_', ' ')
-		n = d['data'][i]['name'].rsplit(':', 1)[-1].replace('_', ' ')
-		res[i] = {'name_i18n': n18, 'name': n, 'level': d['data'][i]['level']}
+	for i in d:
+		n18 = d[i]['name_i18n'].rsplit(':', 1)[-1].replace('_', ' ')
+		n = d[i]['name'].rsplit(':', 1)[-1].replace('_', ' ')
+		res[i] = {'name_i18n': n18, 'name': n, 'level': d[i]['level']}
 	return res
 
 try:
@@ -53,34 +53,28 @@ def wot(type, jid, nick, text):
 			name, tank = text[0], ''
 		else:
 			name, tank = text[0], text[1].lower()
-		try:
-			data = load_page('%s/2.0/account/list/?application_id=%s&search=%s&fields=account_id&limit=1' % (API_ADDR, APP_ID, name))
-			v = json.loads(data)
-			player_id = str(v['data'][0]['account_id'])
+		
+		try: 
+			
+			v = wot_api.fetch('wot/account/list', 'search=%s&fields=account_id&limit=1' % name)
+			player_id = str(v[0]['account_id'])
 
-			data = load_page('%s/2.0/tanks/stats/?application_id=%s&account_id=%s' % (API_ADDR, APP_ID, player_id))
-			vdata = json.loads(data)
+			vdata = wot_api.fetch('wot/tanks/stats', 'account_id=%s' % player_id)
 
-			data = load_page('%s/2.0/account/tanks/?application_id=%s&account_id=%s&fields=mark_of_mastery,tank_id' % (API_ADDR, APP_ID, player_id))
+			pdata = wot_api.fetch('wot/account/info', 'account_id=%s&fields=nickname,statistics,global_rating' % player_id)
+			stat = pdata[player_id]['statistics']
 
-			data = load_page('%s/2.0/account/info/?application_id=%s&account_id=%s&fields=nickname,statistics,global_rating' % (API_ADDR, APP_ID, player_id))
-			pdata = json.loads(data)
-			stat = pdata['data'][player_id]['statistics']
+			claninfo = wot_api.fetch('wot/clan/membersinfo', 'member_id=%s' % player_id)
 
-
-			data = load_page('%s/wot/clan/membersinfo/?application_id=%s&member_id=%s' % (API_ADDR, APP_ID, player_id))
-			claninfo = json.loads(data)
-
-			if claninfo['data'][player_id]:
-				clan_id = str(claninfo['data'][player_id]['clan_id'])
-				data = load_page('%s/2.0/clan/info//?application_id=%s&clan_id=%s&fields=abbreviation' % (API_ADDR, APP_ID, clan_id))
-				cdata = json.loads(data)
-				cname = cdata['data'][clan_id]['abbreviation']
+			if claninfo[player_id]:
+				clan_id = str(claninfo[player_id]['clan_id'])
+				cdata = wot_api.fetch('wot/clan/info', 'clan_id=%s&fields=abbreviation' % clan_id)
+				cname = cdata[clan_id]['abbreviation']
 		except:
-			pdata = {'status': ''}
+			pdata = None
 
-		if pdata['status'] == 'ok' and pdata['data'][player_id]:
-			wotname = pdata['data'][player_id]['nickname'] + ('[%s]' % cname if claninfo['data'][player_id] else '')
+		if pdata and pdata[player_id]:
+			wotname = pdata[player_id]['nickname'] + ('[%s]' % cname if claninfo[player_id] else '')
 
 			if tank:
 				if len(tank) == 1:
@@ -90,7 +84,7 @@ def wot(type, jid, nick, text):
 						msg = '%s:' % wotname
 						tids = [tid for tid in tanks_data if tank in tanks_data[tid]['name'].lower() or tank in tanks_data[tid]['name_i18n'].lower()]
 
-						for t in vdata['data'][player_id]:
+						for t in vdata[player_id]:
 							if str(t['tank_id']) in tids:
 								tank_win = t['all']['wins']
 								tank_battle = t['all']['battles']
@@ -144,7 +138,7 @@ def wot(type, jid, nick, text):
 						msg += L('\nAv. captured points: %s','%s/%s'%(jid,nick)) % round(CAP, 2)
 						DEF = stat['all']['dropped_capture_points'] / float(battles)
 						msg += L('\nAv. defense points: %s','%s/%s'%(jid,nick)) % round(DEF, 2)
-						tanks = [vh for vh in vdata['data'][player_id] if vh['all']['battles']]
+						tanks = [vh for vh in vdata[player_id] if vh['all']['battles']]
 						s = sum([t['all']['battles'] * tanks_data[str(t['tank_id'])]['level'] for t in tanks])
 						TIER = s / float(battles)
 						WINRATE = wins / float(battles)
@@ -193,7 +187,7 @@ def wot(type, jid, nick, text):
 						elif wn6 >= 1925:
 							msg += L(' - unicum','%s/%s'%(jid,nick))
 
-						msg += L('\nWG rating: %s','%s/%s'%(jid,nick)) % pdata['data'][player_id]['global_rating']
+						msg += L('\nWG rating: %s','%s/%s'%(jid,nick)) % pdata[player_id]['global_rating']
 
 						stat_rnd = lambda x: stat['all'][x] - stat['clan'][x] - stat['company'][x]
 
@@ -240,18 +234,16 @@ def wotclan(type, jid, nick, text):
 	text = text.strip().upper()
 	if text:
 		try:
-			data = load_page('%s/2.0/clan/list/?application_id=%s&search=%s' % (API_ADDR, APP_ID, text))
-			data = json.loads(data)
-			claninfo = [i for i in data['data'] if i['abbreviation'] == text]
+			data = wot_api.fetch('wot/clan/list/', 'search=%s' % text) 
+			claninfo = [i for i in data if i['abbreviation'] == text]
 			if claninfo:
 				claninfo = claninfo[0]
 				clid = claninfo['clan_id']
 				owner = claninfo['owner_name']
 				created_at = claninfo['created_at']
 				abbrev = claninfo['abbreviation']
-				data = load_page('%s/2.0/clan/info/?application_id=%s&clan_id=%s' % (API_ADDR, APP_ID, clid))
-				data = json.loads(data)
-				claninfo2 = data['data'][str(clid)]
+				data = wot_api.fetch('wot/clan/info/', 'clan_id=%s' % clid) 
+				claninfo2 = data[str(clid)]
 				msg = L('Name: %s [%s]','%s/%s'%(jid,nick)) % (claninfo2['name'], abbrev)
 				msg += L('\nOwner: %s','%s/%s'%(jid,nick)) % owner
 				msg += L('\nCreated at: %s','%s/%s'%(jid,nick)) % time.ctime(created_at)
@@ -266,25 +258,7 @@ def wotclan(type, jid, nick, text):
 		msg = L('What?','%s/%s'%(jid,nick))
 	send_msg(type,jid,nick,msg)
 
-def wotoffers(type, jid, nick, text):
-	text = text.strip().split(' ', 1)
-	try:
-		url = 'http://jexp2.wotapi.ru/wotnews/get-news.php'
-		d = '?'
-		for opt in text:
-			if opt in ['active', 'all']:
-				url += '%sactivity=%s' % (d, opt)
-				d = '&'
-			if opt in ['real', 'prem', 'info']:
-				url += '%sdetailed=%s' % (d, opt)
-				d = '&'
-		msg = load_page(url).decode('utf-8')
-	except:
-		msg = L('Impossible to get info','%s/%s'%(jid,nick))
-	send_msg(type,jid,nick,msg)
-
 global execute
 
 execute = [(3, 'wot', wot, 2, 'World of Tanks - info about user. Usage: wot [nick [tank]]'),
-			(3, 'wotclan', wotclan, 2, 'World of Tanks - info about clan. Usage: wotclan clan'),
-			(3, 'wotoffers', wotoffers, 2, 'World of Tanks - info about offers. Usage: wotoffers [active|all] [real|prem|info]')]
+			(3, 'wotclan', wotclan, 2, 'World of Tanks - info about clan. Usage: wotclan clan')]
