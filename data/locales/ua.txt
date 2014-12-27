@@ -1404,6 +1404,9 @@ Impossible to get tanks' statistics	Неможливо отримати стат
  - deerhead 2nd class	 - оленевід 2-го класу
  - deerhead 1st class	 - оленевід 1-го класу
  - master deerhead	 - майстер-оленевід
+\nLast seen:	\nОстанній раз помічений:
+%s\n- in battle: %s	%s\n- в бою: %s
+%s\n- online: %s	%s\n- в мережі: %s
 Impossible to get statistics	Неможливо отримати статистику
 Query error	Помилка запиту
 Player not found	Гравця не знайдено
@@ -1416,7 +1419,6 @@ Clan not found	Клан не знайдено
 Impossible to get info	Неможливо отримати інформацію
 World of Tanks - info about user. Usage: wot [nick [tank]]	World of Tanks - інформація про користувача. Використання: wot [нік [танк]]
 World of Tanks - info about clan. Usage: wotclan clan	World of Tanks - інформація про клан. Приклад: wotclan клан
-World of Tanks - info about offers. Usage: wotoffers [active|all] [real|prem|info]	World of Tanks - інформація про акції. Приклад: wotoffers [active|all] [real|prem|info]
 
 # file: plugins/wtf.py
 I know that %s is %s	Я знаю, що %s - %s
@@ -1855,5 +1857,5 @@ API settings	Налаштування API
 World of Tanks settings	Налаштування плагіна World of Tanks
 
 # write locale file: ua.txt
-# total: 1432
-# regenarated without mistakes!
+# total: 1434
+# missed translations: 3
