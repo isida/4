@@ -1393,6 +1393,7 @@ Impossible to get tanks' statistics	Невозможно получить ста
  - great player	 - превосходный игрок
  - unicum	 - уникум
 \nWN6 rating: %s (XVM: %s)	\nРейтинг WN6: %s (XVM: %s)
+\nWN8 rating: %s (XVM: %s)	\nРейтинг WN8: %s (XVM: %s)
 \nWG rating: %s	\nРейтинг WG: %s
 \nArmor-rating: %s	\nРейтинг Бронесайта: %s
  - virtuoso	 - виртуоз

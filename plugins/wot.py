@@ -36,10 +36,18 @@ def get_tanks_data():
 		res[i] = {'name_i18n': n18, 'name': n, 'level': d[i]['level']}
 	return res
 
+def getExtValue():
+	data = load_page('http://www.wnefficiency.net/exp/expected_tank_values_latest.json')
+	v = json.loads(data)
+	extv = dict([[d['IDNum'], {'expFrag':d['expFrag'],'expDamage':d['expDamage'],'expSpot':d['expSpot'],'expDef':d['expDef'],'expWinRate':d['expWinRate']}] for d in v['data']])
+	return extv
+	
 try:
 	tanks_data = get_tanks_data()
 except:
 	tanks_data = {}
+	
+extv = getExtValue()
 
 def wot(type, jid, nick, text):
 	text = text.strip()
@@ -187,8 +195,59 @@ def wot(type, jid, nick, text):
 						elif wn6 >= 1925:
 							msg += L(' - unicum','%s/%s'%(jid,nick))
 
+						expDmg = 0
+						expSpot = 0
+						expFrag = 0
+						expDef = 0
+						expWins = 0
+					
+						for t in vdata[player_id]:
+						
+							tank_battle = t['all']['battles']
+							
+							expDmg += tank_battle * extv[t['tank_id']]['expDamage']
+							expSpot += tank_battle * extv[t['tank_id']]['expSpot']
+							expFrag += tank_battle * extv[t['tank_id']]['expFrag']
+							expDef += tank_battle * extv[t['tank_id']]['expDef']
+							expWins += tank_battle * extv[t['tank_id']]['expWinRate'] / 100.0
+							
+						rDAMAGE = stat['all']['damage_dealt'] / expDmg
+						rSPOT = stat['all']['spotted'] / expSpot
+						rFRAG = stat['all']['frags'] / expFrag
+						rDEF = stat['all']['dropped_capture_points'] / expDef
+						rWIN = wins / expWins
+						
+						rWINc    = max(0, (rWIN    - 0.71) / (1 - 0.71) )
+						rDAMAGEc = max(0, (rDAMAGE - 0.22) / (1 - 0.22) )
+						rFRAGc   = max(0, min(rDAMAGEc + 0.2, (rFRAG   - 0.12) / (1 - 0.12)))
+						rSPOTc   = max(0, min(rDAMAGEc + 0.1, (rSPOT   - 0.38) / (1 - 0.38)))
+						rDEFc    = max(0, min(rDAMAGEc + 0.1, (rDEF    - 0.10) / (1 - 0.10)))
+						
+						#http://www.koreanrandom.com/forum/topic/13434-%D1%80%D0%B5%D0%B9%D1%82%D0%B8%D0%BD%D0%B3-wn8-%D1%84%D0%BE%D1%80%D0%BC%D1%83%D0%BB%D0%B0-%D0%BE%D0%B1%D1%81%D1%83%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5/
+						wn8 = 980*rDAMAGEc + 210*rDAMAGEc*rFRAGc + 155*rFRAGc*rSPOTc + 75*rDEFc*rFRAGc + 145*min(1.8,rWINc)
+						
+						if wn8 > 3400:
+							wn8_xvm = 100
+						else:
+							wn8_xvm = max(min(wn8*(wn8*(wn8*(wn8*(wn8*(9.553e-20*wn8 - 1.644e-16) - 4.26e-12) + 1.97e-8) - 3.192e-5) + 5.6265e-2) - 0.157, 100), 0)
+							
+						msg += L('\nWN8 rating: %s (XVM: %s)','%s/%s'%(jid,nick)) % (int(round(wn8)), round(wn8_xvm, 1))
+						
+						if wn8 < 355:
+							msg += L(' - bad player','%s/%s'%(jid,nick))
+						elif wn8 < 820:
+							msg += L(' - player below average','%s/%s'%(jid,nick))
+						elif wn8 < 1370:
+							msg += L(' - average player','%s/%s'%(jid,nick))
+						elif wn8 < 2020:
+							msg += L(' - good player','%s/%s'%(jid,nick))
+						elif wn8 < 2620:
+							msg += L(' - great player','%s/%s'%(jid,nick))
+						elif wn8 >= 2620:
+							msg += L(' - unicum','%s/%s'%(jid,nick))
+						
 						msg += L('\nWG rating: %s','%s/%s'%(jid,nick)) % pdata[player_id]['global_rating']
-
+							
 						stat_rnd = lambda x: stat['all'][x] - stat['clan'][x] - stat['company'][x]
 
 						armor = math.log(stat_rnd('battles')) / 10 * (stat_rnd('xp')/float(stat_rnd('battles')) + stat_rnd('damage_dealt')/float(stat_rnd('battles')) * (stat_rnd('wins') * 2 + stat_rnd('frags') * 0.9 + (stat_rnd('spotted') + stat_rnd('capture_points') + stat_rnd('dropped_capture_points')) * 0.5)/float(stat_rnd('battles')))
