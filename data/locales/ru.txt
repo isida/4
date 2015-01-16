@@ -1375,7 +1375,7 @@ none	отсутствует
 2 class	2 степень
 1 class	1 степень
 master	мастер
-\n%s: %s/%s (%s%%), avg.damage: %s, xp (avg/max): %s/%s, mastery: %s	\n%s: %s/%s (%s%%), ср.урон: %s, опыт (ср/макс): %s/%s, классность: %s
+\n%s: %s/%s (%s%%), avg.damage: %s, xp (avg/max): %s/%s, WN8: %s (%s), mastery: %s	\n%s: %s/%s (%s%%), ср.урон: %s, опыт (ср/макс): %s/%s, WN8: %s (%s), классность: %s
  not founded tank	 танк не найден
 Impossible to get tanks' statistics	Невозможно получить статистику танков
 \nUp to %s%% win left: %s battles	\nДо %s%% побед осталось: %s битв

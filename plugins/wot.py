@@ -106,7 +106,34 @@ def wot(type, jid, nick, text):
 									tank_dmg = int(round(t['all']['damage_dealt'] / float(tank_battle), 0))
 									tank_name = tanks_data[str(t['tank_id'])]['name_i18n']
 									tank_wins = round(100.0*tank_win/tank_battle, 2)
-									msg += L('\n%s: %s/%s (%s%%), avg.damage: %s, xp (avg/max): %s/%s, mastery: %s','%s/%s'%(jid,nick)) % (tank_name, tank_win, tank_battle, tank_wins, tank_dmg, tank_avgxp, tank_maxxp, mom)
+									#wn8
+									expDmg = tank_battle * extv[t['tank_id']]['expDamage']
+									expSpot = tank_battle * extv[t['tank_id']]['expSpot']
+									expFrag = tank_battle * extv[t['tank_id']]['expFrag']
+									expDef = tank_battle * extv[t['tank_id']]['expDef']
+									expWins = tank_battle * extv[t['tank_id']]['expWinRate'] / 100.0
+
+									rDAMAGE = t['all']['damage_dealt'] / expDmg
+									rSPOT = t['all']['spotted'] / expSpot
+									rFRAG = t['all']['frags'] / expFrag
+									rDEF = t['all']['dropped_capture_points'] / expDef
+									rWIN = tank_win / expWins
+						
+									rWINc    = max(0, (rWIN    - 0.71) / (1 - 0.71) )
+									rDAMAGEc = max(0, (rDAMAGE - 0.22) / (1 - 0.22) )
+									rFRAGc   = max(0, min(rDAMAGEc + 0.2, (rFRAG   - 0.12) / (1 - 0.12)))
+									rSPOTc   = max(0, min(rDAMAGEc + 0.1, (rSPOT   - 0.38) / (1 - 0.38)))
+									rDEFc    = max(0, min(rDAMAGEc + 0.1, (rDEF    - 0.10) / (1 - 0.10)))
+																		
+									twn8 = 980*rDAMAGEc + 210*rDAMAGEc*rFRAGc + 155*rFRAGc*rSPOTc + 75*rDEFc*rFRAGc + 145*min(1.8,rWINc)
+									
+									if twn8 > 3400:
+										twn8_xvm = 100
+									else:
+										twn8_xvm = max(min(twn8*(twn8*(twn8*(twn8*(twn8*(9.553e-20*twn8 - 1.644e-16) - 4.26e-12) + 1.97e-8) - 3.192e-5) + 5.6265e-2) - 0.157, 100), 0)
+									
+									msg += L('\n%s: %s/%s (%s%%), avg.damage: %s, xp (avg/max): %s/%s, WN8: %s (%s), mastery: %s','%s/%s'%(jid,nick)) % (tank_name, tank_win, tank_battle, tank_wins, tank_dmg, tank_avgxp, tank_maxxp, int(round(twn8)), round(twn8_xvm, 1), mom)
+
 								else:
 									msg += '\n%s (%s/%s)' % (tanks_data[str(t['tank_id'])]['name_i18n'], tank_win, tank_battle)
 						if not msg.count('\n'):
