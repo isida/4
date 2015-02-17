@@ -1375,7 +1375,7 @@ none	відсутня
 2 class	2 степінь
 1 class	1 степінь
 master	майстер
-\n%s: %s/%s (%s%%), avg.damage: %s, xp (avg/max): %s/%s, WN8: %s (%s), mastery: %s	\n%s: %s/%s (%s%%), сер.ушкодж.: %s, досвід (сер/макс): %s/%s, WN8: %s (%s), класність: %s
+\n%s: %s/%s (%s%%), avg.damage: %s, xp (avg/max): %s/%s,%s mastery: %s	\n%s: %s/%s (%s%%), сер.ушкодж.: %s, досвід (сер/макс): %s/%s,%s класність: %s
  not founded tank	 танк не знайдено
 Impossible to get tanks' statistics	Неможливо отримати статистику танків
 \nUp to %s%% win left: %s battles	\nДо %s%% перемог залишилося: %s битв
