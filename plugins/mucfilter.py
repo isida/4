@@ -232,7 +232,7 @@ def muc_filter_set(iq,id,room,acclvl,query,towh,al):
 						act = get_config(gr,'muc_filter_large')
 						muc_pprint('MUC-Filter msg large message (%s): %s [%s] %s' % (act,jid,room,body),'brown')
 						if act == 'paste' or act == 'truncate':
-							url = paste_text(rss_replace(body),room,jid)
+							url = paste_text_muc(rss_replace(body),room,jid)
 							if act == 'truncate': body = u'%s[…] %s' % (body[:GT('muc_filter_large_message_size')],url)
 							else: body = L('Large message%s %s',rn) % (u'…',url)
 							msg = msg.replace(get_tag_full(msg,'body'),'<body>%s</body>' % body)
