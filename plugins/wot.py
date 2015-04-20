@@ -110,7 +110,7 @@ def wot(type, jid, nick, text):
 									tank_name = tanks_data[str(t['tank_id'])]['name_i18n']
 									tank_wins = round(100.0*tank_win/tank_battle, 2)
 									
-									if extv:
+									if extv and extv.has_key(t['tank_id']):
 										#wn8
 										expDmg = tank_battle * extv[t['tank_id']]['expDamage']
 										expSpot = tank_battle * extv[t['tank_id']]['expSpot']
