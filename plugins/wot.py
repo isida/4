@@ -238,7 +238,9 @@ def wot(type, jid, nick, text):
 							expWins = 0
 						
 							for t in vdata[player_id]:
-							
+								if not extv.has_key(t['tank_id']):
+									continue
+                                    
 								tank_battle = t['all']['battles']
 								
 								expDmg += tank_battle * extv[t['tank_id']]['expDamage']
