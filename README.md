@@ -12,4 +12,4 @@ More info:
 
 ------
 
-Copyright 2oo9..2o14 by [diSabler](http://dsy.name) under [GPLv3](http://www.gnu.org/licenses/gpl.txt) Licence
+Copyright 2oo9..2o15 by [diSabler](http://dsy.name) under [GPLv3](http://www.gnu.org/licenses/gpl.txt) Licence
