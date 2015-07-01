@@ -250,6 +250,7 @@ def muc_filter_set(iq,id,room,acclvl,query,towh,al):
 				return True
 
 			tojid = rss_replace(get_tag_item(msg,'presence','to'))
+			if not tojid: tojid = rn
 			if is_owner(jid): pass
 			elif get_config(gr,'muc_filter') and not mute:
 				show = ['online',get_tag(msg,'show')][int('<show>' in msg and '</show>' in msg)]
