@@ -421,7 +421,8 @@ CREATE TABLE tmp (
 	type text,
 	time integer,
 	room text,
-	hash text array[10]
+	hash text array[10],
+	changed text
 );
 
 INSERT INTO tmp SELECT DISTINCT * FROM feed;
