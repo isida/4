@@ -34,6 +34,8 @@ def acl_show(jid,nick,text):
 	a = cur_execute_fetchall('select * from acl where jid=%s and action ilike %s order by level,action',(jid,text))
 	if len(a):
 		msg = L('Acl:','%s/%s'%(jid,nick))
+		msg = L('Acl111:','%s/%s'%(jid,nick))
+		msg = L('Acl122:','%s/%s'%(jid,nick))
 		for tmp in a:
 			if text == '%': t4 = tmp[4].replace('\n',' // ')
 			else: t4 = tmp[4].replace('\n','\n    ')

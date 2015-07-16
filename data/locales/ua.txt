@@ -1368,59 +1368,6 @@ For a last day i see: %s	Протягом останньої доби я бач�
 All who i see for a last day now is here.	Всі, кого я бачила протягом доби, знаходяться тут.
 Show list of users for last day	Показ списку учасників за добу
 
-# file: plugins/wot.py
-Use more characters in the name of the tank	Використовуйте більше символів в назві танку
-none	відсутня
-3 class	3 степінь
-2 class	2 степінь
-1 class	1 степінь
-master	майстер
-\n%s: %s/%s (%s%%), avg.damage: %s, xp (avg/max): %s/%s,%s mastery: %s	\n%s: %s/%s (%s%%), сер.ушкодж.: %s, досвід (сер/макс): %s/%s,%s класність: %s
- not founded tank	 танк не знайдено
-Impossible to get tanks' statistics	Неможливо отримати статистику танків
-\nUp to %s%% win left: %s battles	\nДо %s%% перемог залишилося: %s битв
-\nAv. damage: %s	\nСер. дамаг: %s
-\nAv. destroyed: %s	\nВ сер. знищено: %s
-\nAv. spotted: %s	\nВ сер. знайдено: %s
-\nAv. captured points: %s	\nВ сер. очків захвату: %s
-\nAv. defense points: %s	\nВ сер. очків захисту: %s
-\nAv. tank lvl: %s	\nСер. рівень танків: %s
-\nEfficiency rating: %s (XVM: %s)	\nРейтинг ефективності: %s (XVM: %s)
- - bad player	 - поганий гравець
- - player below average	 - гравець нижче середнього
- - average player	 - середній гравець
- - good player	 - хороший гравець
- - great player	 - чудовий гравець
- - unicum	 - унікум
-\nWN6 rating: %s (XVM: %s)	\nРейтинг WN6: %s (XVM: %s)
-\nWN8 rating: %s (XVM: %s)	\nРейтинг WN8: %s (XVM: %s)
-\nWG rating: %s	\nРейтинг WG: %s
-\nArmor-rating: %s	\nРейтинг Бронесайту: %s
- - virtuoso	 - віртуоз
- - master tanker	 - майстер-танкіст
- - tanker 1st class	 - танкіст 1-го класу
- - tanker 2nd class	 - танкіст 2-го класу
- - tanker 3rd class	 - танкіст 3-го класу
- - deerhead 3rd class	 - оленевід 3-го класу
- - deerhead 2nd class	 - оленевід 2-го класу
- - deerhead 1st class	 - оленевід 1-го класу
- - master deerhead	 - майстер-оленевід
-\nLast seen:	\nОстанній раз помічений:
-%s\n- in battle: %s	%s\n- в бою: %s
-%s\n- online: %s	%s\n- в мережі: %s
-Impossible to get statistics	Неможливо отримати статистику
-Query error	Помилка запиту
-Player not found	Гравця не знайдено
-Name: %s [%s]	Назва: %s [%s]
-\nOwner: %s	\nВласник: %s
-\nCreated at: %s	\nДата створення: %s
-\nCount of members: %s	\nКількість учасників: %s
-\nMotto: %s	\nДевіз: %s
-Clan not found	Клан не знайдено
-Impossible to get info	Неможливо отримати інформацію
-World of Tanks - info about user. Usage: wot [nick [tank]]	World of Tanks - інформація про користувача. Використання: wot [нік [танк]]
-World of Tanks - info about clan. Usage: wotclan clan	World of Tanks - інформація про клан. Приклад: wotclan клан
-
 # file: plugins/wtf.py
 I know that %s is %s	Я знаю, що %s - %s
 from %s: %s	від %s: %s
@@ -1858,5 +1805,5 @@ API settings	Налаштування API
 World of Tanks settings	Налаштування плагіна World of Tanks
 
 # write locale file: ua.txt
-# total: 1434
-# missed translations: 3
+# total: 1384
+# regenarated without mistakes!

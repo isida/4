@@ -1568,7 +1568,7 @@ nmbrs = ['0','1','2','3','4','5','6','7','8','9','.']
 ul = slog_folder % 'update.log'				# лог последнего обновление
 halt_on_exception = False					# остановка на ошибках
 debug_xmpppy = False				# отладка xmpppy
-debug_console = False				# отладка действий бота
+debug_console = True				# отладка действий бота
 CommandsLog = None					# логгирование команд
 prefix = '_'						# префикс комманд
 msg_limit = 1000					# лимит размера сообщений
@@ -1648,6 +1648,11 @@ elif lt[0:3] > gt[0:3]: timeofset = int(lt[3])-int(gt[3]) + 24
 else: timeofset = int(gt[3])-int(lt[3]) + 24
 is_win32 = sys.platform == 'win32'
 
+if is_win32:
+	import ctypes
+	ctypes.windll.Kernel32.GetStdHandle.restype = ctypes.c_ulong
+	win_console_color = ctypes.windll.Kernel32.GetStdHandle(ctypes.c_ulong(0xfffffff5))
+
 if os.path.isfile(configname): execfile(configname)
 else: errorHandler('%s is missed.' % configname)
 
@@ -1704,11 +1709,6 @@ if thread_type:
 	garbage_collector()
 
 else: import thread
-
-if is_win32:
-	import ctypes
-	ctypes.windll.Kernel32.GetStdHandle.restype = ctypes.c_ulong
-	win_console_color = ctypes.windll.Kernel32.GetStdHandle(ctypes.c_ulong(0xfffffff5))
 
 botVersion = get_bot_version()
 try: tmp = botOs
