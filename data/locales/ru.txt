@@ -1368,6 +1368,59 @@ For a last day i see: %s	За последние сутки я видела: %s
 All who i see for a last day now is here.	Все, кого я видела за сутки, находятся тут.
 Show list of users for last day	Показ списка участников за сутки
 
+# file: plugins/wot.py
+Use more characters in the name of the tank	Используйте больше символов в названии танка
+none	отсутствует
+3 class	3 степень
+2 class	2 степень
+1 class	1 степень
+master	мастер
+\n%s: %s/%s (%s%%), avg.damage: %s, xp (avg/max): %s/%s,%s mastery: %s	\n%s: %s/%s (%s%%), ср.урон: %s, опыт (ср/макс): %s/%s,%s классность: %s
+ not founded tank	 танк не найден
+Impossible to get tanks' statistics	Невозможно получить статистику танков
+\nUp to %s%% win left: %s battles	\nДо %s%% побед осталось: %s битв
+\nAv. damage: %s	\nСр. дамаг: %s
+\nAv. destroyed: %s	\nВ ср. уничтожено: %s
+\nAv. spotted: %s	\nВ ср. обнаружено: %s
+\nAv. captured points: %s	\nВ ср. очков захвата: %s
+\nAv. defense points: %s	\nВ ср. очков защиты: %s
+\nAv. tank lvl: %s	\nСр. уровень танков: %s
+\nEfficiency rating: %s (XVM: %s)	\nРейтинг эффективности: %s (XVM: %s)
+ - bad player	 - плохой игрок
+ - player below average	 - игрок ниже среднего
+ - average player	 - средний игрок
+ - good player	 - хороший игрок
+ - great player	 - превосходный игрок
+ - unicum	 - уникум
+\nWN6 rating: %s (XVM: %s)	\nРейтинг WN6: %s (XVM: %s)
+\nWN8 rating: %s (XVM: %s)	\nРейтинг WN8: %s (XVM: %s)
+\nWG rating: %s	\nРейтинг WG: %s
+\nArmor-rating: %s	\nРейтинг Бронесайта: %s
+ - virtuoso	 - виртуоз
+ - master tanker	 - мастер-танкист
+ - tanker 1st class	 - танкист 1-го класса
+ - tanker 2nd class	 - танкист 2-го класса
+ - tanker 3rd class	 - танкист 3-го класса
+ - deerhead 3rd class	 - оленевод 3-го класса
+ - deerhead 2nd class	 - оленевод 2-го класса
+ - deerhead 1st class	 - оленевод 1-го класса
+ - master deerhead	 - мастер-оленевод
+\nLast seen:	\nПоследний раз замечен:
+%s\n- in battle: %s	%s\n- в бою: %s
+%s\n- online: %s	%s\n- в сети: %s
+Impossible to get statistics	Невозможно получить статистику
+Query error	Ошибка запроса
+Player not found	Игрок не найден
+Name: %s [%s]	Название: %s [%s]
+\nOwner: %s	\nВладелец: %s
+\nCreated at: %s	\nДата создания: %s
+\nCount of members: %s	\nКоличество участников: %s
+\nMotto: %s	\nДевиз: %s
+Clan not found	Клан не найден
+Impossible to get info	Невозможно получить информацию
+World of Tanks - info about user. Usage: wot [nick [tank]]	World of Tanks - информация о пользователе. Использование: wot [ник [танк]]
+World of Tanks - info about clan. Usage: wotclan clan	World of Tanks - информация о клане. Пример: wotclan клан
+
 # file: plugins/wtf.py
 I know that %s is %s	Я знаю, что %s - %s
 from %s: %s	от %s: %s
@@ -1805,5 +1858,5 @@ API settings	Настройки API
 World of Tanks settings	Настройки плагина World of Tanks
 
 # write locale file: ru.txt
-# total: 1384
+# total: 1435
 # regenarated without mistakes!

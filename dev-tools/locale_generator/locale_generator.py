@@ -21,7 +21,9 @@
 #                                                                             #
 # --------------------------------------------------------------------------- #
 
-import os,re,time
+import os,re,time,sys
+
+sys.path = ['../../lib'] + sys.path
 
 def L(t): return t
 
