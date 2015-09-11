@@ -75,11 +75,11 @@ def wot(type, jid, nick, text):
 			pdata = wot_api.fetch('wot/account/info', 'account_id=%s&fields=nickname,statistics,global_rating,last_battle_time,logout_at' % player_id)
 			stat = pdata[player_id]['statistics']
 
-			claninfo = wot_api.fetch('wot/clan/membersinfo', 'member_id=%s' % player_id)
+			claninfo = wot_api.fetch('wgn/clans/membersinfo', 'account_id=%s' % player_id)
 
 			if claninfo[player_id]:
 				clan_id = str(claninfo[player_id]['clan_id'])
-				cdata = wot_api.fetch('wot/clan/info', 'clan_id=%s&fields=abbreviation' % clan_id)
+				cdata = wot_api.fetch('wgn/clans/info', 'clan_id=%s&fields=abbreviation' % clan_id)
 				cname = cdata[clan_id]['abbreviation']
 		except:
 			pdata = None
@@ -334,7 +334,7 @@ def wotclan(type, jid, nick, text):
 	text = text.strip().upper()
 	if text:
 		try:
-			data = wot_api.fetch('wot/clan/list/', 'search=%s' % text) 
+			data = wot_api.fetch('wgn/clans/list/', 'search=%s' % text) 
 			claninfo = [i for i in data if i['abbreviation'] == text]
 			if claninfo:
 				claninfo = claninfo[0]
