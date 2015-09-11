@@ -335,17 +335,16 @@ def wotclan(type, jid, nick, text):
 	if text:
 		try:
 			data = wot_api.fetch('wgn/clans/list/', 'search=%s' % text) 
-			claninfo = [i for i in data if i['abbreviation'] == text]
+			claninfo = [i for i in data if i['tag'] == text]
 			if claninfo:
 				claninfo = claninfo[0]
 				clid = claninfo['clan_id']
-				owner = claninfo['owner_name']
 				created_at = claninfo['created_at']
-				abbrev = claninfo['abbreviation']
-				data = wot_api.fetch('wot/clan/info/', 'clan_id=%s' % clid) 
+				abbrev = claninfo['tag']
+				data = wot_api.fetch('wgn/clans/info/', 'clan_id=%s' % clid) 
 				claninfo2 = data[str(clid)]
 				msg = L('Name: %s [%s]','%s/%s'%(jid,nick)) % (claninfo2['name'], abbrev)
-				msg += L('\nOwner: %s','%s/%s'%(jid,nick)) % owner
+				msg += L('\nOwner: %s','%s/%s'%(jid,nick)) % claninfo2['creator_name']
 				msg += L('\nCreated at: %s','%s/%s'%(jid,nick)) % time.ctime(created_at)
 				msg += L('\nCount of members: %s','%s/%s'%(jid,nick)) % claninfo2['members_count']
 				msg += L('\nMotto: %s','%s/%s'%(jid,nick)) % claninfo2['motto']
