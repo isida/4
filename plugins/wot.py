@@ -78,9 +78,9 @@ def wot(type, jid, nick, text):
 			claninfo = wot_api.fetch('wgn/clans/membersinfo', 'account_id=%s' % player_id)
 
 			if claninfo[player_id]:
-				clan_id = str(claninfo[player_id]['clan_id'])
-				cdata = wot_api.fetch('wgn/clans/info', 'clan_id=%s&fields=abbreviation' % clan_id)
-				cname = cdata[clan_id]['abbreviation']
+				clan_id = str(claninfo[player_id]['clan']['clan_id'])
+				cdata = wot_api.fetch('wgn/clans/info', 'clan_id=%s&fields=tag' % clan_id)
+				cname = cdata[clan_id]['tag']
 		except:
 			pdata = None
 
