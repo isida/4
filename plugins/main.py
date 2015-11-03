@@ -1754,6 +1754,7 @@ config_groups = [config_group_mucfilter,config_group_mucfilter_newbie,config_gro
 # XXe - execute latest field by eval
 
 owner_prefs = {'syslogs_enable': ['Logger. Enable system logs','b',True],
+				'movement_logs_enable':['Logger. Enable logging ins and outs of the conference','b',True],
 				'status_logs_enable':['Logger. Enable status change logging','b',True],
 				'aff_role_logs_enable':['Logger. Enable role and affiliation logging','b',True],
 				'html_logs_enable':['Logger. Html logs. Otherwize in text','b',True],
@@ -1877,7 +1878,7 @@ owner_group_juick = ['Juick settings','#owner-juick',
 				['juick_user_post_limit','juick_user_post_size','juick_msg_answers_default','juick_user_tags_limit']]
 
 owner_group_logs = ['Logs settings','#owner-logs',
-				['syslogs_enable','status_logs_enable','aff_role_logs_enable','html_logs_enable','html_logs_end_text','chatlogs_logs_gmt']]
+				['syslogs_enable','status_logs_enable','aff_role_logs_enable','movement_logs_enable','html_logs_enable','html_logs_end_text','chatlogs_logs_gmt']]
 
 owner_group_youtube = ['Youtube settings','#owner-youtube',
 				['youtube_max_videos','youtube_default_videos','youtube_max_page_size','youtube_default_lang']]
