@@ -1744,6 +1744,7 @@ Troll. Delay between messages for troll command	Troll. Задержка отпр
 Karma. Minimal karma for allow krama change for participants	Karma. Минимальная карма при которой изменение кармы доступно не постоянным участникам
 Iq. Allow answer to service discovery	Iq. Разрешение отвечать на запрос обзора сервисов
 Msgtoadmin. Time limit for next message for msgtoadmin	Msgtoadmin. Лимит времени следующей посылки сообщения для команды msgtoadmin
+Logger. Enable logins and logouts logging	Logger. Запись в логи входов и выходов
 Muc-filter. A kind words count	Muc-filter. Счётчик одинаковых слов
 Whereis. Frequency for answer check for whereis command	Whereis. Частота проверки ответа для команды whereis
 Kernel. Bot status. Show different status for bot loading	Kernel. Bot status. Особый статус при загрузке
@@ -1858,5 +1859,6 @@ API settings	Настройки API
 World of Tanks settings	Настройки плагина World of Tanks
 
 # write locale file: ru.txt
-# total: 1435
+# total: 1436
 # regenarated without mistakes!
+

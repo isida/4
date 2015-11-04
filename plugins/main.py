@@ -1754,7 +1754,7 @@ config_groups = [config_group_mucfilter,config_group_mucfilter_newbie,config_gro
 # XXe - execute latest field by eval
 
 owner_prefs = {'syslogs_enable': ['Logger. Enable system logs','b',True],
-				'movement_logs_enable':['Logger. Enable logging ins and outs of the conference','b',True],
+				'movement_logs_enable':['Logger. Enable logins and logouts logging','b',True],
 				'status_logs_enable':['Logger. Enable status change logging','b',True],
 				'aff_role_logs_enable':['Logger. Enable role and affiliation logging','b',True],
 				'html_logs_enable':['Logger. Html logs. Otherwize in text','b',True],
