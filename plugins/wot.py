@@ -28,12 +28,10 @@ wot_api = wgpapi.Session(getattr(wgpapi.Server, GT('wot_region')), GT('wot_appid
 clantags = re.compile('(\(.*?\))|(\[.*?\])')
 
 def get_tanks_data():
-	d = wot_api.fetch('wot/encyclopedia/tanks', 'fields=level,name_i18n,name')
+	d = wot_api.fetch('wot/encyclopedia/vehicles', 'fields=tier,name')
 	res = {}
 	for i in d:
-		n18 = d[i]['name_i18n'].rsplit(':', 1)[-1].replace('_', ' ')
-		n = d[i]['name'].rsplit(':', 1)[-1].replace('_', ' ')
-		res[i] = {'name_i18n': n18, 'name': n, 'level': d[i]['level']}
+		res[i] = {'name': d[i]['name'], 'level': d[i]['tier']}
 	return res
 
 def getExtValue():
@@ -93,7 +91,7 @@ def wot(type, jid, nick, text):
 				else:
 					try:
 						msg = '%s:' % wotname
-						tids = [tid for tid in tanks_data if tank in tanks_data[tid]['name'].lower() or tank in tanks_data[tid]['name_i18n'].lower()]
+						tids = [tid for tid in tanks_data if tank in tanks_data[tid]['name'].lower() or tank in tanks_data[tid]['name'].lower()]
 
 						for t in vdata[player_id]:
 							if str(t['tank_id']) in tids:
@@ -107,7 +105,7 @@ def wot(type, jid, nick, text):
 										L('2 class','%s/%s'%(jid,nick)),									L('1 class','%s/%s'%(jid,nick)),
 										L('master','%s/%s'%(jid,nick))][t['mark_of_mastery']]
 									tank_dmg = int(round(t['all']['damage_dealt'] / float(tank_battle), 0))
-									tank_name = tanks_data[str(t['tank_id'])]['name_i18n']
+									tank_name = tanks_data[str(t['tank_id'])]['name']
 									tank_wins = round(100.0*tank_win/tank_battle, 2)
 									
 									if extv and extv.has_key(t['tank_id']):
@@ -143,7 +141,7 @@ def wot(type, jid, nick, text):
 									msg += L('\n%s: %s/%s (%s%%), avg.damage: %s, xp (avg/max): %s/%s,%s mastery: %s','%s/%s'%(jid,nick)) % (tank_name, tank_win, tank_battle, tank_wins, tank_dmg, tank_avgxp, tank_maxxp, WN8_TXT, mom)
 
 								else:
-									msg += '\n%s (%s/%s)' % (tanks_data[str(t['tank_id'])]['name_i18n'], tank_win, tank_battle)
+									msg += '\n%s (%s/%s)' % (tanks_data[str(t['tank_id'])]['name'], tank_win, tank_battle)
 						if not msg.count('\n'):
 							msg += L(' not founded tank','%s/%s'%(jid,nick))
 					except:
