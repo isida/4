@@ -174,33 +174,34 @@ def presence_logger(room,jid,nick,type,mass,mode,logfile):
 		if not os.path.exists(curr_path): os.mkdir(curr_path)
 		curr_file = ['%s/%02d.txt','%s/%02d.html'][GT('html_logs_enable')] % (curr_path,lt[2])
 		ott = onlytimeadd(lt)
-		log_body = ['[%s] ' % ott,'<p><a id="%s" name="%s" href="#%s" class="time">%s</a> ' % (ott,ott,ott,ott)][GT('html_logs_enable')]
-		if type == 'unavailable':
-			log_body += ['*** %s','<span class="unavailable">%s'][GT('html_logs_enable')] % nick
-			if mode and jid != 'None': log_body += ' (%s)' % jid
-			if len(exit_type): log_body += ' %s' % exit_type
-			else: log_body += ' %s' % L('leave')
-			if exit_message != '': log_body += ' (%s)' % exit_message
-			if mode and '\r' in mass[4]: log_body += ', %s %s' % (L('Client:'),mass[4].split('\r')[1])
-			log_body += '%s\n' % ['','</span></p>'][GT('html_logs_enable')]
-		else:
-			log_body += ['*** %s','<span class="status">%s'][GT('html_logs_enable')] % nick
-			if not_found == 0:
+		if GT('movement_logs_enable'):
+			log_body = ['[%s] ' % ott,'<p><a id="%s" name="%s" href="#%s" class="time">%s</a> ' % (ott,ott,ott,ott)][GT('html_logs_enable')]
+			if type == 'unavailable':
+				log_body += ['*** %s','<span class="unavailable">%s'][GT('html_logs_enable')] % nick
 				if mode and jid != 'None': log_body += ' (%s)' % jid
-				log_body += ' %s %s' % (L('join as'),L("%s/%s" % (role,affiliation)))
-				status_type = '%s_log_join'
-			elif not_found == 1:
-				log_body += ' %s %s' % (L('now is'),L("%s/%s" % (role,affiliation)))
-				if exit_message: log_body += ' (%s)' % exit_message
-			elif not_found == 2: status_type = '%s_log_change'
-			if not_found == 0 or not_found == 2:
-				status_mask = ' %s' if not_found else ', %s'
-				if show != 'None': log_body += status_mask % L(status_type % show).replace(status_type % '','')
-				else: log_body += status_mask % L(status_type % "online").replace(status_type % '','')
-				if priority != 'None': log_body += ' [%s]' % priority
-				else:  log_body += ' [0]'
-				if text != 'None':  log_body += ' (%s)' % text
-			log_body += '%s\n' % ['','</span></p>'][GT('html_logs_enable')]
+				if len(exit_type): log_body += ' %s' % exit_type
+				else: log_body += ' %s' % L('leave')
+				if exit_message != '': log_body += ' (%s)' % exit_message
+				if mode and '\r' in mass[4]: log_body += ', %s %s' % (L('Client:'),mass[4].split('\r')[1])
+				log_body += '%s\n' % ['','</span></p>'][GT('html_logs_enable')]
+			else:
+				log_body += ['*** %s','<span class="status">%s'][GT('html_logs_enable')] % nick
+				if not_found == 0:
+					if mode and jid != 'None': log_body += ' (%s)' % jid
+					log_body += ' %s %s' % (L('join as'),L("%s/%s" % (role,affiliation)))
+					status_type = '%s_log_join'
+				elif not_found == 1:
+					log_body += ' %s %s' % (L('now is'),L("%s/%s" % (role,affiliation)))
+					if exit_message: log_body += ' (%s)' % exit_message
+				elif not_found == 2: status_type = '%s_log_change'
+				if not_found == 0 or not_found == 2:
+					status_mask = ' %s' if not_found else ', %s'
+					if show != 'None': log_body += status_mask % L(status_type % show).replace(status_type % '','')
+					else: log_body += status_mask % L(status_type % "online").replace(status_type % '','')
+					if priority != 'None': log_body += ' [%s]' % priority
+					else:  log_body += ' [0]'
+					if text != 'None':  log_body += ' (%s)' % text
+				log_body += '%s\n' % ['','</span></p>'][GT('html_logs_enable')]
 		lht = '%s - %02d/%02d/%02d' % (room,lt[0],lt[1],lt[2])
 		log_he = ['%s\t\thttp://isida-bot.com\n\n' % lht,log_header+lht+'</title></head><body><div class="main"><div class="top"><div class="heart"><a href="http://isida-bot.com">http://isida-bot.com</a></div><div class="conference">'+lht+'</div></div><div class="container">\n'][GT('html_logs_enable')]
 		try: log_he += initial_log_users(room,ott) + ['[%s] ' % ott,'<p><a id="%s" name="%s" href="#%s" class="time">%s</a> ' % (ott,ott,ott,ott)][GT('html_logs_enable')] + ['*** %s\n','<span class="topic">%s</span></p>'][GT('html_logs_enable')] % [topics[room],html_escape(topics[room]).replace('\n','<br/>')][GT('html_logs_enable')]
