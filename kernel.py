@@ -606,7 +606,7 @@ def os_version():
 def caps_and_send(tmp):
 	tmp.setTag('x', namespace=xmpp.NS_VCARD_UPDATE)
 	tmp.getTag('x', namespace=xmpp.NS_VCARD_UPDATE).setTagData('photo',photo_hash)
-	tmp.setTag('c', namespace=xmpp.NS_CAPS, attrs={'node':capsNode,'ver':capsHash,'hash':'md5'})
+	tmp.setTag('c', namespace=xmpp.NS_CAPS, attrs={'node':capsNode,'ver':capsHash,'hash':'sha-1'})
 	sender(tmp)
 
 def join(conference,passwd):
