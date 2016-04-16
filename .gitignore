@@ -13,6 +13,7 @@ data/paste/*.txt
 data/paste/*.html
 data/paste/*.ico
 data/paste/*.jpg
+data/paste/*.jpeg
 data/paste/*.JPG
 data/paste/*.gif
 data/paste/*.png
@@ -26,6 +27,7 @@ dev-tools/locale_generator/*.pyc
 lib/DNS/*.pyc
 lib/chardet/*.pyc
 lib/xmpp/*.pyc
+lib/wgpapi/*.pyc
 plugins/_*.py
 plugins/.*.py
 settings/config.py
