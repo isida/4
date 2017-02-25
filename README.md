@@ -6,9 +6,9 @@ What's new?
 * Developer tools are included.
 
 More info:
-* Official [site](http://isida-bot.com) 
-* Information about Installation or Update at [WIKI](http://isida-bot.com/wiki)
-* Xmpp conference: isida@conference.jabber.ru or sup@muc.isida-bot.com
+* Official [site](http://isida.dsy.name) 
+* Information about Installation or Update at [WIKI](http://isida.dsy.name/wiki)
+* Xmpp conference: isida@conference.jabber.ru
 
 ------
 

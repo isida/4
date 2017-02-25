@@ -135,7 +135,7 @@ def msg_logger(room,jid,nick,type,text,logfile):
 			else: msg_type = '<span class="nick">%s:&nbsp;</span><span class="text">%s</span></p>\n'
 			log_body += ['%s: %s\n',msg_type][GT('html_logs_enable')] % (nick,text)
 	lht =  '%s - %02d/%02d/%02d' % (room,lt[0],lt[1],lt[2])
-	log_he = ['%s\t\thttp://isida-bot.com\n\n' % lht,log_header+lht+'</title></head><body><div class="main"><div class="top"><div class="heart"><a href="http://isida-bot.com">http://isida-bot.com</a></div><div class="conference">'+lht+'</div></div><div class="container">\n'][GT('html_logs_enable')]
+	log_he = ['%s\t\thttp://isida.dsy.name\n\n' % lht,log_header+lht+'</title></head><body><div class="main"><div class="top"><div class="heart"><a href="http://isida.dsy.name">http://isida.dsy.name</a></div><div class="conference">'+lht+'</div></div><div class="container">\n'][GT('html_logs_enable')]
 	try: log_he += initial_log_users(room,ott) + ['[%s] ' % ott,'<p><a id="%s" name="%s" href="#%s" class="time">%s</a> ' % (ott,ott,ott,ott)][GT('html_logs_enable')] + ['*** %s\n','<span class="topic">%s</span></p>'][GT('html_logs_enable')] % [topics[room],html_escape(topics[room]).replace('\n','<br/>')][GT('html_logs_enable')]
 	except: pass
 	write_log_with_end(logfile+room,curr_file,log_body,log_he)
@@ -203,7 +203,7 @@ def presence_logger(room,jid,nick,type,mass,mode,logfile):
 					if text != 'None':  log_body += ' (%s)' % text
 				log_body += '%s\n' % ['','</span></p>'][GT('html_logs_enable')]
 		lht = '%s - %02d/%02d/%02d' % (room,lt[0],lt[1],lt[2])
-		log_he = ['%s\t\thttp://isida-bot.com\n\n' % lht,log_header+lht+'</title></head><body><div class="main"><div class="top"><div class="heart"><a href="http://isida-bot.com">http://isida-bot.com</a></div><div class="conference">'+lht+'</div></div><div class="container">\n'][GT('html_logs_enable')]
+		log_he = ['%s\t\thttp://isida.dsy.name\n\n' % lht,log_header+lht+'</title></head><body><div class="main"><div class="top"><div class="heart"><a href="http://isida.dsy.name">http://isida.dsy.name</a></div><div class="conference">'+lht+'</div></div><div class="container">\n'][GT('html_logs_enable')]
 		try: log_he += initial_log_users(room,ott) + ['[%s] ' % ott,'<p><a id="%s" name="%s" href="#%s" class="time">%s</a> ' % (ott,ott,ott,ott)][GT('html_logs_enable')] + ['*** %s\n','<span class="topic">%s</span></p>'][GT('html_logs_enable')] % [topics[room],html_escape(topics[room]).replace('\n','<br/>')][GT('html_logs_enable')]
 		except: pass
 		write_log_with_end(logfile+room,curr_file,log_body,log_he)

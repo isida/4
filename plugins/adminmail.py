@@ -5,7 +5,7 @@
 #                                                                             #
 #    Plugin for iSida Jabber Bot                                              #
 #    Copyright (C) diSabler <dsy@dsy.name>                                    #
-#    Copyright (C) dr.Schmurge <dr.schmurge@isida-bot.com>                    #
+#    Copyright (C) dr.Schmurge <dr.schmurge@isida.dsy.name>                   #
 #                                                                             #
 #    This program is free software: you can redistribute it and/or modify     #
 #    it under the terms of the GNU General Public License as published by     #

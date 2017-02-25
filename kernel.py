@@ -677,7 +677,7 @@ def paste_text_raw(text,room,jid,need_replace):
 	ott = onlytimeadd(tuple(time.localtime()))
 	paste_body = ['%s','<p><span class="paste">%s</span></p>\n'][_html_paste] % (text)
 	lht = '%s [%s] - %02d/%02d/%02d %02d:%02d:%02d' % (nick,room,lt[0],lt[1],lt[2],lt[3],lt[4],lt[5])
-	paste_he = ['%s\t\thttp://isida-bot.com\n\n' % lht,'%s%s</title></head><body><div class="main"><div class="top"><div class="heart"><a href="http://isida-bot.com">http://isida-bot.com</a></div><div class="conference">%s</div></div><div class="container">\n' % (paste_header,lht,lht)][_html_paste]
+	paste_he = ['%s\t\thttp://isida.dsy.name\n\n' % lht,'%s%s</title></head><body><div class="main"><div class="top"><div class="heart"><a href="http://isida.dsy.name">http://isida.dsy.name</a></div><div class="conference">%s</div></div><div class="container">\n' % (paste_header,lht,lht)][_html_paste]
 	fl = open(pastepath+url, 'a')
 	fl.write(paste_he.encode('utf-8'))
 	fl.write(paste_body.encode('utf-8'))
@@ -1574,7 +1574,7 @@ prefix = '_'						# префикс комманд
 msg_limit = 1000					# лимит размера сообщений
 botName = 'iSida'					# название бота
 botVersionDef = u'4.0'				# версия бота
-disco_config_node = 'http://isida-bot.com/config'
+disco_config_node = 'http://isida.dsy.name/config'
 pres_answer = []					# результаты посылки презенсов
 iq_request = {}						# iq запросы
 th_cnt = 0							# счётчик тредов
@@ -1724,7 +1724,7 @@ if os.path.isdir(sm_f):
 else: smiles_dirs, smiles_dirs_case = [], []
 
 logging.basicConfig(filename=LOG_FILENAME,level=logging.DEBUG,)	# включение логгирования
-capsNode = 'http://v4.isida-bot.com'
+capsNode = 'http://v4.isida.dsy.name'
 god = SuperAdmin.lower()
 
 pprint('-'*50,'blue')

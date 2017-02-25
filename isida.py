@@ -93,14 +93,14 @@ def update(USED_REPO):
 		writefile(ver_file, unicode(git_ver_format % (os.path.getsize(ver_file)+1,revno,id_append)).encode('utf-8'))
 		os.system('git log -1 > %s' % updatelog_file)
 		writefile(updatelog_file, unicode(readfile(updatelog_file)).replace('\n\n','\n').replace('\r','').replace('\t',''))
-	else: os.system('echo Update not available! Read wiki at http://isida-bot.com to use SVN/GIT! > %s' % updatelog_file)
+	else: os.system('echo Update not available! Read wiki at http://isida.dsy.name to use SVN/GIT! > %s' % updatelog_file)
 
 if __name__ == "__main__":
 	if os.name == 'nt': printlog('Warning! Correct work only on *NIX system!')
 
 	try: writefile(starttime_file,str(int(time.time())))
 	except:
-		printlog(crashtext('Isida is crashed! Incorrent launch!'))
+		printlog(crashtext('iSida is crashed! Incorrent launch!'))
 		raise
 
 	if os.path.isfile(pid_file) and os.name != 'nt':
@@ -152,7 +152,7 @@ if __name__ == "__main__":
 		except Exception, SM:
 			try: SM = str(SM)
 			except: SM = unicode(SM)
-			printlog(crashtext('Isida is crashed! It\'s imposible, but You do it!'))
+			printlog(crashtext('iSida is crashed! It\'s imposible, but You do it!'))
 			printlog('%s\n' % SM)
 			traceback.print_exc()
 			break
